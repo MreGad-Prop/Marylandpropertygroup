@@ -1,0 +1,13 @@
+{
+  "name": "Maryland Property Group",
+  "short_name": "MPG",
+  "description": "Commercial & residential real estate investment, management, and direct acquisitions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A2240",
+  "theme_color": "#0A2240",
+  "icons": [
+    { "src": "/favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "/apple-touch-icon.png", "type": "image/png", "sizes": "180x180" }
+  ]
+}
