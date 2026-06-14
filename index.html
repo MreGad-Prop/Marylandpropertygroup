@@ -384,7 +384,7 @@
       <a data-view="faqs">FAQs</a>
       <a data-view="contact">Contact</a>
       <a data-view="consultation">Book a Call</a>
-      <a class="btn btn-gold" data-view="management" data-jump="mgmtform" style="margin-left:6px">Get Proposal</a>
+      <a class="btn btn-gold" data-view="management" data-jump="mgmtform" style="margin-left:6px">Request a Proposal</a>
     </nav>
   </div>
 </header>
@@ -401,7 +401,7 @@
         <p class="lead">Local, hands-on real estate operators managing residential and commercial assets with disciplined underwriting, AppFolio-powered reporting, and practical owner communication.</p>
         <div class="pills"><span class="pill">◆ Commercial &amp; residential investing</span><span class="pill">◆ In-house property management</span><span class="pill">◆ We buy houses &amp; buildings for cash</span></div>
         <div class="actions">
-          <a class="btn btn-gold btn-lg" data-view="management" data-jump="mgmtform">Request Management Proposal</a>
+          <a class="btn btn-gold btn-lg" data-view="management" data-jump="mgmtform">Request a Proposal</a>
           <a class="btn btn-ghost-light btn-lg" data-view="webuy">Sell a Property</a>
           <a class="btn btn-ghost-light btn-lg" data-view="investors">Request Investor Access</a>
         </div>
@@ -740,9 +740,10 @@
 
   <section class="block" id="mgmtform">
     <div class="wrap" style="max-width:780px">
-      <div class="sec-head reveal"><div class="eyebrow">Get started</div><h2 class="serif">Request a management proposal</h2><p class="muted">Tell us about your property and we'll prepare a proposal. Final pricing depends on property type, unit count, condition, location, scope, and current operational status — request a proposal for exact terms.</p></div>
+      <div class="sec-head reveal"><div class="eyebrow">Get started</div><h2 class="serif">Request a proposal</h2><p class="muted">Tell us what you need — property management, investing, or selling a property — and we'll prepare a proposal. Final scope, pricing, and terms depend on the service, property type, condition, location, and current status.</p></div>
       <form class="formgrid" id="mgmtformf" novalidate>
-        <div class="field full"><label for="ma">Property address or area</label><input id="ma" required placeholder="Street, City, State, ZIP"></div>
+        <div class="field full"><label for="mservice">What can we help with?</label><select id="mservice"><option>Property management</option><option>Residential investing</option><option>Commercial investing</option><option>Sell a property</option><option>Investor access</option><option>Other</option></select></div>
+        <div class="field full"><label for="ma">Property address or area (if applicable)</label><input id="ma" placeholder="Street, City, State, ZIP"></div>
         <div class="field"><label for="mtype">Property type</label><select id="mtype"><option>Single-family rental</option><option>Condo / townhome</option><option>Small multifamily (2–20 units)</option><option>Apartment building</option><option>Commercial / office</option><option>Retail / mixed-use</option><option>Mixed portfolio</option></select></div>
         <div class="field"><label for="munits">Units</label><input id="munits" type="number" min="1" placeholder="e.g. 4"></div>
         <div class="field"><label for="mstatus">Current status</label><select id="mstatus"><option>Self-managed today</option><option>With another manager</option><option>Newly acquired</option><option>Vacant</option><option>Under renovation</option></select></div>
@@ -751,7 +752,7 @@
         <div class="field"><label for="memail">Email</label><input id="memail" type="email" required></div>
         <div class="field"><label for="mphone">Phone</label><input id="mphone" type="tel"></div>
         <div class="field full"><label for="mnotes">Goals or anything we should know?</label><textarea id="mnotes" placeholder="Vacancy, deferred maintenance, reporting needs, timeline, etc."></textarea></div>
-        <div class="field full"><label style="display:flex;gap:9px;align-items:flex-start;font-size:.85rem;color:var(--body)"><input type="checkbox" id="mconsent" required style="margin-top:3px;width:auto"> I agree to be contacted about my property. We do not sell your information.</label></div>
+        <div class="field full"><label style="display:flex;gap:9px;align-items:flex-start;font-size:.85rem;color:var(--body)"><input type="checkbox" id="mconsent" required style="margin-top:3px;width:auto"> I agree to be contacted about my inquiry. We do not sell your information.</label></div>
         <div class="field full"><div class="cf-turnstile-slot"></div></div>
         <div class="field full"><button class="btn btn-gold btn-lg" type="submit">Request a Proposal</button></div>
       </form>
@@ -927,7 +928,7 @@
     <div class="grid g2"><ul class="muted" style="line-height:2"><li>Rental registration / license status, where required</li><li>Lead paint status for older residential properties, where applicable</li><li>Smoke / CO detector requirements</li></ul><ul class="muted" style="line-height:2"><li>Habitability and code issues</li><li>Property insurance in place</li><li>Lease documentation</li></ul></div>
     <p class="muted" style="font-size:.8rem;margin-top:14px">This is general information, not legal advice. Requirements vary by jurisdiction and property; we'll help you identify what applies and recommend qualified professionals where needed.</p>
   </div></section>
-  <section class="block navy center"><div class="wrap" style="max-width:680px"><div class="eyebrow" style="color:var(--gold-soft)">Ready to hand it off?</div><h2 class="serif">Let's review your property</h2><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px"><a class="btn btn-gold btn-lg" data-view="management" data-jump="mgmtform">Request a Management Proposal</a></div><p style="color:#cdd9e6;margin:24px 0 0;font-size:.92rem">Already an owner with us? Log in to AppFolio to view your statements and reports.</p><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:10px"><a class="btn btn-ghost-light" data-appfolio>Owner Login — AppFolio</a></div></div></section>
+  <section class="block navy center"><div class="wrap" style="max-width:680px"><div class="eyebrow" style="color:var(--gold-soft)">Ready to hand it off?</div><h2 class="serif">Let's review your property</h2><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px"><a class="btn btn-gold btn-lg" data-view="management" data-jump="mgmtform">Request a Proposal</a></div><p style="color:#cdd9e6;margin:24px 0 0;font-size:.92rem">Already an owner with us? Log in to AppFolio to view your statements and reports.</p><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:10px"><a class="btn btn-ghost-light" data-appfolio>Owner Login — AppFolio</a></div></div></section>
 </section>
 
 <!-- ================= RESIDENTS ================= -->
@@ -954,7 +955,7 @@
   </div></section>
   <section class="block"><div class="wrap">
     <div class="sec-head reveal"><div class="eyebrow">Checklist</div><h2 class="serif">Move-in / move-out</h2></div>
-    <div class="grid g2"><div class="card reveal"><h3>Moving in</h3><ul class="muted" style="line-height:1.9"><li>Set up your portal login and autopay</li><li>Confirm utilities are in your name</li><li>Document the unit's condition with photos</li><li>Note any items needing attention</li></ul></div><div class="card reveal"><h3>Moving out</h3><ul class="muted" style="line-height:1.9"><li>Give notice per your lease</li><li>Remove belongings and clean the unit</li><li>Return all keys and access devices</li><li>Provide a forwarding address</li></ul></div></div>
+    <div class="grid g2"><div class="card reveal"><h3>Moving in</h3><ul class="muted" style="line-height:1.9"><li>Set up your portal login and autopay</li><li>Confirm utilities are in your name</li><li>Document the unit's condition with photos</li><li>Note any items needing attention</li></ul></div><div class="card reveal"><h3>Moving out</h3><ul class="muted" style="line-height:1.9"><li>Request the move-out procedure from your property manager</li><li>Give notice per your lease</li><li>Remove belongings and clean the unit</li><li>Return all keys and access devices</li><li>Provide a forwarding address</li></ul></div></div>
   </div></section>
 </section>
 
@@ -1447,7 +1448,7 @@
   function wireMail(formId,msgId,req,build){var f=$("#"+formId);if(!f)return;f.addEventListener("submit",function(e){e.preventDefault();var hp=f.querySelector("[name=company]");if(hp&&hp.value){var mm=$("#"+msgId);if(mm)mm.style.display="block";return;}for(var i=0;i<req.length;i++){var rq=$("#"+req[i]);if(!rq)continue;if(rq.type==="checkbox"){if(!rq.checked){rq.focus();return;}}else if(!rq.value){rq.focus();return;}}var d=build();var btn=f.querySelector('[type="submit"]');var ot=btn?btn.textContent:"";var tk="";var tw=f.querySelector(".cf-turnstile");if(tw&&window.turnstile){try{tk=window.turnstile.getResponse(tw);}catch(_){}}function reset(){if(btn){btn.disabled=false;btn.textContent=ot;}}function done(){var m=$("#"+msgId);if(m){m.style.display="block";m.scrollIntoView({behavior:"smooth",block:"center"});}reset();if(typeof f.reset==="function")f.reset();if(window.turnstile&&tw){try{window.turnstile.reset(tw);}catch(_){}}}function fail(){reset();var er=f.querySelector(".form-err");if(!er){er=document.createElement("div");er.className="form-err";er.setAttribute("role","alert");er.style.cssText="margin-top:12px;color:#962d22;background:#fdf2f1;border:1px solid #e3b7b1;border-radius:8px;padding:10px 14px;font-size:.9rem";f.appendChild(er);}er.textContent="Sorry — we couldn't send your message just now. Please email "+CONTACT_EMAIL+" and we'll respond promptly.";}if(btn){btn.disabled=true;btn.textContent="Sending…";}var meta={pageSource:location.pathname,timestamp:new Date().toISOString()};function sendDirect(){fetch(FORM_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},body:JSON.stringify({_subject:d.subject,_template:"table",_captcha:"false",message:d.body})}).then(function(r){return r.json();}).then(function(j){if(j&&(j.success===true||j.success==="true"))done();else fail();}).catch(fail);}fetch("/api/lead",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({form:formId,inquiryType:formId,subject:d.subject,body:d.body,token:tk,meta:meta})}).then(function(r){if(r.ok)done();else sendDirect();}).catch(sendDirect);});}
   wireMail("contactform","okmsg",["fn","em","cconsent"],function(){return {subject:"Website inquiry — "+fv("fn")+" "+fv("ln"),body:"Name: "+fv("fn")+" "+fv("ln")+"\nEmail: "+fv("em")+"\nPhone: "+fv("ph")+"\nInterested in: "+fv("int")+"\nAccredited investor: "+fv("acc")+"\n\nMessage:\n"+fv("msg")};});
   wireMail("offerformf","okmsg2",["sa","sname","semail","sconsent"],function(){return {subject:"Cash offer request — "+fv("sa"),body:"Property address: "+fv("sa")+"\nProperty type: "+fv("stype")+"\nCondition: "+fv("scond")+"\nTimeline: "+fv("stime")+"\nName: "+fv("sname")+"\nEmail: "+fv("semail")+"\nPhone: "+fv("sphone")+"\n\nNotes:\n"+fv("snotes")};});
-  wireMail("mgmtformf","okmsg-mgmt",["ma","mname","memail","mconsent"],function(){return {subject:"Management proposal request — "+fv("ma"),body:"Property: "+fv("ma")+"\nType: "+fv("mtype")+"\nUnits: "+fv("munits")+"\nCurrent status: "+fv("mstatus")+"\nOccupancy: "+fv("mocc")+"\nName: "+fv("mname")+"\nEmail: "+fv("memail")+"\nPhone: "+fv("mphone")+"\n\nGoals/notes:\n"+fv("mnotes")};});
+  wireMail("mgmtformf","okmsg-mgmt",["mname","memail","mconsent"],function(){return {subject:"Proposal request — "+fv("mservice"),body:"Service: "+fv("mservice")+"\nProperty: "+fv("ma")+"\nType: "+fv("mtype")+"\nUnits: "+fv("munits")+"\nCurrent status: "+fv("mstatus")+"\nOccupancy: "+fv("mocc")+"\nName: "+fv("mname")+"\nEmail: "+fv("memail")+"\nPhone: "+fv("mphone")+"\n\nGoals/notes:\n"+fv("mnotes")};});
   wireMail("investorform","okmsg-inv",["iname","iemail","iack"],function(){return {subject:"Investor access request — "+fv("iname"),body:"Name: "+fv("iname")+"\nEmail: "+fv("iemail")+"\nPhone: "+fv("iphone")+"\nInvestor type: "+fv("itype")+"\nAccredited: "+fv("iacc")+"\nExperience: "+fv("iexp")+"\nAreas of interest: "+fv("iarea")+"\nAcknowledged informational-only: yes"};});
   (function(){$$("form.formgrid").forEach(function(f){if(f.querySelector(".hp-field"))return;var w=document.createElement("div");w.className="hp-field";w.setAttribute("aria-hidden","true");w.style.cssText="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden";var lb=document.createElement("label");lb.textContent="Company";var ip=document.createElement("input");ip.type="text";ip.name="company";ip.tabIndex=-1;ip.setAttribute("autocomplete","off");lb.appendChild(ip);w.appendChild(lb);f.appendChild(w);});})();
   (function(){if(!TURNSTILE_SITEKEY)return;$$(".cf-turnstile-slot").forEach(function(slot){slot.className="cf-turnstile";slot.setAttribute("data-sitekey",TURNSTILE_SITEKEY);});var sc=document.createElement("script");sc.src="https://challenges.cloudflare.com/turnstile/v0/api.js";sc.async=true;sc.defer=true;document.head.appendChild(sc);})();
