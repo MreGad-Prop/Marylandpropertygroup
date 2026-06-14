@@ -20,7 +20,7 @@ export async function onRequest(context) {
     !url.pathname.includes(".") &&
     accept.includes("text/html")
   ) {
-    const indexReq = new Request(new URL("/index.html", url).toString(), request);
+    const indexReq = new Request(new URL("/", url).toString(), request);
     const index = await next(indexReq);
     if (index && index.status === 200) {
       return new Response(index.body, {
