@@ -2914,6 +2914,7 @@ function initTours(scope) {
   renderFAQ();
   function _routeFromPath(initial){var seg=location.pathname.replace(/\/index\.html$/,"/").replace(/^\/+/,"").replace(/\/+$/,"");if(!seg){if(initial){var hs=(location.hash||"").replace(/^#\/?/,"");if(hs&&$("#view-"+hs))showView(hs,{fromRoute:true});}return;}if(seg.indexOf(".")>=0)return;if($("#view-"+seg))showView(seg,{fromRoute:true});}
   window.addEventListener("popstate",function(){_routeFromPath(false);});
+  (function(){var m=location.search.match(/[?&]spa=([^&]+)/);if(m){try{history.replaceState(null,"","/"+decodeURIComponent(m[1]).replace(/^\/+/,""));}catch(_e){}}})();
   _routeFromPath(true);
 /* ---------- site search ---------- */
 var SS_INDEX = [];
