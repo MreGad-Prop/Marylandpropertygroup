@@ -1,0 +1,1421 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Maryland Property Group — Commercial & Residential Real Estate Investment and Management</title>
+<meta name="description" content="Maryland Property Group (More Gad LLC) — commercial and residential real estate investment, property management, and direct home & building purchases." />
+<meta name="theme-color" content="#0A2240" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Maryland Property Group — Real Estate Investment & Management" />
+<meta property="og:description" content="Commercial and residential real estate investment, property management, and direct home & building purchases." />
+<style>
+  :root{
+    --navy:#0A2240; --navy-700:#0C2C57; --navy-600:#143A63; --navy-500:#1E4B7A;
+    --gold:#C9A227; --gold-2:#A9851E; --gold-soft:#F3E7BE;
+    --ink:#15202B; --body:#33424F; --muted:#6A7785; --line:#E3E9EF; --line-2:#EEF2F6;
+    --bg:#F6F8FA; --bg-2:#EEF2F6; --white:#FFFFFF; --ok:#1F8A5B; --warn:#B4641E; --bad:#C0392B;
+    --shadow-sm:0 1px 2px rgba(10,34,64,.06),0 1px 3px rgba(10,34,64,.08);
+    --shadow:0 6px 24px rgba(10,34,64,.10); --shadow-lg:0 18px 50px rgba(10,34,64,.20);
+    --serif:"Georgia","Times New Roman",serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --rad:14px; --maxw:1200px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--sans);color:var(--body);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased;font-size:16px}
+  body.locked{overflow:hidden}
+  h1,h2,h3,h4{color:var(--ink);line-height:1.18;margin:0 0 .5em;font-weight:700;letter-spacing:-.01em}
+  h1{font-size:clamp(2rem,4.4vw,3.3rem)} h2{font-size:clamp(1.5rem,3vw,2.2rem)} h3{font-size:1.2rem}
+  p{margin:0 0 1em}
+  a{color:var(--navy-500);text-decoration:none} a:hover{text-decoration:underline}
+  .serif{font-family:var(--serif)} .muted{color:var(--muted)} .center{text-align:center}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2)}
+  .skip{position:absolute;left:-9999px;top:0;background:var(--gold);color:var(--navy);padding:10px 16px;z-index:300;border-radius:0 0 8px 0}
+  .skip:focus{left:0}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+
+  .btn{display:inline-flex;align-items:center;gap:.5em;font-weight:600;font-size:.95rem;padding:.72em 1.35em;border-radius:9px;border:1px solid transparent;cursor:pointer;transition:.18s ease;text-decoration:none;font-family:inherit}
+  .btn:hover{text-decoration:none;transform:translateY(-1px)}
+  .btn-gold{background:var(--gold);color:var(--navy);box-shadow:var(--shadow-sm)} .btn-gold:hover{background:#d8b13a}
+  .btn-navy{background:var(--navy);color:#fff} .btn-navy:hover{background:var(--navy-600)}
+  .btn-ghost{background:transparent;color:var(--navy);border-color:#cdd7e1} .btn-ghost:hover{border-color:var(--navy);background:#fff}
+  .btn-ghost-light{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)} .btn-ghost-light:hover{background:rgba(255,255,255,.1)}
+  .btn-lg{padding:.95em 1.7em;font-size:1.02rem}
+
+  .util{background:#06182F;color:#aebccd;font-size:.8rem}
+  .util .wrap{display:flex;justify-content:space-between;align-items:center;height:38px}
+  .util a{color:#cdd9e6} .util a:hover{color:#fff;text-decoration:none}
+  .util .right a{margin-left:18px}
+  .util .badge{display:inline-flex;align-items:center;gap:6px}
+  .util .dot{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+
+  header.site{position:sticky;top:0;z-index:100;background:var(--navy);color:#fff;box-shadow:0 2px 0 rgba(201,162,39,.5)}
+  .nav{display:flex;align-items:center;gap:4px;height:72px}
+  .brand{display:flex;align-items:center;gap:11px;margin-right:8px;cursor:pointer}
+  .brand .mark{width:38px;height:38px;border:2px solid var(--gold);display:grid;place-items:center;border-radius:8px;flex:none}
+  .brand .mark span{font-family:var(--serif);color:var(--gold);font-weight:700;font-size:1.2rem;line-height:1}
+  .brand b{font-family:var(--serif);font-weight:700;font-size:1.02rem;color:#fff;white-space:nowrap;line-height:1.1}
+  .brand small{display:block;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-soft);font-weight:600}
+  nav.main{display:flex;gap:0;margin-left:auto}
+  nav.main a{color:#dbe5f0;font-weight:600;font-size:.8rem;padding:9px 9px;border-radius:8px;position:relative;cursor:pointer;white-space:nowrap}
+  nav.main a:hover{color:#fff;background:rgba(255,255,255,.07);text-decoration:none}
+  nav.main a.active{color:#fff}
+  nav.main a.active::after{content:"";position:absolute;left:9px;right:9px;bottom:-1px;height:3px;background:var(--gold);border-radius:3px}
+  .nav .cta{margin-left:8px}
+  .nav .cta .btn{padding:.6em 1em;font-size:.85rem}
+  .hamb{display:none;margin-left:auto;background:none;border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:8px;padding:8px 10px;cursor:pointer}
+
+  .view{display:none;animation:fade .4s ease}
+  .view.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  .pagehead{background:linear-gradient(160deg,#0A2240,#143A63);color:#fff;padding:52px 0;position:relative;overflow:hidden}
+  .pagehead::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:46px 46px;mask:radial-gradient(700px 360px at 80% 20%,#000,transparent 75%);pointer-events:none}
+  .pagehead .wrap{position:relative} .pagehead h1{color:#fff} .pagehead .lead{font-size:1.16rem;color:#d6e0ec;max-width:62ch}
+
+  .hero{position:relative;background:radial-gradient(1200px 500px at 80% -10%,rgba(201,162,39,.22),transparent 60%),linear-gradient(160deg,#0A2240 0%,#0C2C57 55%,#143A63 100%);color:#fff;overflow:hidden}
+  .hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:46px 46px;mask:radial-gradient(700px 400px at 75% 30%,#000,transparent 75%);pointer-events:none}
+  .hero .wrap{position:relative;display:grid;grid-template-columns:1.12fr .88fr;gap:48px;align-items:center;padding:66px 24px 76px}
+  .hero h1{color:#fff;max-width:18ch} .hero p.lead{font-size:1.12rem;color:#d6e0ec;max-width:50ch}
+  .hero .pills{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 26px}
+  .hero .pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:7px 14px;border-radius:30px;font-size:.84rem;color:#e7eef6}
+  .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:8px;backdrop-filter:blur(4px)}
+  .whatwedo{background:#fff;border-radius:12px;padding:22px;color:var(--ink)}
+  .whatwedo h4{margin:0 0 4px;color:var(--navy)} .whatwedo .wlist{display:grid;gap:10px;margin-top:12px}
+  .whatwedo .wrow{display:flex;gap:12px;align-items:flex-start;padding:10px;border:1px solid var(--line);border-radius:10px;cursor:pointer;transition:.15s}
+  .whatwedo .wrow:hover{border-color:var(--gold);background:#fbf7ea}
+  .whatwedo .wrow .we{font-size:1.3rem;flex:none} .whatwedo .wrow b{color:var(--navy);font-size:.95rem} .whatwedo .wrow span{font-size:.82rem;color:var(--muted)}
+
+  .band{background:#06182F;color:#cfdbe8;border-top:1px solid rgba(255,255,255,.06)}
+  .band .wrap{display:flex;gap:36px;flex-wrap:wrap;justify-content:space-between;padding:18px 24px}
+  .band .stat b{display:block;font-family:var(--serif);font-size:1.5rem;color:#fff;min-height:1.5rem}
+  .band .stat span{font-size:.78rem;color:#9fb1c4} .band .gold{color:var(--gold)}
+
+  section.block{padding:68px 0} section.block.alt{background:var(--white)}
+  section.block.navy{background:var(--navy);color:#e7eef6}
+  section.block.navy h2,section.block.navy h3{color:#fff}
+  .sec-head{max-width:64ch;margin-bottom:32px} .sec-head.center{margin-left:auto;margin-right:auto}
+
+  .grid{display:grid;gap:22px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:var(--rad);padding:26px;box-shadow:var(--shadow-sm);transition:.2s}
+  .card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+  .card .ic{width:46px;height:46px;border-radius:11px;background:linear-gradient(150deg,var(--navy),var(--navy-600));display:grid;place-items:center;color:var(--gold);margin-bottom:14px;font-size:1.3rem}
+  .card h3{margin-bottom:.35em}
+  .tagpill{display:inline-block;background:var(--gold-soft);color:#6b5510;font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:20px;margin-left:6px;vertical-align:middle}
+  .placeholder{border:2px dashed #c7d2dd;border-radius:14px;padding:46px 26px;text-align:center;color:var(--muted);background:#fbfdff}
+
+  .launch{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .lcard{position:relative;border-radius:16px;overflow:hidden;color:#fff;min-height:168px;display:flex;flex-direction:column;justify-content:flex-end;padding:24px;cursor:pointer;border:1px solid rgba(255,255,255,.12);box-shadow:var(--shadow-sm);transition:.2s}
+  .lcard:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+  .lcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,22,42,.15),rgba(8,22,42,.78))}
+  .lcard .lc{position:relative;z-index:2}
+  .lcard .tag{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-soft);font-weight:700}
+  .lcard h3{color:#fff;margin:.25em 0 .15em;font-size:1.25rem}
+  .lcard p{color:#dbe6f1;margin:0;font-size:.9rem}
+  .lcard .view{position:absolute;top:16px;right:16px;z-index:2;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);border-radius:30px;font-size:.72rem;font-weight:700;padding:5px 12px;color:#fff}
+
+  .steps{counter-reset:s;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .step{position:relative;background:var(--white);border:1px solid var(--line);border-radius:var(--rad);padding:26px 22px;box-shadow:var(--shadow-sm)}
+  .step::before{counter-increment:s;content:counter(s);position:absolute;top:-16px;left:22px;width:34px;height:34px;background:var(--gold);color:var(--navy);font-family:var(--serif);font-weight:700;border-radius:9px;display:grid;place-items:center;box-shadow:var(--shadow-sm)}
+  .step h4{margin-top:8px}
+
+  /* analyzer */
+  .analyzer{display:grid;grid-template-columns:400px 1fr;gap:28px;align-items:start}
+  .panel{background:var(--white);border:1px solid var(--line);border-radius:var(--rad);box-shadow:var(--shadow-sm)}
+  .panel .ph{padding:16px 22px;border-bottom:1px solid var(--line-2);font-weight:700;color:var(--ink);display:flex;align-items:center;gap:8px}
+  .panel .pb{padding:18px 22px}
+  .ctl-group{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-2);margin:16px 0 10px;padding-bottom:5px;border-bottom:1px solid var(--line-2)}
+  .ctl-group:first-child{margin-top:0}
+  .ctl{margin-bottom:13px}
+  .ctl label{display:flex;align-items:center;font-size:.82rem;font-weight:600;color:var(--body);margin-bottom:6px}
+  .ctl label .v{color:var(--navy);font-family:var(--serif);font-size:.92rem;margin-left:auto}
+  .ctl-row{display:flex;gap:10px;align-items:center}
+  input[type=range]{-webkit-appearance:none;appearance:none;flex:1;height:5px;border-radius:5px;background:var(--bg-2);outline:none}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;background:var(--gold);border:2px solid #fff;box-shadow:var(--shadow-sm);cursor:pointer}
+  input[type=range]::-moz-range-thumb{width:17px;height:17px;border-radius:50%;background:var(--gold);border:2px solid #fff;cursor:pointer}
+  .numin{width:104px;border:1px solid #cdd7e1;border-radius:8px;padding:7px 9px;font-family:inherit;font-size:.84rem;text-align:right;color:var(--ink)}
+  .numin:focus{border-color:var(--gold);outline:none}
+  .infobtn{border:none;background:#e7edf3;color:var(--navy);width:17px;height:17px;border-radius:50%;font-size:.66rem;cursor:pointer;font-weight:700;line-height:1;display:inline-grid;place-items:center;margin-left:6px;font-family:var(--serif);font-style:italic;flex:none}
+  .infobtn:hover{background:var(--gold);color:#fff}
+  .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px}
+  .kpi{background:linear-gradient(160deg,#fbfcfe,#f1f5f9);border:1px solid var(--line);border-radius:12px;padding:15px}
+  .kpi .lbl{font-size:.7rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:700;display:flex;align-items:center}
+  .kpi .num{font-family:var(--serif);font-size:1.5rem;color:var(--navy);margin-top:3px;line-height:1.1}
+  .kpi .sub{font-size:.71rem;color:var(--muted)}
+  .kpi.win .num{color:var(--gold-2)} .kpi.bad .num{color:var(--bad)} .kpi.ok .num{color:var(--ok)}
+  .anote{font-size:.82rem;color:var(--body);background:#f1f5f9;border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:20px}
+  .anote b{color:var(--navy)}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);margin-top:8px}
+  .legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+
+  table.sens{border-collapse:collapse;width:100%;font-size:.8rem}
+  table.sens th,table.sens td{border:1px solid var(--line);padding:8px 5px;text-align:center}
+  table.sens th{background:var(--navy);color:#fff;font-weight:600}
+  table.sens td.rowh{background:var(--navy-600);color:#fff;font-weight:600}
+  table.sens td.cell{font-variant-numeric:tabular-nums;color:var(--ink)}
+  table.sens td.here{outline:3px solid var(--gold);outline-offset:-3px;font-weight:700}
+
+  /* subtabs */
+  .subtabs{display:inline-flex;background:#fff;border:1px solid var(--line);border-radius:30px;padding:5px;gap:4px;box-shadow:var(--shadow-sm)}
+  .subtabs button{border:none;background:none;font-family:inherit;font-weight:700;font-size:.92rem;color:var(--muted);padding:9px 20px;border-radius:24px;cursor:pointer}
+  .subtabs button.on{background:var(--navy);color:#fff}
+  .subview{display:none} .subview.on{display:block;animation:fade .3s}
+  .plain{background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:10px;padding:14px 18px;margin:0 0 18px;color:#5d4a10}
+  .plain b{color:#4a3b0c}
+  .gloss{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  .term{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow-sm)}
+  .term h4{margin:0 0 .25em;color:var(--navy)} .term .an{font-size:.86rem;color:var(--gold-2);font-style:italic;margin-top:6px}
+  .ways{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .way{background:linear-gradient(160deg,#fbfcfe,#eef3f8);border:1px solid var(--line);border-radius:12px;padding:18px;text-align:center}
+  .way .e{font-size:1.6rem}
+
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+  .tier{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column}
+  .tier.feat{border:2px solid var(--gold);box-shadow:var(--shadow)}
+  .tier .badge{align-self:flex-start;background:var(--gold);color:var(--navy);font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:10px}
+  .tier h3{margin:0} .tier .price{font-family:var(--serif);font-size:2rem;color:var(--navy);margin:6px 0 2px} .tier .price small{font-size:.9rem;color:var(--muted)}
+  .tier ul{list-style:none;padding:0;margin:16px 0 20px;flex:1}
+  .tier li{padding:8px 0 8px 26px;position:relative;border-bottom:1px solid var(--line-2);font-size:.92rem}
+  .tier li::before{content:"✓";position:absolute;left:2px;color:var(--ok);font-weight:700}
+  .tier li.no{color:var(--muted)} .tier li.no::before{content:"–";color:var(--muted)}
+
+  .dash{background:linear-gradient(160deg,#0A2240,#0C2C57);border-radius:18px;padding:24px;color:#fff;box-shadow:var(--shadow)}
+  .dash .dh{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px}
+  .dash .dh .toggle{display:inline-flex;background:rgba(255,255,255,.1);border-radius:24px;padding:4px}
+  .dash .dh .toggle button{border:none;background:none;color:#cdd9e6;font-family:inherit;font-weight:600;font-size:.8rem;padding:6px 14px;border-radius:20px;cursor:pointer}
+  .dash .dh .toggle button.on{background:var(--gold);color:var(--navy)}
+  .dkpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:18px}
+  .dkpi{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:11px;padding:14px}
+  .dkpi b{display:block;font-family:var(--serif);font-size:1.5rem;color:#fff} .dkpi span{font-size:.72rem;color:#aebfd2}
+  .dkpi .delta{font-size:.72rem;font-weight:700} .up{color:#7fe0ad} .down{color:#f6a99c}
+
+  .faq{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden}
+  .faq button{width:100%;text-align:left;background:none;border:none;padding:18px 22px;font-family:inherit;font-size:1.02rem;font-weight:600;color:var(--ink);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .faq button:hover{background:var(--bg)}
+  .faq .sign{color:var(--gold-2);font-size:1.5rem;flex:none;transition:.2s;font-weight:400}
+  .faq.open .sign{transform:rotate(45deg)}
+  .faq .ans{max-height:0;overflow:hidden;transition:max-height .3s ease} .faq .ans p{padding:0 22px 18px;margin:0;color:var(--body)}
+  .faqcat{font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-2);margin:30px 0 12px}
+
+  .formgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .field{display:flex;flex-direction:column;gap:6px} .field.full{grid-column:1/-1}
+  .field label{font-size:.82rem;font-weight:600;color:var(--body)}
+  .field input,.field select,.field textarea{border:1px solid #cdd7e1;border-radius:9px;padding:11px 13px;font-family:inherit;font-size:.95rem;color:var(--ink);background:#fff}
+  .field textarea{min-height:120px;resize:vertical}
+  .notice{background:var(--gold-soft);border:1px solid #e6d493;color:#6b5510;border-radius:10px;padding:12px 16px;font-size:.86rem;margin-bottom:18px}
+  .ok-msg{display:none;background:#e7f5ee;border:1px solid #bfe3cf;color:#176b45;border-radius:10px;padding:14px 18px;margin-top:14px}
+
+  footer.site{background:#06182F;color:#a9bacd;padding:54px 0 28px;font-size:.9rem}
+  footer.site .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:30px;margin-bottom:34px}
+  footer.site h5{color:#fff;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;margin:0 0 14px}
+  footer.site a{display:block;color:#b9c8d9;margin-bottom:9px;cursor:pointer} footer.site a:hover{color:#fff;text-decoration:none}
+  .disc{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;font-size:.76rem;color:#7e90a4;line-height:1.6}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:18px;font-size:.8rem;color:#8a9cb0}
+
+  .reveal{opacity:0;transform:translateY(22px);transition:.7s cubic-bezier(.2,.7,.2,1)} .reveal.in{opacity:1;transform:none}
+  .chartbox svg{display:block}
+
+  /* portal + walkthrough video + footer extras */
+  .portal-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+  .login-card{max-width:440px;margin:0 auto;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:28px}
+  .balance{background:linear-gradient(160deg,#0A2240,#143A63);color:#fff;border-radius:16px;padding:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;box-shadow:var(--shadow)}
+  .balance .amt{font-family:var(--serif);font-size:2.2rem;color:#fff;line-height:1.1;margin:4px 0}
+  .ptable{width:100%;border-collapse:collapse;font-size:.9rem}
+  .ptable th{text-align:left;background:var(--bg-2);padding:10px;border-bottom:2px solid var(--line);font-size:.74rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+  .ptable td{padding:10px;border-bottom:1px solid var(--line-2)}
+  .pill-status{font-size:.72rem;font-weight:700;padding:3px 9px;border-radius:20px}
+  .s-open{background:#fdeccf;color:#8a5a12}.s-prog{background:#d7e8f7;color:#1c4e80}.s-done,.s-paid{background:#e1f3e8;color:#1c7a4d}
+  .vid{max-width:640px;margin:0 auto}
+  .vid-frame{position:relative;border-radius:14px;overflow:hidden;background:linear-gradient(160deg,#0A2240,#143A63);aspect-ratio:16/9;box-shadow:var(--shadow)}
+  .vid-stage{position:absolute;inset:0}
+  .scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .5s;padding:24px}
+  .scene.on{opacity:1}
+  .artbox{text-align:center}
+  .artbox .bigicon{font-size:4rem;line-height:1;animation:popin .5s ease}
+  @keyframes popin{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:none}}
+  .artbox .artlabel{font-family:var(--serif);font-size:1.4rem;margin-top:12px;color:#fff}
+  .artbox .arttag{display:inline-block;margin-top:10px;background:var(--gold);color:var(--navy);font-weight:700;font-size:.78rem;padding:4px 12px;border-radius:20px}
+  .vid-poster{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;background:rgba(6,18,36,.5);border:none;color:#fff;cursor:pointer;font-family:inherit;font-size:.95rem;text-align:center;padding:16px}
+  .vid-poster .pbtn{width:62px;height:62px;border-radius:50%;background:var(--gold);color:var(--navy);display:grid;place-items:center;font-size:1.5rem}
+  .vid-cap{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(6,18,36,.9));color:#fff;padding:34px 18px 16px;font-size:.92rem}
+  .vid-bar{position:absolute;left:0;right:0;bottom:0;height:4px;background:rgba(255,255,255,.18)}.vid-bar i{display:block;height:100%;width:0;background:var(--gold);transition:width .45s ease}
+  .vid-ctrls{display:flex;align-items:center;gap:8px;margin-top:12px}
+  .vid-ctrls button{background:var(--navy);color:#fff;border:none;border-radius:8px;min-width:38px;height:38px;cursor:pointer;font-size:1rem}
+  .vid-ctrls button:hover{background:var(--navy-600)}
+  .vid-ctrls .vtitle{font-weight:600;color:var(--muted);font-size:.84rem;margin-left:auto}
+  .vdots{display:flex;gap:6px}
+  .vdots button{min-width:9px;width:9px;height:9px;border-radius:50%;background:#cdd7e1;border:none;padding:0;cursor:pointer}
+  .vdots button.on{background:var(--gold);width:22px;border-radius:6px}
+  .eho{display:flex;align-items:flex-start;gap:12px;margin:6px 0 18px;color:#9fb1c4}
+  .eho svg{flex:none}
+  .sitemap{display:flex;flex-wrap:wrap;gap:6px 20px;margin:6px 0 16px}
+  .sitemap a{display:inline;margin:0;font-size:.84rem}
+  .legal{font-size:.74rem;color:#7e90a4;line-height:1.6;margin:0 0 14px}
+  .ic svg{width:24px;height:24px}
+  .wayic{width:48px;height:48px;border-radius:12px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;color:var(--gold-2);margin:0 auto 10px}
+  .wayic svg{width:24px;height:24px}
+  .bigicon svg{width:62px;height:62px;color:var(--gold)}
+  .si{display:inline-grid;place-items:center;color:var(--gold-2)} .si svg{width:18px;height:18px}
+  .we-ic{width:40px;height:40px;border-radius:10px;background:linear-gradient(150deg,var(--navy),var(--navy-600));display:grid;place-items:center;color:var(--gold);flex:none} .we-ic svg{width:20px;height:20px}
+  .doclink{display:inline-grid;place-items:center;color:var(--gold-2);vertical-align:-3px;margin-right:6px} .doclink svg{width:16px;height:16px}
+
+  /* info popover */
+  .pop{position:fixed;z-index:260;max-width:300px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow-lg);padding:14px 16px;font-size:.86rem;color:var(--body);display:none;line-height:1.5}
+  .pop.show{display:block;animation:fade .15s}
+  .pop h5{margin:0 0 5px;color:var(--navy);font-size:.95rem}
+
+  /* MODAL */
+  .modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:24px}
+  .modal.open{display:flex;animation:fade .25s ease}
+  .modal-back{position:absolute;inset:0;background:rgba(6,18,36,.72);backdrop-filter:blur(3px)}
+  .modal-box{position:relative;width:min(960px,100%);max-height:90vh;background:#fff;border-radius:18px;box-shadow:var(--shadow-lg);display:flex;flex-direction:column;overflow:hidden;animation:pop .3s cubic-bezier(.2,.8,.2,1)}
+  @keyframes pop{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+  .modal-head{display:flex;align-items:center;justify-content:space-between;padding:18px 24px;background:var(--navy);color:#fff}
+  .modal-head .m-eyebrow{font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold-soft);font-weight:700}
+  .modal-head strong{font-family:var(--serif);font-size:1.25rem}
+  .m-close{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;width:38px;height:38px;border-radius:9px;cursor:pointer;font-size:1rem}
+  .m-close:hover{background:rgba(255,255,255,.25)}
+  .m-progress{height:4px;background:var(--line-2)} .m-progress i{display:block;height:100%;background:var(--gold);width:12%;transition:width .35s ease}
+  .modal-body{display:grid;grid-template-columns:230px 1fr;min-height:0;flex:1}
+  .m-rail{background:var(--bg);border-right:1px solid var(--line);padding:14px;overflow-y:auto}
+  .m-rail button{display:block;width:100%;text-align:left;border:none;background:none;font-family:inherit;font-size:.84rem;color:var(--muted);padding:10px 12px;border-radius:9px;cursor:pointer;font-weight:600;margin-bottom:2px;line-height:1.3}
+  .m-rail button:hover{background:#fff;color:var(--navy)}
+  .m-rail button.on{background:#fff;color:var(--navy);box-shadow:var(--shadow-sm)}
+  .m-rail button .n{display:inline-block;width:22px;color:var(--gold-2);font-family:var(--serif);font-weight:700}
+  .m-stage{padding:30px 34px;overflow-y:auto}
+  .mslide{display:none} .mslide.active{display:block;animation:fade .3s}
+  .mslide .tag{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2);font-weight:700}
+  .mslide h3{font-size:1.5rem;margin:.2em 0 .5em;color:var(--ink)}
+  .mslide p{color:var(--body);max-width:60ch}
+  .mslide ul{margin:.2em 0 0;padding:0;list-style:none}
+  .mslide ul li{padding:9px 0 9px 28px;position:relative;border-bottom:1px solid var(--line-2);color:var(--body)}
+  .mslide ul li::before{content:"";position:absolute;left:4px;top:16px;width:9px;height:9px;background:var(--gold);border-radius:2px;transform:rotate(45deg)}
+  .mgrid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center}
+  .mstats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+  .mstat{background:linear-gradient(160deg,#fbfcfe,#eef3f8);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .mstat b{display:block;font-family:var(--serif);font-size:1.7rem;color:var(--navy)} .mstat span{font-size:.78rem;color:var(--muted)}
+  .modal-foot{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-top:1px solid var(--line);background:#fff}
+  .dots{display:flex;gap:8px}
+  .dots button{width:9px;height:9px;border-radius:50%;border:none;background:#cdd7e1;cursor:pointer;padding:0}
+  .dots button.on{background:var(--gold);width:24px;border-radius:6px}
+  .navbtn{background:var(--navy);border:none;color:#fff;border-radius:9px;padding:9px 16px;cursor:pointer;font-weight:600;font-size:.9rem}
+  .navbtn:hover{background:var(--navy-600)} .navbtn:disabled{opacity:.4;cursor:not-allowed}
+
+  @media(max-width:1200px){
+    nav.main,.nav .cta{display:none}
+    nav.main.show{display:flex;position:absolute;top:72px;left:0;right:0;background:var(--navy-700);flex-direction:column;padding:12px;gap:2px;box-shadow:var(--shadow-lg);max-height:80vh;overflow:auto}
+    nav.main.show a{font-size:.95rem;padding:11px 14px}
+    .hamb{display:inline-flex}
+  }
+  @media(max-width:920px){
+    .hero .wrap{grid-template-columns:1fr;gap:30px;padding:48px 24px 56px}
+    .analyzer{grid-template-columns:1fr}
+    .g4,.g3{grid-template-columns:repeat(2,1fr)} .steps{grid-template-columns:repeat(2,1fr)}
+    .launch{grid-template-columns:1fr} .ways{grid-template-columns:repeat(2,1fr)} .tiers{grid-template-columns:1fr}
+    footer.site .cols{grid-template-columns:1fr 1fr} .gloss{grid-template-columns:1fr} .dkpis{grid-template-columns:repeat(2,1fr)}
+    .modal-body{grid-template-columns:1fr} .m-rail{display:none} .mgrid{grid-template-columns:1fr}
+  }
+  @media(max-width:600px){
+    .g4,.g3,.g2,.formgrid,.gallery,.mstats{grid-template-columns:1fr}
+    .kpis{grid-template-columns:1fr} .steps,.ways{grid-template-columns:1fr}
+    .band .wrap{gap:18px} .modal{padding:0} .modal-box{max-height:100vh;border-radius:0;width:100%}
+    .util .left{display:none} .analyzer{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="util">
+  <div class="wrap">
+    <div class="left"><span class="badge"><span class="dot"></span> Commercial &amp; Residential Real Estate · Investment · Management · Acquisitions</span></div>
+    <div class="right"><a data-view="faqs">Insights</a><a data-view="contact">Contact</a><a data-portal="owner">Owner Login</a><a data-appfolio>Resident Portal</a></div>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap nav">
+    <div class="brand" data-view="home" role="button" tabindex="0" aria-label="Maryland Property Group home">
+      <div class="mark"><span>M</span></div>
+      <div><b>Maryland Property Group</b><small>More Gad LLC</small></div>
+    </div>
+    <button class="hamb" id="hamb" aria-label="Toggle navigation" aria-expanded="false">☰ Menu</button>
+    <nav class="main" id="mainnav" aria-label="Primary">
+      <a data-view="home" class="active">Home</a>
+      <a data-view="start">First-Time Investors</a>
+      <a data-view="residential">Residential</a>
+      <a data-view="commercial">Commercial</a>
+      <a data-view="management">Property Management</a>
+      <a data-view="webuy">We Buy Houses</a>
+      <a data-view="faqs">FAQs</a>
+      <a data-view="contact">Contact us</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ================= HOME ================= -->
+<section class="view active" id="view-home">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow" style="color:var(--gold-soft)">Maryland Property Group · More Gad LLC</div>
+        <h1 class="serif">Commercial &amp; Residential Real Estate Investment and Management</h1>
+        <p class="lead">We invest in, manage, and acquire residential and commercial real estate across our markets — pairing disciplined underwriting with hands-on, in-house property management.</p>
+        <div class="pills"><span class="pill">◆ Commercial &amp; residential investing</span><span class="pill">◆ In-house property management</span><span class="pill">◆ We buy houses &amp; buildings for cash</span></div>
+        <div class="actions">
+          <button class="btn btn-gold btn-lg" data-deck="investor">View Our Presentation</button>
+          <a class="btn btn-ghost-light btn-lg" data-view="start">New to investing? Start here</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="whatwedo">
+          <h4 class="serif">What we do</h4>
+          <p class="muted" style="margin:0;font-size:.88rem">Four ways we work in real estate.</p>
+          <div class="wlist">
+            <div class="wrow" data-view="residential"><span class="we-ic" data-ic="home"></span><div><b>Residential investing</b><br><span>Cash-flow rentals, underwritten carefully.</span></div></div>
+            <div class="wrow" data-view="commercial"><span class="we-ic" data-ic="building"></span><div><b>Commercial investing</b><br><span>Value-add conversions that grow income.</span></div></div>
+            <div class="wrow" data-view="management"><span class="we-ic" data-ic="gear"></span><div><b>Property management</b><br><span>Full-service, AppFolio-powered operations.</span></div></div>
+            <div class="wrow" data-view="webuy"><span class="we-ic" data-ic="cash"></span><div><b>We buy houses</b><br><span>Fast, as-is cash offers for homes &amp; buildings.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="band">
+      <div class="wrap">
+        <div class="stat"><b class="serif">&mdash;</b><span>Assets under management</span></div>
+        <div class="stat"><b class="serif">&mdash;</b><span>Properties</span></div>
+        <div class="stat"><b class="serif">&mdash;</b><span>Units managed</span></div>
+        <div class="stat"><b class="serif">&mdash;</b><span>Markets</span></div>
+        <div class="stat"><b class="serif">&mdash;</b><span>Years operating</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="block alt">
+    <div class="wrap">
+      <div class="sec-head center reveal">
+        <div class="eyebrow">Digital Presentations</div>
+        <h2 class="serif">Interactive walkthroughs — open in a click</h2>
+        <p class="muted">Self-guided decks on how we invest, manage, and buy. Each opens in a focused view with charts and a slide menu.</p>
+      </div>
+      <div class="launch reveal">
+        <div class="lcard" data-deck="investor" tabindex="0" role="button" style="background:linear-gradient(135deg,#0A2240,#143A63)"><div class="view">View ›</div><div class="lc"><div class="tag">Overview</div><h3 class="serif">Our Approach</h3><p>How we invest, manage, and grow real estate value.</p></div></div>
+        <div class="lcard" data-deck="commercial" tabindex="0" role="button" style="background:linear-gradient(135deg,#0C2C57,#C9A227)"><div class="view">View ›</div><div class="lc"><div class="tag">Commercial</div><h3 class="serif">Commercial Strategy</h3><p>Value-add conversions and forced appreciation, step by step.</p></div></div>
+        <div class="lcard" data-deck="residential" tabindex="0" role="button" style="background:linear-gradient(135deg,#143A63,#1E8A5B)"><div class="view">View ›</div><div class="lc"><div class="tag">Residential</div><h3 class="serif">Residential Strategy</h3><p>Cash-flow rentals screened for today's rates.</p></div></div>
+        <div class="lcard" data-deck="management" tabindex="0" role="button" style="background:linear-gradient(135deg,#0A2240,#1E4B7A)"><div class="view">View ›</div><div class="lc"><div class="tag">Operations</div><h3 class="serif">Property Management</h3><p>The operating engine that protects every business plan.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head reveal"><div class="eyebrow">How we work</div><h2 class="serif">A repeatable, four-stage value chain</h2></div>
+      <div class="steps">
+        <div class="step reveal"><h4>Source</h4><p class="muted">Off-market, owner-occupied buildings on high-traffic corridors via data tools, direct outreach, and relationships.</p></div>
+        <div class="step reveal"><h4>Underwrite</h4><p class="muted">A seven-stage diligence process: income, financing, parking, zoning, ADA, egress, and a stress-tested exit.</p></div>
+        <div class="step reveal"><h4>Reposition</h4><p class="muted">Improve and, where it fits, convert to higher-yield uses with smart access and modern systems.</p></div>
+        <div class="step reveal"><h4>Operate</h4><p class="muted">In-house management with AppFolio reporting and monthly statements protect the business plan.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head center reveal"><div class="eyebrow">Watch</div><h2 class="serif">How we work, in under a minute</h2></div>
+      <div class="vid reveal" data-tour="overview"></div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="wrap">
+      <div class="sec-head reveal" style="margin-bottom:0"><div class="eyebrow">Current &amp; recent offerings</div><h2 class="serif">Offerings</h2></div>
+      <div class="placeholder reveal" style="margin-top:24px">Offerings will be posted here soon. <a data-view="contact">Request access</a> to be notified when they go live.</div>
+    </div>
+  </section>
+
+  <section class="block navy center">
+    <div class="wrap" style="max-width:760px">
+      <div class="eyebrow" style="color:var(--gold-soft)">Ready when you are</div>
+      <h2 class="serif">Invest, get managed, or sell to us</h2>
+      <p style="color:#cdd9e6">Whether you want to invest, have us manage your property, or sell a house or building, we'd like to hear from you.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px">
+        <a class="btn btn-gold btn-lg" data-view="contact">Request Investor Access</a>
+        <a class="btn btn-ghost-light btn-lg" data-view="webuy">Get a Cash Offer</a>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ================= FIRST-TIME INVESTORS ================= -->
+<section class="view" id="view-start">
+  <div class="pagehead">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--gold-soft)">First-Time Investors</div>
+      <h1 class="serif" style="max-width:22ch">Real estate investing, explained in plain English</h1>
+      <p class="lead">No jargon, no assumptions. Pick the path you're curious about and we'll walk you through the essentials — then try a simple calculator or view the 101 presentation.</p>
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"><button class="btn btn-gold" data-deck="basics">View: Investing 101</button></div>
+    </div>
+  </div>
+  <section class="block">
+    <div class="wrap">
+      <div class="center" style="margin-bottom:30px">
+        <div class="subtabs" role="tablist" aria-label="Choose investing path">
+          <button class="on" data-sub="resi" role="tab">Residential</button>
+          <button data-sub="comm" role="tab">Commercial</button>
+        </div>
+      </div>
+
+      <div class="subview on" id="sub-resi">
+        <div class="plain"><b>The simple idea:</b> you buy a home (or small building), rent it to people who need a place to live, and collect more in rent than you spend each month. Over time, tenants help pay down your loan and the property usually rises in value.</div>
+        <div class="vid" data-tour="residential" style="margin:0 0 22px"></div>
+        <div class="grid g2" style="align-items:start">
+          <div>
+            <h3 class="serif">The 4 ways you make money</h3>
+            <div class="ways" style="grid-template-columns:repeat(2,1fr)">
+              <div class="way"><div class="wayic" data-ic="cash"></div><h4 style="margin:.3em 0">Cash flow</h4><p class="muted" style="margin:0;font-size:.86rem">Rent left after all bills and the mortgage.</p></div>
+              <div class="way"><div class="wayic" data-ic="chart"></div><h4 style="margin:.3em 0">Appreciation</h4><p class="muted" style="margin:0;font-size:.86rem">The property is worth more over time.</p></div>
+              <div class="way"><div class="wayic" data-ic="bank"></div><h4 style="margin:.3em 0">Loan paydown</h4><p class="muted" style="margin:0;font-size:.86rem">Tenants' rent pays off your mortgage.</p></div>
+              <div class="way"><div class="wayic" data-ic="receipt"></div><h4 style="margin:.3em 0">Tax benefits</h4><p class="muted" style="margin:0;font-size:.86rem">Depreciation can lower your taxes.</p></div>
+            </div>
+          </div>
+          <div>
+            <h3 class="serif">Words you'll hear (in plain terms)</h3>
+            <div class="gloss" style="grid-template-columns:1fr">
+              <div class="term"><h4>Cash flow</h4>The money left in your pocket each month after rent pays every bill.<div class="an">Like your paycheck after rent, food, and gas.</div></div>
+              <div class="term"><h4>Cap rate</h4>The yearly profit as a % of the price, ignoring the loan.<div class="an">A 6% cap = $6 profit a year for every $100 you pay.</div></div>
+              <div class="term"><h4>The 1% rule</h4>A quick check: monthly rent should be about 1% of the price.<div class="an">A $200k home should rent for ~$2,000/mo.</div></div>
+              <div class="term"><h4>Cash-on-cash (ROI)</h4>Your yearly cash profit divided by the cash you put in.<div class="an">Put in $50k, make $5k/yr = 10%.</div></div>
+            </div>
+          </div>
+        </div>
+        <h3 class="serif" style="margin-top:34px">How to get started (6 simple steps)</h3>
+        <div class="steps" style="grid-template-columns:repeat(3,1fr)">
+          <div class="step"><h4>Set your budget</h4><p class="muted">Know your down payment (usually 20–25%) and what you can borrow.</p></div>
+          <div class="step"><h4>Pick a market</h4><p class="muted">Look for steady jobs, growing population, and reasonable prices.</p></div>
+          <div class="step"><h4>Run the numbers</h4><p class="muted">Use our calculator — does it cash-flow after a real mortgage?</p></div>
+          <div class="step"><h4>Get pre-approved</h4><p class="muted">Talk to a lender so you know your rate and limit.</p></div>
+          <div class="step"><h4>Inspect &amp; verify</h4><p class="muted">Check condition and confirm real rents, taxes, insurance.</p></div>
+          <div class="step"><h4>Buy &amp; manage</h4><p class="muted">Close, place a good tenant, and manage it (or let us).</p></div>
+        </div>
+        <div class="plain" style="margin-top:24px"><b>Beginner watch-outs:</b> don't trust "projected" rents — verify them. Budget for vacancy and repairs (expenses often eat about half of rent). And always check cash flow after a real mortgage, not just the 1% rule.</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px"><a class="btn btn-gold" data-view="residential">Try the Residential Calculator →</a><button class="btn btn-ghost" data-deck="basics">View Investing 101</button></div>
+      </div>
+
+      <div class="subview" id="sub-comm">
+        <div class="plain"><b>The simple idea:</b> commercial real estate is bigger buildings rented to businesses. Its value comes from the income it produces — so if you raise the income, you raise the value. That's the whole game.</div>
+        <div class="vid" data-tour="commercial" style="margin:0 0 22px"></div>
+        <div class="grid g2" style="align-items:start">
+          <div>
+            <h3 class="serif">The one formula that matters</h3>
+            <div class="card" style="background:linear-gradient(160deg,#0A2240,#143A63);color:#fff;text-align:center">
+              <div style="font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-soft)">Value</div>
+              <div class="serif" style="font-size:2rem;margin:8px 0">Income ÷ Cap rate</div>
+              <p style="color:#cdd9e6;margin:0;font-size:.9rem">Make $100k/yr at an 8% cap → worth $1.25M. Raise income to $150k → worth $1.875M. Same building.</p>
+            </div>
+            <h3 class="serif" style="margin-top:24px">Our flagship play, simply</h3>
+            <p class="muted">Buy a big, under-used building cheap. Divide it into many small private offices (for therapists, lawyers, agents). Many small offices earn far more than one big space — so income jumps, and value jumps with it.</p>
+          </div>
+          <div>
+            <h3 class="serif">Words you'll hear (in plain terms)</h3>
+            <div class="gloss" style="grid-template-columns:1fr">
+              <div class="term"><h4>NOI</h4>The building's yearly profit before the loan payment.<div class="an">All rent collected, minus running costs.</div></div>
+              <div class="term"><h4>Cap rate</h4>The yield buyers accept — and the dial that sets value.<div class="an">Lower cap = pricier; higher cap = cheaper.</div></div>
+              <div class="term"><h4>Value-add</h4>Improving a building to raise its income and value.<div class="an">Our micro-office conversion is value-add.</div></div>
+              <div class="term"><h4>License vs. lease</h4>For select commercial spaces, a license can be easier to enforce.<div class="an">More like a hotel room than a long lease.</div></div>
+            </div>
+          </div>
+        </div>
+        <h3 class="serif" style="margin-top:34px">How beginners usually start in commercial</h3>
+        <div class="steps" style="grid-template-columns:repeat(3,1fr)">
+          <div class="step"><h4>Invest passively first</h4><p class="muted">Join a deal led by experienced operators instead of buying solo.</p></div>
+          <div class="step"><h4>Check accreditation</h4><p class="muted">Many private deals require "accredited investor" status — we'll help you confirm.</p></div>
+          <div class="step"><h4>Read the numbers</h4><p class="muted">Cap rate, projected income, and the business plan. Our analyzer shows how it works.</p></div>
+          <div class="step"><h4>Understand the risks</h4><p class="muted">Parking, zoning, building codes, and management — we price these up front.</p></div>
+          <div class="step"><h4>Diversify</h4><p class="muted">Spread capital across deals rather than betting it all on one.</p></div>
+          <div class="step"><h4>Hold for the plan</h4><p class="muted">Value-add takes time — typically a few years to renovate and stabilize.</p></div>
+        </div>
+        <div class="plain" style="margin-top:24px"><b>Beginner watch-outs:</b> commercial is less liquid (slower to sell), and dividing a building adds people — which can trigger parking, restroom (ADA), and fire-exit rules. We check these <em>before</em> buying.</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px"><a class="btn btn-gold" data-view="commercial">Try the Commercial Analyzer →</a><button class="btn btn-ghost" data-deck="commercial">View Commercial Strategy</button></div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ================= RESIDENTIAL ================= -->
+<section class="view" id="view-residential">
+  <div class="pagehead">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--gold-soft)">Invest — Residential</div>
+      <h1 class="serif" style="max-width:18ch">Stable cash flow from disciplined residential underwriting</h1>
+      <p class="lead">Single-family and small multifamily rentals screened with the metrics that predict performance — then verified against a real mortgage at today's rates.</p>
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"><button class="btn btn-gold" data-deck="residential">View Residential Strategy</button></div>
+    </div>
+  </div>
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head center reveal" style="margin-bottom:24px"><div class="eyebrow">Watch</div><h2 class="serif">Residential investing, explained</h2></div>
+      <div class="vid reveal" style="margin-bottom:40px" data-tour="residential"></div>
+      <div class="sec-head reveal"><div class="eyebrow">Interactive Residential Analyzer</div><h2 class="serif">Will it actually cash-flow? Find out live</h2><p class="muted">Drag a slider or type a number. Tap any “i” for a plain-English explanation.</p></div>
+      <div class="analyzer">
+        <div class="panel reveal"><div class="ph">◧ Deal Inputs</div><div class="pb" id="rcontrols"></div></div>
+        <div>
+          <div class="kpis reveal" id="rkpis"></div>
+          <div class="anote reveal" id="rnote"></div>
+          <div class="panel reveal" style="margin-bottom:22px"><div class="ph">▤ Where the money goes (per year)</div><div class="pb"><div id="rchart" class="chartbox"></div><div class="legend"><span><i style="background:#9fb6cf"></i>Gross rent</span><span><i style="background:#143A63"></i>NOI</span><span><i style="background:var(--gold)"></i>Cash flow</span></div></div></div>
+          <div class="panel reveal"><div class="ph">▦ Monthly cash flow by scenario</div><div class="pb" style="overflow-x:auto"><p class="muted" style="font-size:.84rem;margin-top:0">Each cell is your <b>monthly</b> cash flow at that rent and rate. <span style="color:var(--ok);font-weight:700">Green = positive</span>, <span style="color:var(--bad);font-weight:700">red = negative</span>. Yearly = monthly × 12.</p><div id="rsens"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="block alt">
+    <div class="wrap">
+      <div class="sec-head reveal" style="margin-bottom:0"><div class="eyebrow">Residential offerings</div><h2 class="serif">Offerings</h2></div>
+      <div class="placeholder reveal" style="margin-top:24px">Residential offerings will be posted here soon. <a data-view="contact">Request access</a> to be notified.</div>
+    </div>
+  </section>
+</section>
+
+<!-- ================= COMMERCIAL ================= -->
+<section class="view" id="view-commercial">
+  <div class="pagehead">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--gold-soft)">Invest — Commercial</div>
+      <h1 class="serif" style="max-width:20ch">Value-add commercial, modeled in real time</h1>
+      <p class="lead">Our flagship strategy: building conversions that grow income and revalue at the cap rate. Enter a deal's numbers — by slider or by hand — and the returns recompute instantly.</p>
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"><button class="btn btn-gold" data-deck="commercial">View Commercial Strategy</button></div>
+    </div>
+  </div>
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head center reveal" style="margin-bottom:24px"><div class="eyebrow">Watch</div><h2 class="serif">The commercial value-add, explained</h2></div>
+      <div class="vid reveal" style="margin-bottom:40px" data-tour="commercial"></div>
+      <div class="sec-head reveal"><div class="eyebrow">Interactive Deal Analyzer</div><h2 class="serif">Underwrite a conversion in real time</h2><p class="muted">Inputs are grouped into Acquisition, Income, Operating Expenses, and Financing. Drag a slider or type an exact figure. Tap any “i” for a simple explanation.</p></div>
+      <div class="analyzer">
+        <div class="panel reveal"><div class="ph">◧ Deal Assumptions</div><div class="pb" id="ccontrols"></div></div>
+        <div>
+          <div class="kpis reveal" id="ckpis"></div>
+          <div class="anote reveal" id="cnote"></div>
+          <div class="panel reveal" style="margin-bottom:22px"><div class="ph">▤ Income &amp; Value Bridge</div><div class="pb"><div id="cchart" class="chartbox"></div><div class="legend"><span><i style="background:#143A63"></i>In-place NOI</span><span><i style="background:var(--gold)"></i>Stabilized NOI</span><span><i style="background:#9fb6cf"></i>All-in basis</span><span><i style="background:#0C2C57"></i>Value</span></div></div></div>
+          <div class="panel reveal"><div class="ph">▦ Sensitivity — Stabilized Value ($)</div><div class="pb" style="overflow-x:auto"><p class="muted" style="font-size:.84rem;margin-top:0">Rows = rent per office / mo · Columns = exit cap rate. Your current scenario is highlighted in gold.</p><div id="csens"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="block alt">
+    <div class="wrap">
+      <div class="sec-head reveal" style="margin-bottom:0"><div class="eyebrow">Commercial offerings</div><h2 class="serif">Offerings</h2></div>
+      <div class="placeholder reveal" style="margin-top:24px">Commercial offerings will be posted here soon. <a data-view="contact">Request access</a> to be notified.</div>
+    </div>
+  </section>
+</section>
+
+<!-- ================= PROPERTY MANAGEMENT ================= -->
+<section class="view" id="view-management">
+  <div class="pagehead">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--gold-soft)">Property Management</div>
+      <h1 class="serif" style="max-width:20ch">Your property, professionally run</h1>
+      <p class="lead">The operating engine behind our own portfolio — available to outside owners. We turn management-intensive assets into hands-off income.</p>
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"><button class="btn btn-gold" data-deck="management">View Management Approach</button><a class="btn btn-ghost-light" data-view="contact">Request a proposal</a></div>
+    </div>
+  </div>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head reveal"><div class="eyebrow">Full-service operations</div><h2 class="serif">Everything we handle, so you don't</h2></div>
+      <div class="grid g3">
+        <div class="card reveal"><div class="ic" data-ic="megaphone"></div><h3>Marketing &amp; advertising</h3><p class="muted">Professional listings, photos, and syndication to top rental sites to fill vacancies fast.</p></div>
+        <div class="card reveal"><div class="ic" data-ic="users"></div><h3>Tenant screening</h3><p class="muted">Credit, background, income, and rental-history checks to place qualified, reliable residents.</p></div>
+        <div class="card reveal"><div class="ic" data-ic="doc"></div><h3>Leasing &amp; lease execution</h3><p class="muted">Showings, applications, lease/agreement preparation, renewals, and fast re-leasing.</p></div>
+        <div class="card reveal"><div class="ic" data-ic="card"></div><h3>Rent collection &amp; billing</h3><p class="muted">AppFolio online/ACH payments, autopay, late-fee enforcement, and delinquency follow-up.</p></div>
+        <div class="card reveal"><div class="ic" data-ic="wrench"></div><h3>Maintenance &amp; 24/7 emergency</h3><p class="muted">Online ticketing, preventive upkeep, and a vetted vendor network with negotiated pricing.</p></div>
+        <div class="card reveal"><div class="ic" data-ic="search"></div><h3>Inspections</h3><p class="muted">Move-in/move-out, periodic, and turnover inspections with photos and documentation.</p></div>
+        <div class="card reveal"><div class="ic" data-ic="chart"></div><h3>Accounting &amp; owner statements</h3><p class="muted">AppFolio monthly reports — income, expenses, and cash flow — plus year-end 1099s.</p></div>
+        <div class="card reveal"><div class="ic" data-ic="scale"></div><h3>Evictions &amp; compliance</h3><p class="muted">Notices, the eviction process where needed, and licensing, insurance, and code compliance.</p></div>
+        <div class="card reveal"><div class="ic" data-ic="wifi"></div><h3>Tech &amp; access control <span class="tagpill">Commercial</span></h3><p class="muted">For commercial assets: enterprise connectivity, smart cameras, keypad/app entry, and a digital directory.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head reveal"><div class="eyebrow">Online portals</div><h2 class="serif">Log in — for residents and owners</h2></div>
+      <div class="grid g2">
+        <div class="card reveal"><div class="ic" data-ic="key"></div><h3>For Residents &amp; Tenants</h3><p class="muted">Pay rent online, set up AutoPay, submit maintenance requests, view your documents, and browse available units.</p><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px"><button class="btn btn-gold" data-appfolio>Pay Rent</button><button class="btn btn-ghost" data-appfolio>Resident Login</button><button class="btn btn-ghost" data-portal="tenant" data-ptab="avail">View availability</button></div></div>
+        <div class="card reveal"><div class="ic" data-ic="chart"></div><h3>For Owners</h3><p class="muted">View your statements and reports — income, expenses, and cash flow — track work orders, and access documents.</p><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px"><button class="btn btn-gold" data-portal="owner">Owner Login</button></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="wrap">
+      <div class="sec-head reveal"><div class="eyebrow">Guided walkthroughs</div><h2 class="serif">Short videos that show you how</h2><p class="muted">Quick, click-through guides for paying rent and reading your owner reports.</p></div>
+      <div class="grid g2">
+        <div><div class="vid" data-tour="payrent"></div><p class="center muted" style="margin-top:10px;font-size:.86rem">Residents: How to pay your rent</p></div>
+        <div><div class="vid" data-tour="owner"></div><p class="center muted" style="margin-top:10px;font-size:.86rem">Owners: Reading your reports</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head reveal"><div class="eyebrow">Owner dashboard</div><h2 class="serif">See your portfolio the way we do</h2><p class="muted">Simple monthly AppFolio reporting — income, expenses, and cash flow.</p></div>
+      <div class="dash reveal">
+        <div class="dh">
+          <strong style="font-family:var(--serif);font-size:1.2rem">Portfolio performance</strong>
+          <div class="toggle" id="dashtoggle"><button class="on" data-d="port">Portfolio</button><button data-d="prop">Single property</button></div>
+        </div>
+        <div class="dkpis" id="dkpis"></div>
+        <div id="dashchart" class="chartbox"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head reveal"><div class="eyebrow">Management ROI</div><h2 class="serif">Is professional management worth it? Do the math.</h2><p class="muted">Self-managing has hidden costs: vacancy and your time. Compare it to professional management below.</p></div>
+      <div class="analyzer">
+        <div class="panel reveal"><div class="ph">◧ Your Portfolio</div><div class="pb" id="mcontrols"></div></div>
+        <div>
+          <div class="kpis reveal" id="mkpis"></div>
+          <div class="panel reveal"><div class="ph">▤ Self-Managed vs. Professionally Managed (annual)</div><div class="pb"><div id="mchart" class="chartbox"></div><div class="legend"><span><i style="background:#9fb6cf"></i>Self-managed income</span><span><i style="background:#143A63"></i>Pro-managed income</span><span><i style="background:var(--gold)"></i>Net benefit</span></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="wrap">
+      <div class="sec-head reveal"><div class="eyebrow">Pricing</div><h2 class="serif">Three tiers, one standard of care</h2><p class="muted">Priced as a percentage of effective gross income — fully aligned with your performance.</p></div>
+      <div class="tiers">
+        <div class="tier reveal"><h3 class="serif">Essential</h3><div class="price">6%<small> / EGI</small></div><p class="muted" style="font-size:.88rem">For hands-on owners who want the back office handled.</p><ul><li>Rent collection &amp; online payments</li><li>AppFolio owner reports</li><li>Maintenance coordination</li><li class="no">Leasing &amp; tenant placement</li><li class="no">Conversion project management</li></ul><button class="btn btn-ghost" data-view="contact" style="justify-content:center">Get a quote</button></div>
+        <div class="tier feat reveal"><div class="badge">MOST POPULAR</div><h3 class="serif">Full-Service</h3><div class="price">8%<small> / EGI</small></div><p class="muted" style="font-size:.88rem">Truly hands-off. We run the asset end to end.</p><ul><li>Everything in Essential</li><li>Leasing &amp; tenant placement</li><li>24/7 maintenance &amp; vendors</li><li>Compliance &amp; insurance tracking</li><li>Quarterly performance reviews*</li></ul><button class="btn btn-gold" data-view="contact" style="justify-content:center">Get a quote</button></div>
+        <div class="tier reveal"><h3 class="serif">Conversion Mgmt</h3><div class="price">Custom</div><p class="muted" style="font-size:.88rem">For value-add projects: we manage the repositioning too.</p><ul><li>Everything in Full-Service</li><li>Buildout &amp; contractor oversight</li><li>Permitting &amp; code coordination</li><li>Lease-up &amp; stabilization plan</li><li>Investor reporting</li></ul><button class="btn btn-ghost" data-view="contact" style="justify-content:center">Talk to us</button></div>
+      </div>
+      <p class="muted" style="font-size:.8rem;margin-top:16px">*Quarterly performance reviews are provided for commercial or large multi-unit properties only.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head reveal"><div class="eyebrow">Onboarding</div><h2 class="serif">Live in about two weeks</h2></div>
+      <div class="steps">
+        <div class="step reveal"><h4>Assess</h4><p class="muted">We audit the asset, leases, finances, and compliance status.</p></div>
+        <div class="step reveal"><h4>Transition</h4><p class="muted">We onboard tenants to AppFolio, set up online payments, and install access/tech.</p></div>
+        <div class="step reveal"><h4>Optimize</h4><p class="muted">Rents to market, expenses trimmed, maintenance scheduled.</p></div>
+        <div class="step reveal"><h4>Report</h4><p class="muted">Your monthly reports go live; quarterly reviews begin.</p></div>
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- ================= WE BUY HOUSES ================= -->
+<section class="view" id="view-webuy">
+  <div class="pagehead">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--gold-soft)">We Buy Houses &amp; Buildings</div>
+      <h1 class="serif" style="max-width:22ch">Sell your property fast, as-is, for cash</h1>
+      <p class="lead">Maryland Property Group buys residential and commercial real estate directly from owners — no repairs, no agent commissions, and a closing date you choose.</p>
+      <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-gold" data-jump="offerform">Get My Cash Offer</a><button class="btn btn-ghost-light" data-deck="basics">How it works</button></div>
+    </div>
+  </div>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head center reveal" style="margin-bottom:24px"><div class="eyebrow">Watch</div><h2 class="serif">How selling to us works</h2></div>
+      <div class="vid reveal" style="margin-bottom:40px" data-tour="webuy"></div>
+      <div class="sec-head reveal"><div class="eyebrow">What we buy</div><h2 class="serif">Residential and commercial — any condition</h2></div>
+      <div class="grid g2">
+        <div class="card reveal"><div class="ic" data-ic="home"></div><h3>Residential</h3><p class="muted">Single-family homes, condos and townhomes, duplexes, and small multifamily (2–20 units) — occupied, vacant, or in need of repairs.</p></div>
+        <div class="card reveal"><div class="ic" data-ic="building"></div><h3>Commercial</h3><p class="muted">Office, retail, mixed-use, and owner-occupied buildings — including under-used or distressed assets with upside.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="wrap">
+      <div class="sec-head reveal"><div class="eyebrow">We can help when</div><h2 class="serif">Situations we buy in</h2></div>
+      <div class="grid g4">
+        <div class="card reveal"><h3>Inherited property</h3><p class="muted">An estate or probate property you'd rather not manage or repair.</p></div>
+        <div class="card reveal"><h3>Tired of being a landlord</h3><p class="muted">Difficult tenants, deferred maintenance, or you're simply done managing.</p></div>
+        <div class="card reveal"><h3>Major repairs needed</h3><p class="muted">Roof, systems, fire/water damage — we buy as-is, no fixing required.</p></div>
+        <div class="card reveal"><h3>Foreclosure or liens</h3><p class="muted">Behind on payments or facing deadlines and need to move quickly.</p></div>
+        <div class="card reveal"><h3>Relocation or downsizing</h3><p class="muted">A job move or life change with a firm timeline.</p></div>
+        <div class="card reveal"><h3>Vacant building</h3><p class="muted">An empty home or commercial space that's costing you to hold.</p></div>
+        <div class="card reveal"><h3>Divorce or transition</h3><p class="muted">A clean, private sale on your schedule.</p></div>
+        <div class="card reveal"><h3>Under-used commercial</h3><p class="muted">An owner-occupied building with more space than you use.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head reveal"><div class="eyebrow">How it works</div><h2 class="serif">Three simple steps</h2></div>
+      <div class="steps" style="grid-template-columns:repeat(3,1fr)">
+        <div class="step reveal"><h4>Tell us about it</h4><p class="muted">Share the address and a few details below. No obligation, no pressure.</p></div>
+        <div class="step reveal"><h4>We assess &amp; offer</h4><p class="muted">We review the property (often a quick walk-through) and present a fair, no-fee cash offer.</p></div>
+        <div class="step reveal"><h4>You pick the closing</h4><p class="muted">Accept, choose your date, and close with a reputable title company. We can move fast or wait for you.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block alt">
+    <div class="wrap">
+      <div class="sec-head reveal"><div class="eyebrow">Why sell to us</div><h2 class="serif">A simpler way to sell</h2></div>
+      <div class="grid g3">
+        <div class="card reveal"><div class="ic" data-ic="cash"></div><h3>Cash offer</h3><p class="muted">No financing contingencies that fall through at the last minute.</p></div>
+        <div class="card reveal"><div class="ic" data-ic="wrench"></div><h3>Sell as-is</h3><p class="muted">No repairs, cleaning, or staging. Leave what you don't want.</p></div>
+        <div class="card reveal"><div class="ic" data-ic="ban"></div><h3>No fees or commissions</h3><p class="muted">No agent commissions and no listing costs — keep more of your proceeds.</p></div>
+        <div class="card reveal"><div class="ic" data-ic="bolt"></div><h3>Fast, flexible close</h3><p class="muted">Close in as little as a couple of weeks — or on the date you choose.</p></div>
+        <div class="card reveal"><div class="ic" data-ic="clipboard"></div><h3>Any condition</h3><p class="muted">Vacant, occupied, damaged, or dated — we buy it where it is.</p></div>
+        <div class="card reveal"><div class="ic" data-ic="users"></div><h3>Local &amp; straightforward</h3><p class="muted">A direct conversation with the owners who'll actually buy it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="offerform">
+    <div class="wrap" style="max-width:780px">
+      <div class="sec-head reveal"><div class="eyebrow">No-obligation</div><h2 class="serif">Get your cash offer</h2><p class="muted">Tell us about your property and we'll be in touch. There's no cost and no commitment.</p></div>
+      <div class="notice"><strong>Submitting</strong> opens your email app addressed to ben@marylandpropertygroup.com with your property details. Prefer email? Write us at <a href="mailto:ben@marylandpropertygroup.com">ben@marylandpropertygroup.com</a>.</div>
+      <form class="formgrid" id="offerformf" novalidate>
+        <div class="field full"><label for="sa">Property address</label><input id="sa" required placeholder="Street, City, State, ZIP"></div>
+        <div class="field"><label for="stype">Property type</label><select id="stype"><option>Single-family home</option><option>Condo / townhome</option><option>Duplex / small multifamily</option><option>Apartment building</option><option>Commercial / office</option><option>Retail / mixed-use</option><option>Land</option><option>Other</option></select></div>
+        <div class="field"><label for="scond">Condition</label><select id="scond"><option>Move-in ready</option><option>Needs minor work</option><option>Needs major repairs</option><option>Vacant</option><option>Currently rented</option></select></div>
+        <div class="field"><label for="stime">Timeline to sell</label><select id="stime"><option>As soon as possible</option><option>1–3 months</option><option>3–6 months</option><option>Just exploring</option></select></div>
+        <div class="field"><label for="sname">Your name</label><input id="sname" required></div>
+        <div class="field"><label for="semail">Email</label><input id="semail" type="email" required></div>
+        <div class="field"><label for="sphone">Phone</label><input id="sphone" type="tel"></div>
+        <div class="field full"><label for="snotes">Anything we should know?</label><textarea id="snotes" placeholder="Liens, tenants, repairs, reason for selling, etc."></textarea></div>
+        <div class="field full"><button class="btn btn-gold btn-lg" type="submit">Request My Cash Offer</button></div>
+      </form>
+      <div class="ok-msg" id="okmsg2">✓ Thanks — your email app should open addressed to ben@marylandpropertygroup.com. If it didn't, please email us directly.</div>
+    </div>
+  </section>
+</section>
+
+<!-- ================= CLIENT PORTAL ================= -->
+<section class="view" id="view-portal">
+  <div class="pagehead">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--gold-soft)">Client Portal</div>
+      <h1 class="serif" style="max-width:20ch">Maryland Property Group — Online Portal</h1>
+      <p class="lead">Residents pay rent and request maintenance. Owners view statements and reports. Secure access, anytime, powered by AppFolio.</p>
+    </div>
+  </div>
+  <section class="block"><div class="wrap"><div id="portalapp"></div></div></section>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="view" id="view-faqs">
+  <div class="pagehead"><div class="wrap"><div class="eyebrow" style="color:var(--gold-soft)">Insights &amp; FAQs</div><h1 class="serif">Questions, answered plainly</h1></div></div>
+  <section class="block"><div class="wrap" style="max-width:860px" id="faqlist"></div></section>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="view" id="view-contact">
+  <div class="pagehead"><div class="wrap"><div class="eyebrow" style="color:var(--gold-soft)">Get in touch</div><h1 class="serif">Start a conversation</h1><p class="lead">Tell us whether you want to invest, have us manage a property, or sell one — and we'll follow up.</p></div></div>
+  <section class="block">
+    <div class="wrap" style="max-width:760px">
+      <div class="notice"><strong>Submitting</strong> opens your email app addressed to ben@marylandpropertygroup.com with your details. Prefer email? Write us at <a href="mailto:ben@marylandpropertygroup.com">ben@marylandpropertygroup.com</a>.</div>
+      <form class="formgrid" id="contactform" novalidate>
+        <div class="field"><label for="fn">First name</label><input id="fn" required></div>
+        <div class="field"><label for="ln">Last name</label><input id="ln" required></div>
+        <div class="field"><label for="em">Email</label><input id="em" type="email" required></div>
+        <div class="field"><label for="ph">Phone</label><input id="ph" type="tel"></div>
+        <div class="field"><label for="int">I'm interested in</label><select id="int"><option>Residential investing</option><option>Commercial investing</option><option>First-time investing</option><option>Property management</option><option>Selling my property</option><option>General inquiry</option></select></div>
+        <div class="field"><label for="acc">Accredited investor?</label><select id="acc"><option>Yes</option><option>No</option><option>Not sure</option></select></div>
+        <div class="field full"><label for="msg">Message</label><textarea id="msg" placeholder="Tell us about your goals, timeline, and details."></textarea></div>
+        <div class="field full"><button class="btn btn-gold btn-lg" type="submit">Submit request</button></div>
+      </form>
+      <div class="ok-msg" id="okmsg">✓ Thanks — your email app should open addressed to ben@marylandpropertygroup.com. If it didn't, please email us directly.</div>
+    </div>
+  </section>
+</section>
+
+</main>
+
+<!-- MODAL -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modal-back" data-close></div>
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="mtitle">
+    <div class="modal-head"><div><div class="m-eyebrow" id="meyebrow">Presentation</div><strong id="mtitle">Title</strong></div><button class="m-close" data-close aria-label="Close presentation">✕</button></div>
+    <div class="m-progress"><i id="mbar"></i></div>
+    <div class="modal-body"><aside class="m-rail" id="mrail" aria-label="Slides"></aside><div class="m-stage" id="mstage"></div></div>
+    <div class="modal-foot"><button class="navbtn" id="mprev">← Prev</button><div class="dots" id="mdots"></div><button class="navbtn" id="mnext">Next →</button></div>
+  </div>
+</div>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="brand" style="margin-bottom:12px"><div class="mark"><span>M</span></div><div><b style="color:#fff;font-family:var(--serif)">Maryland Property Group</b><small style="display:block;color:var(--gold-soft);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase">More Gad LLC</small></div></div>
+        <p style="max-width:34ch">Commercial and residential real estate investment, management, and direct acquisitions.</p>
+      </div>
+      <div><h5>Invest</h5><a data-view="residential">Residential</a><a data-view="commercial">Commercial</a><a data-view="start">First-time investors</a><a data-view="contact">Offerings</a></div>
+      <div><h5>Company</h5><a data-view="management">Property management</a><a data-view="webuy">We buy houses</a><a data-view="faqs">Insights</a><a data-view="contact">Contact</a></div>
+      <div><h5>Account</h5><a data-view="contact">Investor login</a><a data-view="contact">Request access</a><a data-view="faqs">FAQs</a></div>
+    </div>
+    <div class="disc">
+      <div class="eho"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9fb1c4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="16" x2="15" y2="16"/></svg><div><strong style="color:#cfdbe8">Equal Housing Opportunity</strong><br>We do business in accordance with the Federal Fair Housing Act and do not discriminate against any person because of race, color, religion, sex, handicap, familial status, or national origin.</div></div>
+      <h5>Sitemap</h5>
+      <div class="sitemap"><a data-view="home">Home</a><a data-view="start">First-Time Investors</a><a data-view="residential">Residential</a><a data-view="commercial">Commercial</a><a data-view="management">Property Management</a><a data-view="webuy">We Buy Houses</a><a data-portal="tenant">Resident Portal</a><a data-portal="owner">Owner Portal</a><a data-view="faqs">FAQs</a><a data-view="contact">Contact</a></div>
+      <p class="legal">Maryland Property Group is a trade name of More Gad LLC. This website is for general informational purposes only and is a demonstration build; nothing herein is an offer to sell or a solicitation of an offer to buy any security, nor is it investment, legal, or tax advice. Real estate and private investments involve risk, including the possible loss of principal, and may be illiquid. Any projected, targeted, or illustrative figures are hypothetical, are based on stated assumptions, and are not guarantees of future results. Securities, where offered, are available only to verified accredited investors under applicable exemptions. Property management services are provided in accordance with applicable state and local law; licensing details are available upon request. AppFolio and other product names are trademarks of their respective owners and are referenced for descriptive purposes only.</p>
+      <div class="foot-bottom"><span>© <span id="yr"></span> More Gad LLC, d/b/a Maryland Property Group. All rights reserved.</span><span>Privacy Policy · Terms of Use · Accessibility · Fair Housing</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var APPFOLIO_TENANT="https://account.appfolio.com/realms/foliospace/protocol/openid-connect/auth?client_id=account-picker&redirect_uri=https%3A%2F%2Faccount.appfolio.com%2Frealms%2Ffoliospace%2Fappfolio%2Faccount-picker%2Flogin-redirect%3Fpath%3D%2F&state=0%2Fa8703c5f-a304-6c5b-a740-8e1d4083edae&response_type=code&scope=openid";
+  var CONTACT_EMAIL="ben@marylandpropertygroup.com";
+  var $=function(s,c){return (c||document).querySelector(s);};
+  var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));};
+  var usd=function(n){return (n<0?"-$":"$")+Math.abs(Math.round(n)).toLocaleString("en-US");};
+  var usdShort=function(n){var a=Math.abs(n),s=n<0?"-":"";if(a>=1e6)return s+"$"+(a/1e6).toFixed(2)+"M";if(a>=1e3)return s+"$"+Math.round(a/1e3)+"k";return s+"$"+Math.round(a);};
+  var pct=function(n){return (n*100).toFixed(1)+"%";};
+  var pct2=function(n){return (n*100).toFixed(2)+"%";};
+  var xfmt=function(n){return isFinite(n)?n.toFixed(2)+"x":"—";};
+  var clamp=function(n,a,b){return Math.max(a,Math.min(b,n));};
+  var rnd=function(v,d){var m=Math.pow(10,d);return Math.round(v*m)/m;};
+  function pmt(rate,nper,pv){if(rate===0)return pv/nper;return (pv*rate)/(1-Math.pow(1+rate,-nper));}
+  var MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  function payoff(years){var d=new Date();var y=d.getFullYear()+Math.round(years);return MONTHS[d.getMonth()]+" "+y;}
+
+  function svgBars(data,opts){
+    opts=opts||{};var W=opts.w||520,H=opts.h||250,pad=44,n=data.length,bw=opts.bw||(W-pad*2)/(n*1.6),gap=(W-pad*2-bw*n)/((n-1)||1);
+    var max=Math.max.apply(null,data.map(function(d){return Math.abs(d.v);}))*1.16||1;
+    var s='<svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="bar chart">';
+    for(var g=0;g<=4;g++){var y=pad+(H-pad*2)*g/4;s+='<line x1="'+pad+'" y1="'+y+'" x2="'+(W-pad)+'" y2="'+y+'" stroke="rgba(120,140,160,.18)"/>';}
+    data.forEach(function(d,i){var h=(Math.abs(d.v)/max)*(H-pad*2);var x=pad+i*(bw+gap);var y=H-pad-h;
+      s+='<rect x="'+x+'" y="'+y+'" width="'+bw+'" height="'+h+'" rx="5" fill="'+d.c+'"/>';
+      s+='<text x="'+(x+bw/2)+'" y="'+(y-8)+'" text-anchor="middle" font-size="12" font-weight="700" fill="'+(opts.light?"#fff":"#15202B")+'" font-family="Georgia,serif">'+d.l2+'</text>';
+      s+='<text x="'+(x+bw/2)+'" y="'+(H-pad+18)+'" text-anchor="middle" font-size="11" fill="'+(opts.light?"#aebfd2":"#6A7785")+'">'+d.l+'</text>';});
+    return s+'</svg>';
+  }
+
+  /* ---------- info popover ---------- */
+  var INFO={
+    c_price:{t:"Purchase price",x:"What you pay to buy the building."},
+    c_inplace:{t:"In-place NOI",x:"The building's current yearly profit (income minus running costs) before any improvements. Used to show the entry cap rate."},
+    c_rentable:{t:"Rentable area",x:"Total square footage you can rent. We assume ~15% is lost to hallways, restrooms, and shared space."},
+    c_reno:{t:"Renovation budget",x:"One-time cost to convert and improve the building (buildout, tech, code upgrades)."},
+    c_closing:{t:"Closing costs",x:"One-time costs to complete the purchase — title, legal, transfer taxes, lender fees. Added to your cash invested."},
+    c_office:{t:"Average office size",x:"Typical size of each private office. Smaller offices = more units = more rent, but more management."},
+    c_rent:{t:"Rent per office",x:"The all-in monthly fee a tenant pays for one private office."},
+    c_occ:{t:"Occupancy",x:"The share of offices rented once stabilized. 90% means 9 of every 10 are filled."},
+    c_bexp:{t:"Building expenses",x:"Annual management fees, maintenance, repairs, and similar running costs."},
+    c_taxes:{t:"Property taxes",x:"Annual real-estate taxes owed to the local government."},
+    c_ins:{t:"Insurance",x:"Annual property and liability insurance premiums."},
+    c_water:{t:"Water",x:"Annual water and sewer bills for the building."},
+    c_util:{t:"Gas & electric",x:"Annual utility cost for heating, cooling, and power."},
+    c_internet:{t:"Internet",x:"Annual cost of the building's internet/connectivity, often resold to tenants."},
+    c_trash:{t:"Trash removal & cleanup",x:"Annual cost of waste hauling and common-area janitorial/cleanup."},
+    c_lic:{t:"Licensing",x:"Annual business, rental, or operating licenses and permits required to run the property."},
+    c_sbd:{t:"Special Benefit District surcharge",x:"An annual surcharge some districts levy for added services (security, cleaning, improvements) in that area."},
+    c_exit:{t:"Exit cap rate",x:"The cap rate buyers would pay for the stabilized building. Value = NOI ÷ exit cap. A higher (more conservative) number gives a lower value."},
+    c_ltv:{t:"Loan-to-value",x:"How much of the price the bank lends. 70% means you finance 70% and put 30% down."},
+    c_rate:{t:"Interest rate",x:"The annual rate on the loan. Set to 0% to model an all-cash or no-interest scenario."},
+    c_amort:{t:"Amortization",x:"How many years the loan is spread over. Longer = lower payment. Used to estimate the payoff date."},
+    r_price:{t:"Purchase price",x:"What you pay for the home or small building."},
+    r_rent:{t:"Total monthly rent",x:"All rent collected per month across every unit."},
+    r_down:{t:"Down payment",x:"The share of the price you pay in cash. The rest is financed."},
+    r_rate:{t:"Interest rate",x:"The annual rate on your mortgage. Set to 0% to model an all-cash purchase."},
+    r_term:{t:"Loan term",x:"How many years to pay off the mortgage. 30 years is most common."},
+    r_exp:{t:"Taxes, maintenance, etc.",x:"A simple estimate of everything except the mortgage — property taxes, insurance, repairs, maintenance, and management. A common rule of thumb is about half of rent."},
+    r_vac:{t:"Vacancy allowance",x:"A cushion for months a unit sits empty between tenants."},
+    r_tax:{t:"Real-estate taxes",x:"Annual property taxes owed to the local government."},
+    r_ins:{t:"Insurance",x:"Annual landlord/property insurance premium."},
+    r_maint:{t:"Maintenance & repairs",x:"Annual budget for upkeep and fixes — set money aside even in good years."},
+    r_util:{t:"Internet / utilities",x:"Any utilities or internet the owner pays (water, trash, common areas). Many tenants pay their own."},
+    r_sbd:{t:"Special Benefit District surcharge",x:"An annual surcharge some districts levy for added local services."},
+    r_lic:{t:"Licensing",x:"Annual rental license or registration fees required in many areas."},
+    r_mgmt:{t:"Property management",x:"Fee to have the property professionally managed — usually a percentage of collected rent."},
+    k_pi:{t:"Monthly P&I",x:"Your monthly mortgage payment of principal and interest. Taxes and insurance are tracked separately here."},
+    k_noi:{t:"Net Operating Income (NOI)",x:"Yearly income after running costs, before the loan payment. The engine of value."},
+    k_value:{t:"Stabilized value",x:"What the building is worth once improved and filled: NOI ÷ exit cap rate."},
+    k_created:{t:"Value created",x:"Stabilized value minus everything you put in (price + renovation + closing). Your forced appreciation."},
+    k_acf:{t:"Annual cash flow",x:"Money left each year after the loan payment: NOI minus annual debt service."},
+    k_mcf:{t:"Monthly cash flow",x:"Annual cash flow divided by 12 — what hits your account each month."},
+    k_roiY:{t:"ROI per year",x:"Yearly cash flow divided by the cash you invested (also called cash-on-cash return)."},
+    k_roiM:{t:"ROI per month",x:"Your yearly ROI divided by 12 — a monthly view of the return on your cash."},
+    k_dscr:{t:"DSCR",x:"Income ÷ loan payment. Above 1.25x means comfortable coverage; below 1.0x means income doesn't cover the loan."},
+    k_entry:{t:"Entry cap rate",x:"Current income ÷ purchase price. A quick read on how cheaply you're buying."},
+    k_payoff:{t:"Estimated payoff",x:"Roughly when the loan is paid off, based on the amortization period starting today."},
+    k_onePct:{t:"The 1% rule",x:"Monthly rent ÷ price. At or above 1% is a good sign for cash flow. It's a quick screen, not a guarantee."},
+    k_cap:{t:"Cap rate",x:"Yearly profit (NOI) ÷ price, ignoring the loan. Lets you compare deals on equal footing."},
+    k_grm:{t:"Gross rent multiplier",x:"Price ÷ yearly rent. Lower usually means better value for the rent."}
+  };
+  var pop=document.createElement("div"); pop.className="pop"; pop.setAttribute("role","tooltip"); document.body.appendChild(pop);
+  function showInfo(btn){var d=INFO[btn.getAttribute("data-info")]; if(!d){return;} pop.innerHTML="<h5>"+d.t+"</h5>"+d.x; pop.classList.add("show");
+    var r=btn.getBoundingClientRect(),pw=pop.offsetWidth,ph=pop.offsetHeight;
+    var left=clamp(r.left,12,window.innerWidth-pw-12),top=r.bottom+8; if(top+ph>window.innerHeight-12)top=Math.max(12,r.top-ph-8);
+    pop.style.left=left+"px"; pop.style.top=top+"px";}
+  function hideInfo(){pop.classList.remove("show");}
+
+  /* ---------- router ---------- */
+  function showView(v,opts){
+    $$(".view").forEach(function(s){s.classList.remove("active");});
+    var el=$("#view-"+v); if(!el){v="home";el=$("#view-home");}
+    el.classList.add("active");
+    injectIcons(el); initTours(el);
+    $$("nav.main a").forEach(function(a){a.classList.toggle("active",a.getAttribute("data-view")===v);});
+    if(!opts||!opts.noscroll) window.scrollTo({top:0,behavior:"auto"});
+    var md=$("#modal"); if(md&&md.classList.contains("open"))closeModal();
+    hideInfo(); closeMenu();
+    if(v==="commercial") ANALYZERS.commercial.init();
+    if(v==="residential") ANALYZERS.residential.init();
+    if(v==="management"){ANALYZERS.mgmt.init();initDash();initTours($("#view-management"));}
+    if(v==="portal")renderPortal();
+  }
+  document.addEventListener("click",function(e){
+    var ib=e.target.closest("[data-info]"); if(ib){e.preventDefault();e.stopPropagation();showInfo(ib);return;}
+    if(!e.target.closest(".pop"))hideInfo();
+    var af=e.target.closest("[data-appfolio]"); if(af){e.preventDefault();window.open(APPFOLIO_TENANT,"_blank","noopener");return;}
+    var pt=e.target.closest("[data-portal]"); if(pt){e.preventDefault();openPortal(pt.getAttribute("data-portal"),pt.getAttribute("data-ptab"));return;}
+    var d=e.target.closest("[data-deck]"); if(d){e.preventDefault();openDeck(d.getAttribute("data-deck"),d);return;}
+    var t=e.target.closest("[data-view]"); if(t){e.preventDefault();showView(t.getAttribute("data-view"));return;}
+    var j=e.target.closest("[data-jump]"); if(j){e.preventDefault();var node=$("#"+j.getAttribute("data-jump"));if(node)node.scrollIntoView({behavior:"smooth"});return;}
+  });
+  $$(".brand,.lcard").forEach(function(b){b.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();if(this.hasAttribute("data-deck"))openDeck(this.getAttribute("data-deck"),this);else if(this.hasAttribute("data-view"))showView(this.getAttribute("data-view"));}});});
+
+  var hamb=$("#hamb"),nav=$("#mainnav");
+  function closeMenu(){nav.classList.remove("show");hamb.setAttribute("aria-expanded","false");}
+  hamb.addEventListener("click",function(){var open=nav.classList.toggle("show");hamb.setAttribute("aria-expanded",open?"true":"false");});
+
+  /* ---------- MODAL DECKS ---------- */
+  function chartArb(el){el.innerHTML=svgBars([{l:"Apartment",v:1600,l2:"$1,600",c:"#9fb6cf"},{l:"Micro-offices",v:3500,l2:"$3,500",c:"#C9A227"}],{w:440,h:230,bw:96});}
+  function chartBridge(el){el.innerHTML=svgBars([{l:"In-place NOI",v:200000,l2:"$200k",c:"#143A63"},{l:"Stabilized NOI",v:376000,l2:"$376k",c:"#C9A227"},{l:"All-in basis",v:2460000,l2:"$2.46M",c:"#9fb6cf"},{l:"Value",v:4178000,l2:"$4.18M",c:"#0C2C57"}],{w:500,h:230,bw:74});}
+  function chartResi(el){el.innerHTML=svgBars([{l:"Gross rent",v:24000,l2:"$24k",c:"#9fb6cf"},{l:"NOI",v:12540,l2:"$12.5k",c:"#143A63"},{l:"Cash flow",v:564,l2:"$564",c:"#C9A227"}],{w:460,h:230,bw:84});}
+  function chartMgmt(el){el.innerHTML=svgBars([{l:"Self income",v:259200,l2:"$259k",c:"#9fb6cf"},{l:"Pro income",v:273600,l2:"$274k",c:"#143A63"},{l:"Net benefit",v:23712,l2:"+$24k",c:"#C9A227"}],{w:460,h:230,bw:84});}
+
+  var DECKS={
+    investor:{eyebrow:"Our Approach",title:"Maryland Property Group",slides:[
+      {nav:"Who we are",tag:"01 · Who we are",title:"Commercial & residential real estate, end to end",body:'<div class="mgrid"><div><p>Maryland Property Group (More Gad LLC) invests in, manages, and acquires residential and commercial real estate. We pair disciplined underwriting with hands-on, in-house management — and we buy properties directly from owners for cash.</p></div><div class="mstats"><div class="mstat"><b>2</b><span>Asset classes: residential & commercial</span></div><div class="mstat"><b>7-stage</b><span>Diligence process</span></div><div class="mstat"><b>AppFolio</b><span>Income & expense tracking</span></div><div class="mstat"><b>In-house</b><span>Property management</span></div></div></div>'},
+      {nav:"The Opportunity",tag:"02 · The Opportunity",title:"Buying below the market's yield",body:'<p>Owner-occupied and underutilized buildings on high-traffic roads can trade above market yields — because the seller is motivated and the asset is mispriced for its potential. That spread is our entry edge.</p><div class="mstats" style="grid-template-columns:repeat(3,1fr)"><div class="mstat"><b>9.5%</b><span>Example entry cap</span></div><div class="mstat"><b>~7%</b><span>Market cap, stabilized</span></div><div class="mstat"><b>+250bps</b><span>Entry yield advantage</span></div></div>'},
+      {nav:"The Arbitrage",tag:"03 · The Arbitrage",title:"The same 1,000 sq ft, repriced",body:'<div class="mgrid"><div><p>Dividing a floor into small, fully-serviced private offices more than doubles gross rent per square foot. Tenants pay a premium for a turnkey, professional room.</p><ul><li>Apartment: $1.60 / sq ft / mo</li><li>Micro-offices: $3.50 / sq ft / mo</li><li>≈ 2.2× gross revenue, same footprint</li></ul></div><div class="mchart"></div></div>',chart:chartArb},
+      {nav:"The Model",tag:"04 · The Model",title:"Force the income, then revalue at the cap rate",body:'<div class="mgrid"><div><p>Because value equals NOI ÷ cap rate, every dollar of added income is amplified. Our playbook turns a renovation budget into multiples of created value.</p></div><div class="mchart"></div></div>',chart:chartBridge},
+      {nav:"Risk & Diligence",tag:"05 · Risk & Diligence",title:"We underwrite the traps before the upside",body:'<p>Every deal clears a checklist. The three structural risks of value-add are priced into the offer — never discovered after closing.</p><ul><li><strong>Management intensity</strong> — software and staffing modeled from day one.</li><li><strong>Parking &amp; zoning</strong> — post-conversion ratios verified before going under contract.</li><li><strong>ADA &amp; building code</strong> — restroom, egress, and accessibility upgrades scoped by contractors.</li></ul>'},
+      {nav:"How we operate",tag:"06 · Operations",title:"AppFolio-powered, in-house management",body:'<div class="mstats" style="grid-template-columns:repeat(2,1fr)"><div class="mstat"><b>AppFolio</b><span>Income & expense tracking</span></div><div class="mstat"><b>Monthly</b><span>Cash flow, income/expense & rent reports</span></div><div class="mstat"><b>Online</b><span>Rent payment & maintenance tickets</span></div><div class="mstat"><b>Quarterly</b><span>Performance reviews</span></div></div>'},
+      {nav:"Work with us",tag:"07 · Work with us",title:"Invest, get managed, or sell to us",body:'<div class="mgrid"><div><p>Transparent underwriting you can interrogate, in-house management that protects the business plan, and a straightforward, hands-on team.</p><button class="btn btn-gold" data-view="commercial" data-close>Run the numbers yourself →</button></div><div class="mstats"><div class="mstat"><b>Invest</b><span>Residential & commercial</span></div><div class="mstat"><b>Manage</b><span>Full-service operations</span></div><div class="mstat"><b>Sell</b><span>Cash offers for houses & buildings</span></div><div class="mstat"><b>Local</b><span>Maryland market focus</span></div></div></div>'}
+    ]},
+    commercial:{eyebrow:"Commercial",title:"Commercial Value-Add Strategy",slides:[
+      {nav:"Market context",tag:"01 · Context",title:"Why small offices, why now",body:'<p>Hybrid work hollowed out big corporate floors, but demand for small, private, professional offices — for therapists, solo attorneys, and agents — is resilient and underserved. We buy the unloved big box and sell the in-demand small suite.</p>'},
+      {nav:"Sourcing",tag:"02 · Sourcing",title:"Finding the right building",body:'<ul><li>Owner-occupied buildings on high-traffic arterials</li><li>Driving-for-dollars + data tools (ownership, loan maturity, tax status)</li><li>Direct mail and broker relationships; trigger events like retirement</li><li>We also buy directly from owners for cash</li></ul>'},
+      {nav:"Underwriting",tag:"03 · Underwriting",title:"The metrics that gate every deal",body:'<div class="mstats" style="grid-template-columns:repeat(3,1fr)"><div class="mstat"><b>8%+</b><span>Entry cap before value-add</span></div><div class="mstat"><b>1.25x+</b><span>Target DSCR</span></div><div class="mstat"><b>+1.5pt</b><span>Exit-cap stress applied</span></div></div><p style="margin-top:14px">We itemize every expense — taxes, insurance, water, gas &amp; electric, internet, trash, licensing, and any special-district surcharge — so NOI is realistic, not optimistic.</p>'},
+      {nav:"The playbook",tag:"04 · Playbook",title:"From big box to many private suites",body:'<ul><li>Divide into 150–300 sq ft serviced offices off a central corridor</li><li>License agreements for select commercial spaces</li><li>Auction furniture + modest tech spend for a Class-A feel</li><li>Smart access, enterprise internet, digital directory</li></ul>'},
+      {nav:"Worked example",tag:"05 · Worked Example",title:"Buy in, force income, revalue",body:'<div class="mgrid"><div><p>Roughly doubling NOI and revaluing at a conservative exit cap creates value well above the all-in basis.</p><ul><li>In-place NOI: $200k</li><li>Stabilized NOI: ~$376k</li><li>Stabilized value: ~$4.2M</li></ul></div><div class="mchart"></div></div>',chart:chartBridge},
+      {nav:"Risk mitigation",tag:"06 · Risk",title:"The three traps, pre-priced",body:'<ul><li><strong>Management intensity</strong> — in-house ops + AppFolio model the labor.</li><li><strong>Parking &amp; zoning</strong> — ratios and use verified before contract.</li><li><strong>ADA / code / egress</strong> — upgrades scoped and budgeted up front.</li></ul>'},
+      {nav:"Try it",tag:"07 · Your turn",title:"Model a deal yourself",body:'<p>The live Deal Analyzer uses this model, with every expense itemized and manual inputs. Change the price, rents, occupancy, and exit cap and watch the returns move.</p><button class="btn btn-gold" data-view="commercial" data-close>Open the Deal Analyzer →</button>'}
+    ]},
+    residential:{eyebrow:"Residential",title:"Residential Cash-Flow Strategy",slides:[
+      {nav:"Why residential",tag:"01 · Why",title:"Durable, compounding income",body:'<p>People always need housing. Well-bought rentals deliver four returns at once — cash flow, appreciation, loan paydown, and tax benefits — with financing that\'s simpler than commercial.</p>'},
+      {nav:"The metrics",tag:"02 · Metrics",title:"How we screen",body:'<ul><li><strong>1% rule</strong> — fast filter: rent ≥ 1% of price</li><li><strong>Taxes/maintenance</strong> — expenses often ≈ half of rent</li><li><strong>Cap rate</strong> — 6–8% target (more in smaller markets)</li><li><strong>ROI (cash-on-cash)</strong> — 8–12% goal on cash invested</li></ul>'},
+      {nav:"Screening flow",tag:"03 · Workflow",title:"From filter to offer",body:'<ul><li>Apply the 1% rule to thin the list fast</li><li>Estimate NOI; check cap rate &amp; GRM</li><li>Drop in a real mortgage — does monthly cash flow survive?</li><li>Only then inspect and verify actual rents, taxes, insurance</li></ul>'},
+      {nav:"Reality check",tag:"04 · Reality",title:"The honest math at today's rates",body:'<div class="mgrid"><div><p>A textbook 1%-rule property barely cash-flows once you add a 7% mortgage. The 1% rule is a screen, not a verdict — we underwrite the financed reality.</p></div><div class="mchart"></div></div>',chart:chartResi},
+      {nav:"Value-add",tag:"05 · Value-add",title:"Forcing rents to market",body:'<p>Light, targeted renovation plus professional management lifts below-market rents — the residential version of forced appreciation, validated by comparable sales.</p>'},
+      {nav:"Try it",tag:"06 · Your turn",title:"Run a rental yourself",body:'<p>The Residential Analyzer checks the 1% rule, cap rate, GRM, monthly &amp; yearly cash flow, and monthly &amp; yearly ROI live.</p><button class="btn btn-gold" data-view="residential" data-close>Open the Residential Analyzer →</button>'}
+    ]},
+    management:{eyebrow:"Operations",title:"Property Management Approach",slides:[
+      {nav:"The challenge",tag:"01 · The challenge",title:"Many small tenants = an operating business",body:'<p>Dividing into dozens of suites multiplies the work: many tenants, many tickets, constant turnover. Without a real operating system, the margin gets eaten by labor. Our platform is the system.</p>'},
+      {nav:"Operating system",tag:"02 · The system",title:"AppFolio runs the building",body:'<ul><li>Online rent payment, billing, and collections</li><li>Maintenance ticketing and vendor management</li><li>Monthly reports: cash flow, income/expense, and rent collected</li><li>Owner statements and quarterly reviews</li></ul>'},
+      {nav:"Lower opex",tag:"03 · Lower opex",title:"Class-A feel, Class-C cost",body:'<ul><li>Bulk internet resold to suites (commercial assets)</li><li>Utility tracking and scheduled HVAC</li><li>Software replaces staff hours; smart access cuts security cost</li></ul>'},
+      {nav:"Is it worth it?",tag:"04 · The ROI",title:"Professional management usually pays for itself",body:'<div class="mgrid"><div><p>Lower vacancy and getting your time back typically outweigh the management fee — often by a wide margin.</p></div><div class="mchart"></div></div>',chart:chartMgmt},
+      {nav:"Tiers",tag:"05 · Pricing",title:"Three tiers, aligned incentives",body:'<div class="mstats" style="grid-template-columns:repeat(3,1fr)"><div class="mstat"><b>5%</b><span>Essential / EGI</span></div><div class="mstat"><b>8%</b><span>Full-Service / EGI</span></div><div class="mstat"><b>Custom</b><span>Conversion mgmt</span></div></div><p style="margin-top:14px">Priced on effective gross income, so we only win when your building performs.</p>'},
+      {nav:"Get started",tag:"06 · Onboarding",title:"Live in about two weeks",body:'<p>Assess → transition → optimize → report. We handle tenants, tech, and compliance from day one.</p><button class="btn btn-gold" data-view="contact" data-close>Request a proposal →</button>'}
+    ]},
+    basics:{eyebrow:"First-Time Investors",title:"Real Estate Investing 101",slides:[
+      {nav:"What it is",tag:"01 · The basics",title:"You own it, someone pays to use it",body:'<p>Real estate investing means buying property and earning money from it — usually by renting it out. Tenants\' rent covers the bills (and ideally leaves a profit), while the property tends to grow in value over time.</p>'},
+      {nav:"4 ways to earn",tag:"02 · How you earn",title:"Four returns at once",body:'<ul><li><strong>Cash flow</strong> — rent left after every bill</li><li><strong>Appreciation</strong> — the property is worth more later</li><li><strong>Loan paydown</strong> — tenants pay off your mortgage</li><li><strong>Tax benefits</strong> — deductions can lower your taxes</li></ul>'},
+      {nav:"Key words",tag:"03 · Plain-English terms",title:"The only words you need first",body:'<ul><li><strong>Cash flow</strong> — money left over each month</li><li><strong>Cap rate</strong> — yearly profit as a % of price</li><li><strong>1% rule</strong> — rent should be ~1% of price</li><li><strong>ROI / cash-on-cash</strong> — profit ÷ cash you invested</li></ul>'},
+      {nav:"Two paths",tag:"04 · Two paths",title:"Homes vs. business buildings",body:'<div class="mstats"><div class="mstat"><b>Residential</b><span>Valued by comparable sales; simpler loans</span></div><div class="mstat"><b>Commercial</b><span>Valued by income; raise income, raise value</span></div><div class="mstat"><b>Start small</b><span>A rental house, or a passive stake in a deal</span></div><div class="mstat"><b>Diversify</b><span>Spread across deals, not all in one</span></div></div>'},
+      {nav:"Getting started",tag:"05 · Your first move",title:"A simple path forward",body:'<ul><li>Set your budget and talk to a lender</li><li>Pick a steady market and a strategy</li><li>Run the numbers with our calculators</li><li>Verify everything before you buy</li></ul><div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-gold" data-view="residential" data-close>Residential calculator</button><button class="btn btn-ghost" data-view="commercial" data-close>Commercial analyzer</button></div>'}
+    ]}
+  };
+
+  var modal=$("#modal"),mstage=$("#mstage"),mrail=$("#mrail"),mdots=$("#mdots"),mbar=$("#mbar"),mtitle=$("#mtitle"),meyebrow=$("#meyebrow"),mprev=$("#mprev"),mnext=$("#mnext"),curDeck=null,curIdx=0,lastFocus=null;
+  function openDeck(id,opener){
+    var d=DECKS[id]; if(!d)return; curDeck=d; curIdx=0; lastFocus=opener||document.activeElement;
+    meyebrow.textContent=d.eyebrow; mtitle.textContent=d.title;
+    mstage.innerHTML=d.slides.map(function(s,i){return '<div class="mslide'+(i===0?" active":"")+'"><div class="tag">'+s.tag+'</div><h3 class="serif">'+s.title+'</h3>'+s.body+'</div>';}).join("");
+    mrail.innerHTML=d.slides.map(function(s,i){return '<button class="'+(i===0?"on":"")+'" data-go="'+i+'"><span class="n">'+("0"+(i+1)).slice(-2)+'</span> '+s.nav+'</button>';}).join("");
+    mdots.innerHTML=d.slides.map(function(s,i){return '<button class="'+(i===0?"on":"")+'" data-go="'+i+'" aria-label="Slide '+(i+1)+'"></button>';}).join("");
+    modal.classList.add("open"); modal.setAttribute("aria-hidden","false"); document.body.classList.add("locked");
+    activate(0); $(".m-close").focus();
+  }
+  function activate(i){
+    var slides=$$(".mslide",mstage); if(!slides.length)return; curIdx=clamp(i,0,slides.length-1);
+    slides.forEach(function(s,idx){s.classList.toggle("active",idx===curIdx);});
+    $$("button",mrail).forEach(function(b,idx){b.classList.toggle("on",idx===curIdx);});
+    $$("button",mdots).forEach(function(b,idx){b.classList.toggle("on",idx===curIdx);});
+    mbar.style.width=((curIdx+1)/slides.length*100)+"%"; mprev.disabled=curIdx===0; mnext.disabled=curIdx===slides.length-1;
+    var holder=slides[curIdx].querySelector(".mchart");
+    if(holder&&!holder.dataset.done&&curDeck.slides[curIdx].chart){curDeck.slides[curIdx].chart(holder);holder.dataset.done="1";}
+  }
+  function closeModal(){modal.classList.remove("open");modal.setAttribute("aria-hidden","true");document.body.classList.remove("locked");if(lastFocus&&lastFocus.focus)lastFocus.focus();}
+  mprev.addEventListener("click",function(){activate(curIdx-1);});
+  mnext.addEventListener("click",function(){activate(curIdx+1);});
+  modal.addEventListener("click",function(e){var g=e.target.closest("[data-go]");if(g){activate(parseInt(g.getAttribute("data-go"),10));return;}if(e.target.closest("[data-close]"))closeModal();});
+  document.addEventListener("keydown",function(e){
+    if(e.key==="Escape")hideInfo();
+    if(!modal.classList.contains("open"))return;
+    if(e.key==="Escape")closeModal();
+    else if(e.key==="ArrowRight")activate(curIdx+1);
+    else if(e.key==="ArrowLeft")activate(curIdx-1);
+    else if(e.key==="Tab"){var f=$$('button,[href],input,select,textarea,[tabindex]:not([tabindex="-1"])',modal).filter(function(el){return el.offsetParent!==null;});if(!f.length)return;var first=f[0],last=f[f.length-1];if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}
+  });
+  window.addEventListener("scroll",hideInfo,true);
+  window.addEventListener("resize",hideInfo);
+
+  /* ---------- GENERIC ANALYZER ---------- */
+  function fmtUnit(u,v){if(u==="usd")return usd(v);if(u==="pct")return pct(v);if(u==="sf")return Math.round(v).toLocaleString()+" sf";if(u==="yrs")return Math.round(v)+" yrs";return Math.round(v).toLocaleString();}
+  function Analyzer(cfg){this.cfg=cfg;this.state={};cfg.controls.forEach(function(c){if(c.k)this.state[c.k]=c.def;},this);this.built=false;}
+  Analyzer.prototype.init=function(){
+    if(this.built)return; this.built=true; var self=this,cfg=this.cfg;
+    $("#"+cfg.controls_el).innerHTML=cfg.controls.map(function(c){
+      if(c.group)return '<div class="ctl-group">'+c.group+'</div>';
+      var nmin=c.unit==="pct"?c.min*100:c.min,nmax=c.unit==="pct"?c.max*100:c.max,nstep=c.unit==="pct"?c.step*100:c.step;
+      var ib=c.info?'<button type="button" class="infobtn" data-info="'+c.info+'" aria-label="Explain">i</button>':'';
+      return '<div class="ctl"><label for="'+cfg.id+'-'+c.k+'">'+c.label+ib+'<span class="v" id="'+cfg.id+'v-'+c.k+'"></span></label>'+
+        '<div class="ctl-row"><input type="range" id="'+cfg.id+'-'+c.k+'" min="'+c.min+'" max="'+c.max+'" step="'+c.step+'" value="'+c.def+'">'+
+        '<input type="number" class="numin" id="'+cfg.id+'n-'+c.k+'" min="'+nmin+'" max="'+nmax+'" step="'+nstep+'"></div></div>';
+    }).join("");
+    cfg.controls.forEach(function(c){
+      if(!c.k)return;
+      var rng=$("#"+cfg.id+"-"+c.k),num=$("#"+cfg.id+"n-"+c.k),read=$("#"+cfg.id+"v-"+c.k);
+      function paint(v){read.textContent=fmtUnit(c.unit,v);num.value=c.unit==="pct"?rnd(v*100,3):rnd(v,2);}
+      rng.addEventListener("input",function(){self.state[c.k]=parseFloat(rng.value);paint(self.state[c.k]);self.update();});
+      num.addEventListener("input",function(){var p=parseFloat(num.value);if(isNaN(p))return;var raw=c.unit==="pct"?p/100:p;raw=clamp(raw,c.min,c.max);self.state[c.k]=raw;rng.value=raw;read.textContent=fmtUnit(c.unit,raw);self.update();});
+      num.addEventListener("change",function(){var p=parseFloat(num.value);if(isNaN(p)){paint(self.state[c.k]);return;}var raw=clamp(c.unit==="pct"?p/100:p,c.min,c.max);self.state[c.k]=raw;rng.value=raw;paint(raw);self.update();});
+      paint(self.state[c.k]);
+    });
+    this.update();
+  };
+  Analyzer.prototype.update=function(){
+    var cfg=this.cfg,r=cfg.compute(this.state);
+    var k=$("#"+cfg.kpis_el);
+    if(k)k.innerHTML=cfg.kpis(r,this.state).map(function(x){var ib=x.info?'<button type="button" class="infobtn" data-info="'+x.info+'" aria-label="Explain">i</button>':'';return '<div class="kpi '+(x.cls||"")+'"><div class="lbl">'+x.lbl+ib+'</div><div class="num">'+x.num+'</div><div class="sub">'+(x.sub||"")+'</div></div>';}).join("");
+    if(cfg.note_el&&cfg.note)$("#"+cfg.note_el).innerHTML=cfg.note(r,this.state);
+    if(cfg.chart_el)$("#"+cfg.chart_el).innerHTML=cfg.chart(r,this.state);
+    if(cfg.sens_el&&cfg.sens)$("#"+cfg.sens_el).innerHTML=cfg.sens(r,this.state);
+  };
+  function colorVal(v,min,max){var t=clamp((v-min)/((max-min)||1),0,1);return "rgb("+Math.round(255-(255-201)*t)+","+Math.round(255-(255-162)*t)+","+Math.round(255-(255-39)*t)+")";}
+  function colorCF(v){if(v>=0){var t=clamp(v/400,0,1);return "rgb("+Math.round(232-201*t)+","+Math.round(245-107*t)+","+Math.round(238-147*t)+")";}var t2=clamp(-v/400,0,1);return "rgb("+Math.round(251-(251-192)*t2*0-0)+","+Math.round(233-176*t2)+","+Math.round(231-188*t2)+")";}
+
+  var LOSS=0.15;
+  var ANALYZERS={
+    commercial:new Analyzer({
+      id:"c",controls_el:"ccontrols",kpis_el:"ckpis",note_el:"cnote",chart_el:"cchart",sens_el:"csens",
+      controls:[
+        {group:"Acquisition"},
+        {k:"price",label:"Purchase price",min:500000,max:6000000,step:50000,def:2100000,unit:"usd",info:"c_price"},
+        {k:"inplace",label:"In-place NOI (annual)",min:0,max:600000,step:5000,def:200000,unit:"usd",info:"c_inplace"},
+        {k:"rentable",label:"Rentable area",min:5000,max:40000,step:500,def:15000,unit:"sf",info:"c_rentable"},
+        {k:"reno",label:"Renovation budget",min:0,max:1500000,step:25000,def:300000,unit:"usd",info:"c_reno"},
+        {k:"closing",label:"Closing costs",min:0,max:300000,step:5000,def:60000,unit:"usd",info:"c_closing"},
+        {group:"Income"},
+        {k:"office",label:"Avg office size",min:100,max:400,step:5,def:170,unit:"sf",info:"c_office"},
+        {k:"rent",label:"Rent per office / mo",min:400,max:1500,step:25,def:725,unit:"usd",info:"c_rent"},
+        {k:"occ",label:"Stabilized occupancy",min:.6,max:1,step:.01,def:.9,unit:"pct",info:"c_occ"},
+        {group:"Operating expenses (annual)"},
+        {k:"bexp",label:"Building expenses (mgmt, maintenance, etc.)",min:0,max:300000,step:2500,def:90000,unit:"usd",info:"c_bexp"},
+        {k:"taxes",label:"Property taxes",min:0,max:200000,step:1000,def:45000,unit:"usd",info:"c_taxes"},
+        {k:"ins",label:"Insurance",min:0,max:80000,step:1000,def:14000,unit:"usd",info:"c_ins"},
+        {k:"water",label:"Water",min:0,max:40000,step:500,def:6000,unit:"usd",info:"c_water"},
+        {k:"util",label:"Gas & electric",min:0,max:120000,step:1000,def:28000,unit:"usd",info:"c_util"},
+        {k:"internet",label:"Internet",min:0,max:60000,step:500,def:12000,unit:"usd",info:"c_internet"},
+        {k:"trash",label:"Trash removal & cleanup",min:0,max:50000,step:500,def:8000,unit:"usd",info:"c_trash"},
+        {k:"lic",label:"Licensing",min:0,max:30000,step:250,def:3000,unit:"usd",info:"c_lic"},
+        {k:"sbd",label:"Special Benefit District surcharge",min:0,max:50000,step:250,def:5000,unit:"usd",info:"c_sbd"},
+        {group:"Financing"},
+        {k:"exit",label:"Exit cap rate",min:.05,max:.12,step:.0025,def:.09,unit:"pct",info:"c_exit"},
+        {k:"ltv",label:"Loan-to-value",min:.5,max:.8,step:.01,def:.7,unit:"pct",info:"c_ltv"},
+        {k:"rate",label:"Interest rate",min:0,max:.11,step:.00125,def:.075,unit:"pct",info:"c_rate"},
+        {k:"amort",label:"Amortization",min:15,max:30,step:1,def:25,unit:"yrs",info:"c_amort"}
+      ],
+      compute:function(s){
+        var nl=s.rentable*(1-LOSS),off=Math.floor(nl/s.office),gpr=off*s.rent*12,egi=gpr*s.occ;
+        var opex=s.bexp+s.taxes+s.ins+s.water+s.util+s.internet+s.trash+s.lic+s.sbd;
+        var noi=egi-opex,value=noi/s.exit,allIn=s.price+s.reno+s.closing,created=value-allIn;
+        var loan=s.price*s.ltv,down=s.price-loan,cashIn=down+s.reno+s.closing,piM=pmt(s.rate/12,s.amort*12,loan),annDS=piM*12;
+        var acf=noi-annDS;
+        return {off:off,opex:opex,noi:noi,value:value,allIn:allIn,created:created,cashIn:cashIn,piM:piM,annDS:annDS,acf:acf,mcf:acf/12,roiY:acf/cashIn,roiM:(acf/cashIn)/12,dscr:annDS>0?noi/annDS:Infinity,entry:s.inplace/s.price};
+      },
+      kpis:function(r,s){return [
+        {lbl:"Stabilized NOI",num:usd(r.noi),sub:r.off+" offices · "+usd(r.opex)+" opex",info:"k_noi"},
+        {lbl:"Stabilized Value",num:usdShort(r.value),sub:"NOI ÷ exit cap",cls:"win",info:"k_value"},
+        {lbl:"Value Created",num:usdShort(r.created),sub:"vs all-in basis",cls:r.created>=0?"win":"bad",info:"k_created"},
+        {lbl:"Annual Cash Flow",num:usd(r.acf),sub:"NOI − loan payment",cls:r.acf>=0?"":"bad",info:"k_acf"},
+        {lbl:"Monthly Cash Flow",num:usd(r.mcf),sub:"per month",cls:r.mcf>=0?"":"bad",info:"k_mcf"},
+        {lbl:"Monthly P&I",num:usd(r.piM),sub:"loan payment",info:"k_pi"},
+        {lbl:"ROI / year",num:isFinite(r.roiY)?pct(r.roiY):"—",sub:"cash-on-cash",cls:"win",info:"k_roiY"},
+        {lbl:"ROI / month",num:isFinite(r.roiM)?pct2(r.roiM):"—",sub:"per month",info:"k_roiM"},
+        {lbl:"DSCR",num:xfmt(r.dscr),sub:"≥1.25x is healthy",cls:r.dscr>=1.25?"ok":"bad",info:"k_dscr"}
+      ];},
+      note:function(r,s){return '<b>Entry cap rate:</b> '+pct(r.entry)+' &nbsp;·&nbsp; <b>Total cash invested:</b> '+usd(r.cashIn)+' &nbsp;·&nbsp; <b>Est. loan payoff:</b> '+(s.rate>0||s.ltv>0?payoff(s.amort):"—")+'  <button type="button" class="infobtn" data-info="k_payoff" aria-label="Explain">i</button>';},
+      chart:function(r,s){return svgBars([{l:"In-place NOI",v:s.inplace,l2:usdShort(s.inplace),c:"#143A63"},{l:"Stabilized NOI",v:r.noi,l2:usdShort(r.noi),c:"#C9A227"},{l:"All-in basis",v:r.allIn,l2:usdShort(r.allIn),c:"#9fb6cf"},{l:"Stab. value",v:r.value,l2:usdShort(r.value),c:"#0C2C57"}],{w:560,h:250,bw:78});},
+      sens:function(r,s){
+        var rents=[s.rent-100,s.rent-50,s.rent,s.rent+50,s.rent+100,s.rent+150],caps=[.075,.08,.085,.09,.095,.10],nl=s.rentable*(1-LOSS),off=Math.floor(nl/s.office),vals=[],min=Infinity,max=-Infinity;
+        rents.forEach(function(rt){var row=[];caps.forEach(function(cp){var noi=off*rt*12*s.occ-r.opex;var v=noi/cp;row.push(v);if(v<min)min=v;if(v>max)max=v;});vals.push(row);});
+        var nc=caps.reduce(function(a,b){return Math.abs(b-s.exit)<Math.abs(a-s.exit)?b:a;}),nr=rents.reduce(function(a,b){return Math.abs(b-s.rent)<Math.abs(a-s.rent)?b:a;});
+        var h='<table class="sens"><thead><tr><th>Rent \\ Cap</th>'+caps.map(function(c){return '<th>'+(c*100).toFixed(1)+'%</th>';}).join("")+'</tr></thead><tbody>';
+        rents.forEach(function(rt,ri){h+='<tr><td class="rowh">'+usd(rt)+'</td>';caps.forEach(function(cp,ci){var v=vals[ri][ci],here=(rt===nr&&cp===nc)?" here":"";h+='<td class="cell'+here+'" style="background:'+colorVal(v,min,max)+'">'+usdShort(v)+'</td>';});h+='</tr>';});
+        return h+'</tbody></table>';
+      }
+    }),
+    residential:new Analyzer({
+      id:"r",controls_el:"rcontrols",kpis_el:"rkpis",note_el:"rnote",chart_el:"rchart",sens_el:"rsens",
+      controls:[
+        {group:"Purchase"},
+        {k:"price",label:"Purchase price",min:80000,max:800000,step:5000,def:200000,unit:"usd",info:"r_price"},
+        {k:"rent",label:"Total monthly rent",min:500,max:8000,step:50,def:2000,unit:"usd",info:"r_rent"},
+        {group:"Operating expenses (annual)"},
+        {k:"rtax",label:"Real-estate taxes",min:0,max:30000,step:100,def:2400,unit:"usd",info:"r_tax"},
+        {k:"rins",label:"Insurance",min:0,max:15000,step:100,def:1200,unit:"usd",info:"r_ins"},
+        {k:"rmaint",label:"Maintenance & repairs",min:0,max:30000,step:100,def:2400,unit:"usd",info:"r_maint"},
+        {k:"rutil",label:"Internet / utilities",min:0,max:20000,step:100,def:600,unit:"usd",info:"r_util"},
+        {k:"rsbd",label:"Special Benefit District surcharge",min:0,max:10000,step:50,def:0,unit:"usd",info:"r_sbd"},
+        {k:"rlic",label:"Licensing",min:0,max:5000,step:50,def:150,unit:"usd",info:"r_lic"},
+        {k:"rmgmt",label:"Property management (% of rent)",min:0,max:.12,step:.005,def:.08,unit:"pct",info:"r_mgmt"},
+        {k:"vac",label:"Vacancy allowance",min:0,max:.15,step:.01,def:.05,unit:"pct",info:"r_vac"},
+        {group:"Financing"},
+        {k:"down",label:"Down payment",min:.1,max:.5,step:.01,def:.25,unit:"pct",info:"r_down"},
+        {k:"rate",label:"Interest rate",min:0,max:.11,step:.00125,def:.07,unit:"pct",info:"r_rate"},
+        {k:"term",label:"Loan term",min:15,max:30,step:5,def:30,unit:"yrs",info:"r_term"}
+      ],
+      compute:function(s){var gross=s.rent*12,egi=gross*(1-s.vac),fixed=s.rtax+s.rins+s.rmaint+s.rutil+s.rsbd+s.rlic,mgmt=egi*s.rmgmt,opex=fixed+mgmt,noi=egi-opex,loan=s.price*(1-s.down),down=s.price*s.down,piM=pmt(s.rate/12,s.term*12,loan),annDS=piM*12,cf=noi-annDS;
+        return {gross:gross,opex:opex,noi:noi,cap:noi/s.price,grm:s.price/gross,down:down,piM:piM,annDS:annDS,cf:cf,mcf:cf/12,roiY:cf/down,roiM:(cf/down)/12,dscr:annDS>0?noi/annDS:Infinity,onePct:s.rent/s.price};},
+      kpis:function(r,s){return [
+        {lbl:"1% Rule",num:(r.onePct*100).toFixed(2)+"%",sub:r.onePct>=.01?"Passes (≥1%)":"Below 1%",cls:r.onePct>=.01?"ok":"bad",info:"k_onePct"},
+        {lbl:"Cap Rate",num:pct(r.cap),sub:"unlevered yield",info:"k_cap"},
+        {lbl:"GRM",num:r.grm.toFixed(1),sub:"price ÷ gross rent",info:"k_grm"},
+        {lbl:"Monthly P&I",num:usd(r.piM),sub:"principal + interest",info:"k_pi"},
+        {lbl:"Monthly Cash Flow",num:usd(r.mcf),sub:"after mortgage",cls:r.mcf>=100?"ok":r.mcf<0?"bad":"win",info:"k_mcf"},
+        {lbl:"Annual Cash Flow",num:usd(r.cf),sub:"monthly × 12",cls:r.cf>=0?"":"bad",info:"k_acf"},
+        {lbl:"ROI / year",num:isFinite(r.roiY)?pct(r.roiY):"—",sub:"cash-on-cash",cls:r.roiY>=.08?"ok":r.roiY<0?"bad":"",info:"k_roiY"},
+        {lbl:"ROI / month",num:isFinite(r.roiM)?pct2(r.roiM):"—",sub:"per month",info:"k_roiM"},
+        {lbl:"DSCR",num:xfmt(r.dscr),sub:"NOI ÷ loan payment",cls:r.dscr>=1.2?"ok":"bad",info:"k_dscr"}
+      ];},
+      note:function(r,s){return '<b>Monthly cash flow:</b> '+usd(r.mcf)+' &nbsp;·&nbsp; <b>Yearly cash flow:</b> '+usd(r.cf)+' &nbsp;·&nbsp; <b>ROI:</b> '+(isFinite(r.roiY)?pct(r.roiY):"—")+'/yr ('+(isFinite(r.roiM)?pct2(r.roiM):"—")+'/mo)';},
+      chart:function(r,s){return svgBars([{l:"Gross rent",v:r.gross,l2:usdShort(r.gross),c:"#9fb6cf"},{l:"NOI",v:r.noi,l2:usdShort(r.noi),c:"#143A63"},{l:"Cash flow",v:Math.max(r.cf,0),l2:usd(r.cf),c:"#C9A227"}],{w:560,h:250,bw:96});},
+      sens:function(r,s){
+        var rents=[s.rent-300,s.rent-150,s.rent,s.rent+150,s.rent+300],rates=[.04,.05,.06,.07,.08];
+        var nr=rents.reduce(function(a,b){return Math.abs(b-s.rent)<Math.abs(a-s.rent)?b:a;}),nrt=rates.reduce(function(a,b){return Math.abs(b-s.rate)<Math.abs(a-s.rate)?b:a;});
+        var h='<table class="sens"><thead><tr><th>Rent \\ Rate</th>'+rates.map(function(c){return '<th>'+(c*100).toFixed(0)+'%</th>';}).join("")+'</tr></thead><tbody>';
+        rents.forEach(function(rt){h+='<tr><td class="rowh">'+usd(rt)+'</td>';rates.forEach(function(rate){var gross=rt*12,noi=gross*(1-s.vac)*(1-s.exp),loan=s.price*(1-s.down),ds=pmt(rate/12,s.term*12,loan)*12,mcf=(noi-ds)/12,here=(rt===nr&&rate===nrt)?" here":"";h+='<td class="cell'+here+'" style="background:'+colorCF(mcf)+'">'+usd(mcf)+'</td>';});h+='</tr>';});
+        return h+'</tbody></table>';
+      }
+    }),
+    mgmt:new Analyzer({
+      id:"m",controls_el:"mcontrols",kpis_el:"mkpis",chart_el:"mchart",
+      controls:[
+        {group:"Portfolio"},
+        {k:"units",label:"Number of units",min:1,max:100,step:1,def:20,unit:"num"},
+        {k:"rent",label:"Avg monthly rent / unit",min:300,max:3000,step:25,def:1200,unit:"usd"},
+        {group:"Vacancy"},
+        {k:"selfVac",label:"Vacancy self-managing",min:0,max:.2,step:.01,def:.1,unit:"pct"},
+        {k:"proVac",label:"Vacancy professionally managed",min:0,max:.15,step:.01,def:.05,unit:"pct"},
+        {group:"Fee & your time"},
+        {k:"fee",label:"Management fee",min:.03,max:.12,step:.005,def:.08,unit:"pct"},
+        {k:"hours",label:"Hours/week you spend",min:0,max:30,step:1,def:8,unit:"num"},
+        {k:"wage",label:"Value of your time / hr",min:20,max:200,step:5,def:75,unit:"usd"}
+      ],
+      compute:function(s){var gSelf=s.units*s.rent*12*(1-s.selfVac),gPro=s.units*s.rent*12*(1-s.proVac),fee=gPro*s.fee,time=s.hours*52*s.wage,uplift=gPro-gSelf,net=uplift+time-fee;return {gSelf:gSelf,gPro:gPro,fee:fee,time:time,uplift:uplift,net:net};},
+      kpis:function(r){return [
+        {lbl:"Income uplift",num:usdShort(r.uplift),sub:"from lower vacancy",cls:"win"},
+        {lbl:"Your time saved",num:usdShort(r.time),sub:"valued per year"},
+        {lbl:"Management fee",num:usdShort(r.fee),sub:"annual cost"},
+        {lbl:"Net benefit",num:usdShort(r.net),sub:"uplift + time − fee",cls:r.net>=0?"win":"bad"}
+      ];},
+      chart:function(r){return svgBars([{l:"Self income",v:r.gSelf,l2:usdShort(r.gSelf),c:"#9fb6cf"},{l:"Pro income",v:r.gPro,l2:usdShort(r.gPro),c:"#143A63"},{l:"Net benefit",v:Math.max(r.net,0),l2:usdShort(r.net),c:"#C9A227"}],{w:560,h:250,bw:96});}
+    })
+  };
+
+  /* ---------- owner dashboard ---------- */
+  var DASH={port:{kpis:[["$420k","Income (YTD)"],["$180k","Expenses (YTD)"],["$240k","Cash flow (YTD)"]],chart:[{l:"Q1",v:54,l2:"$54k",c:"#9fb6cf"},{l:"Q2",v:58,l2:"$58k",c:"#7d93ad"},{l:"Q3",v:62,l2:"$62k",c:"#143A63"},{l:"Q4",v:66,l2:"$66k",c:"#C9A227"}]},
+    prop:{kpis:[["$96k","Income (YTD)"],["$41k","Expenses (YTD)"],["$55k","Cash flow (YTD)"]],chart:[{l:"Q1",v:12,l2:"$12k",c:"#9fb6cf"},{l:"Q2",v:13,l2:"$13k",c:"#7d93ad"},{l:"Q3",v:14,l2:"$14k",c:"#143A63"},{l:"Q4",v:16,l2:"$16k",c:"#C9A227"}]}};
+  var dashBuilt=false;
+  function drawDash(which){var d=DASH[which];var el=$("#dkpis");el.style.gridTemplateColumns="repeat(3,1fr)";el.innerHTML=d.kpis.map(function(k){return '<div class="dkpi"><b>'+k[0]+'</b><span>'+k[1]+'</span></div>';}).join("");$("#dashchart").innerHTML=svgBars(d.chart,{w:760,h:210,bw:90,light:true});}
+  function initDash(){if(dashBuilt)return;dashBuilt=true;drawDash("port");$$("#dashtoggle button").forEach(function(b){b.addEventListener("click",function(){$$("#dashtoggle button").forEach(function(x){x.classList.remove("on");});b.classList.add("on");drawDash(b.getAttribute("data-d"));});});}
+
+  /* ---------- subtabs ---------- */
+  $$(".subtabs button").forEach(function(b){b.addEventListener("click",function(){$$(".subtabs button").forEach(function(x){x.classList.remove("on");});b.classList.add("on");var k=b.getAttribute("data-sub");$("#sub-resi").classList.toggle("on",k==="resi");$("#sub-comm").classList.toggle("on",k==="comm");});});
+
+  /* ---------- reveal ---------- */
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});},{threshold:.12});
+  $$(".reveal").forEach(function(el){io.observe(el);});
+
+  /* ---------- FAQ ---------- */
+  var FAQS=[
+    {cat:"General",q:"I'm brand new — where do I begin?",a:"Start with the First-Time Investors tab. It explains residential and commercial investing in plain English, with a glossary, simple steps, and a “Real Estate Investing 101” presentation. Then try a calculator to see how a deal works."},
+    {cat:"General",q:"Do I need to be wealthy to invest?",a:"Not necessarily. Residential rentals can start with a single property and a conventional loan. Many private commercial deals, however, are limited to accredited investors — request access and we'll help you confirm eligibility."},
+    {cat:"General",q:"What are the main risks?",a:"Like any investment, you can lose money, and real estate can be slow to sell. For our commercial conversions, the practical risks are simple: having enough parking, getting the right permits and zoning, meeting building and accessibility (ADA) codes, and the day-to-day work of managing many tenants. We check all of these before we buy and budget for them up front."},
+    {cat:"General",q:"How do you report income and performance?",a:"We use AppFolio to track all income and expenses. Owners and investors receive monthly reports covering cash flow, income and expenses, and rent collected."},
+    {cat:"Residential",q:"What kind of residential properties do you focus on?",a:"Single-family homes and small multifamily (2–20 units) that can produce positive cash flow after a real, financed mortgage — bought below replacement cost where possible and brought to market rents."},
+    {cat:"Residential",q:"Do you buy houses directly from owners?",a:"Yes. If you'd rather sell quickly and as-is, see our We Buy Houses page for a no-obligation cash offer."},
+    {cat:"Commercial",q:"What is the value-add micro-office strategy?",a:"This is a commercial strategy: we buy an underused building and divide it into smaller, fully-serviced private offices. Many small offices earn more total rent than one big space, which raises the building's income — and, because commercial value is based on income, its value too."},
+    {cat:"Commercial",q:"Why use a license agreement instead of a lease?",a:"For select commercial properties, we may use a license agreement instead of a lease. A license is permission to use the space (more like a hotel room) rather than a tenancy, which can make it easier to act quickly if someone stops paying. We always have local counsel confirm it's appropriate and enforceable for that property."},
+    {cat:"Property Management",q:"Do you manage properties for outside owners?",a:"Yes. Our Property Management page details services, three pricing tiers, onboarding, and a Management ROI calculator. We run management-intensive assets so owners can be hands-off."},
+    {cat:"Property Management",q:"What software do you use to manage properties?",a:"AppFolio. It powers online rent payment, maintenance tickets, accounting, and the monthly owner reports showing cash flow, income and expenses, and rent collected."}
+  ];
+  function renderFAQ(){var c=$("#faqlist");if(!c||c._built)return;c._built=true;var html="",lastCat="";
+    FAQS.forEach(function(f){if(f.cat!==lastCat){html+='<div class="faqcat">'+f.cat+'</div>';lastCat=f.cat;}html+='<div class="faq"><button aria-expanded="false">'+f.q+'<span class="sign">+</span></button><div class="ans"><p>'+f.a+'</p></div></div>';});
+    c.innerHTML=html;
+    $$(".faq button",c).forEach(function(b){b.addEventListener("click",function(){var it=b.parentElement,ans=$(".ans",it),open=it.classList.toggle("open");b.setAttribute("aria-expanded",open?"true":"false");ans.style.maxHeight=open?ans.scrollHeight+"px":"0";});});
+  }
+
+  /* ---------- forms ---------- */
+  var fv=function(id){var el=$("#"+id);return el?el.value:"";};
+  function wireMail(formId,msgId,req,build){var f=$("#"+formId);if(!f)return;f.addEventListener("submit",function(e){e.preventDefault();for(var i=0;i<req.length;i++){if(!$("#"+req[i]).value){$("#"+req[i]).focus();return;}}var d=build();window.location.href="mailto:"+CONTACT_EMAIL+"?subject="+encodeURIComponent(d.subject)+"&body="+encodeURIComponent(d.body);var m=$("#"+msgId);if(m){m.style.display="block";m.scrollIntoView({behavior:"smooth",block:"center"});}});}
+  wireMail("contactform","okmsg",["fn","em"],function(){return {subject:"Website inquiry — "+fv("fn")+" "+fv("ln"),body:"Name: "+fv("fn")+" "+fv("ln")+"\nEmail: "+fv("em")+"\nPhone: "+fv("ph")+"\nInterested in: "+fv("int")+"\nAccredited investor: "+fv("acc")+"\n\nMessage:\n"+fv("msg")};});
+  wireMail("offerformf","okmsg2",["sa","sname","semail"],function(){return {subject:"Cash offer request — "+fv("sa"),body:"Property address: "+fv("sa")+"\nProperty type: "+fv("stype")+"\nCondition: "+fv("scond")+"\nTimeline: "+fv("stime")+"\nName: "+fv("sname")+"\nEmail: "+fv("semail")+"\nPhone: "+fv("sphone")+"\n\nNotes:\n"+fv("snotes")};});
+
+  /* ---------- line icons ---------- */
+  var IC={
+    home:"<path d='M3 11l9-7 9 7'/><path d='M5 10v9h14v-9'/>",
+    building:"<rect x='4' y='3' width='16' height='18' rx='1'/><path d='M8 7h2M14 7h2M8 11h2M14 11h2M8 15h2M14 15h2'/>",
+    gear:"<circle cx='12' cy='12' r='3'/><path d='M19.4 13a1.7 1.7 0 00.1-1l1.7-1.3-1.7-2.9-2 .8a1.7 1.7 0 00-1.7-1L13.5 4h-3l-.3 2.3a1.7 1.7 0 00-1.7 1l-2-.8L4.8 9.4 6.5 11a1.7 1.7 0 000 2l-1.7 1.3 1.7 2.9 2-.8a1.7 1.7 0 001.7 1l.3 2.3h3l.3-2.3a1.7 1.7 0 001.7-1l2 .8 1.7-2.9L19.4 13z'/>",
+    cash:"<rect x='2' y='6' width='20' height='12' rx='2'/><circle cx='12' cy='12' r='2.5'/>",
+    key:"<circle cx='8' cy='9' r='4'/><path d='M11 12l8 8'/><path d='M17 18l2-2'/>",
+    chart:"<path d='M4 20V10'/><path d='M10 20V4'/><path d='M16 20v-7'/><path d='M3 20h18'/>",
+    megaphone:"<path d='M3 11v2l11 4V7L3 11z'/><path d='M14 8a4 4 0 010 8'/>",
+    search:"<circle cx='11' cy='11' r='7'/><path d='M21 21l-4.5-4.5'/>",
+    doc:"<path d='M6 2h8l4 4v16H6z'/><path d='M14 2v4h4'/><path d='M9 13h6M9 16h6'/>",
+    wrench:"<path d='M21 4a5 5 0 01-6.5 6.5L5 20l-1-1 9.5-9.5A5 5 0 0121 4z'/>",
+    scale:"<path d='M12 3v18M6 21h12M5 7h14M5 7l-2 6a3 3 0 006 0L7 7M19 7l-2 6a3 3 0 006 0l-2-6'/>",
+    shield:"<path d='M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z'/>",
+    wifi:"<path d='M5 13a10 10 0 0114 0'/><path d='M8.5 16.5a5 5 0 017 0'/><circle cx='12' cy='20' r='.6'/>",
+    card:"<rect x='2' y='5' width='20' height='14' rx='2'/><path d='M2 10h20'/>",
+    clipboard:"<rect x='6' y='4' width='12' height='17' rx='1'/><rect x='9' y='2' width='6' height='4' rx='1'/><path d='M9 11h6M9 15h4'/>",
+    bolt:"<path d='M13 2L4 14h7l-1 8 9-12h-7l1-8z'/>",
+    ban:"<circle cx='12' cy='12' r='9'/><path d='M6 6l12 12'/>",
+    users:"<circle cx='9' cy='8' r='3'/><path d='M3 20a6 6 0 0112 0'/><path d='M16 6a3 3 0 010 6'/><path d='M21 20a6 6 0 00-5-6'/>",
+    calendar:"<rect x='3' y='5' width='18' height='16' rx='2'/><path d='M3 9h18M8 2v4M16 2v4'/>",
+    download:"<path d='M12 3v12M7 11l5 5 5-5M5 21h14'/>",
+    check:"<path d='M5 12l5 5 9-11'/>",
+    lock:"<rect x='5' y='11' width='14' height='9' rx='2'/><path d='M8 11V8a4 4 0 018 0v3'/>",
+    repeat:"<path d='M4 9a5 5 0 015-5h7'/><path d='M16 1l4 3-4 3'/><path d='M20 15a5 5 0 01-5 5H8'/><path d='M8 23l-4-3 4-3'/>",
+    bank:"<path d='M3 10l9-6 9 6'/><path d='M5 10v8M9 10v8M15 10v8M19 10v8'/><path d='M3 20h18'/>",
+    receipt:"<path d='M5 3h14v18l-3-2-3 2-3-2-3 2-2-1V3z'/><path d='M8 8h8M8 12h8'/>",
+    folder:"<path d='M3 7a2 2 0 012-2h4l2 2h8a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z'/>",
+    mail:"<rect x='3' y='5' width='18' height='14' rx='2'/><path d='M3 7l9 6 9-6'/>"
+  };
+  function svgIcon(name,sw){var p=IC[name];return p?"<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='"+(sw||1.6)+"' stroke-linecap='round' stroke-linejoin='round'>"+p+"</svg>":"";}
+  function injectIcons(scope){$$("[data-ic]",scope||document).forEach(function(el){if(el.dataset.icDone)return;el.dataset.icDone="1";var s=svgIcon(el.getAttribute("data-ic"));if(s)el.innerHTML=s;});}
+
+  /* ---------- guided walkthrough videos ---------- */
+  var TOURS={
+    overview:{title:"How Maryland Property Group works",scenes:[
+      {icon:"building",label:"We invest in real estate",cap:"We acquire residential and commercial properties across our markets."},
+      {icon:"chart",label:"We grow the income",cap:"Disciplined underwriting and value-add improvements raise net income."},
+      {icon:"gear",label:"We manage it in-house",cap:"Full-service, AppFolio-powered management protects the business plan."},
+      {icon:"cash",label:"We also buy directly",cap:"Need to sell fast? We buy houses and buildings for cash, as-is."}
+    ]},
+    residential:{title:"Residential investing in four steps",scenes:[
+      {icon:"search",label:"Find the right rental",cap:"We target homes and small multifamily that can truly cash-flow."},
+      {icon:"card",label:"Check the real numbers",cap:"Rent vs. price, itemized expenses, and a real mortgage — not guesses."},
+      {icon:"users",label:"Place a great tenant",cap:"Thorough screening keeps income steady and turnover low."},
+      {icon:"chart",label:"Earn four ways",cap:"Cash flow, appreciation, loan paydown, and tax benefits."}
+    ]},
+    commercial:{title:"Commercial value-add, simply",scenes:[
+      {icon:"building",label:"Buy underused space",cap:"Owner-occupied or under-rented buildings on high-traffic roads."},
+      {icon:"doc",label:"Reposition it",cap:"Divide into in-demand private offices and modernize the systems."},
+      {icon:"chart",label:"Grow the income",cap:"More income at the market cap rate means a higher building value."},
+      {icon:"check",label:"Manage the risks",cap:"Parking, zoning, ADA, and code — all verified before we buy."}
+    ]},
+    mgmt:{title:"How we manage your property",scenes:[
+      {icon:"megaphone",label:"Market & lease",cap:"Professional listings and screening fill units quickly."},
+      {icon:"card",label:"Collect rent",cap:"Online and ACH payments with AutoPay through AppFolio."},
+      {icon:"wrench",label:"Maintain & respond",cap:"24/7 ticketing and a vetted, fairly-priced vendor network."},
+      {icon:"chart",label:"Report monthly",cap:"Income, expenses, and cash flow — clearly, every month."}
+    ]},
+    webuy:{title:"Sell to us in three steps",scenes:[
+      {icon:"clipboard",label:"Tell us about it",cap:"Share the address and a few details — no obligation."},
+      {icon:"cash",label:"Get a cash offer",cap:"We assess the property and present a fair, no-fee cash offer."},
+      {icon:"calendar",label:"Close on your date",cap:"Pick your closing date — we can move fast or wait for you."}
+    ]},
+    payrent:{title:"How to pay your rent",scenes:[
+      {icon:"lock",label:"Sign in to AppFolio",cap:"Open the resident portal and sign in with your email and password."},
+      {icon:"card",label:"Select Pay",cap:"Your balance and due date are front and center. Choose to pay."},
+      {icon:"bank",label:"Choose how to pay",cap:"Pay by bank account (ACH, no fee) or by card. The amount is pre-filled."},
+      {icon:"repeat",label:"Set up AutoPay",cap:"Optional: turn on AutoPay so rent is paid automatically each month."},
+      {icon:"check",label:"All done",cap:"You receive a confirmation and a receipt saved in your history."}
+    ]},
+    owner:{title:"Reading your owner reports",scenes:[
+      {icon:"lock",label:"Sign in as an owner",cap:"Open the owner portal to see all of your properties in one place."},
+      {icon:"receipt",label:"Open your statement",cap:"Each monthly statement is powered by AppFolio."},
+      {icon:"cash",label:"Income",cap:"See the rent collected for the month and year to date."},
+      {icon:"doc",label:"Expenses",cap:"Every cost is itemized — maintenance, taxes, insurance, and more."},
+      {icon:"chart",label:"Cash flow",cap:"Income minus expenses is your cash flow — the number that matters most."},
+      {icon:"download",label:"Download anytime",cap:"Export any statement as a PDF for your records or your accountant."}
+    ]}
+  };
+  function buildTour(el){
+    if(el.dataset.built)return; el.dataset.built="1";
+    var t=TOURS[el.getAttribute("data-tour")]; if(!t)return; var n=t.scenes.length;
+    el.innerHTML="<div class='vid-frame'><div class='vid-stage'>"+t.scenes.map(function(s,i){return "<div class='scene"+(i===0?" on":"")+"'><div class='artbox'><div class='bigicon'>"+(IC[s.icon]?svgIcon(s.icon,1.3):s.icon)+"</div><div class='artlabel'>"+s.label+"</div><div class='arttag'>Step "+(i+1)+" of "+n+"</div></div></div>";}).join("")+"</div><button class='vid-poster'><span class='pbtn'>▶</span><span>Play walkthrough · "+t.title+"</span></button><div class='vid-cap'>"+t.scenes[0].cap+"</div><div class='vid-bar'><i></i></div></div><div class='vid-ctrls'><button class='vplay' aria-label='Play or pause'>▶</button><button class='vprev' aria-label='Previous'>‹</button><button class='vnext' aria-label='Next'>›</button><div class='vdots'>"+t.scenes.map(function(s,i){return "<button data-vg='"+i+"' class='"+(i===0?"on":"")+"' aria-label='Go to step "+(i+1)+"'></button>";}).join("")+"</div><span class='vtitle'>"+t.title+"</span></div>";
+    var scenes=$$(".scene",el),dots=$$(".vdots button",el),cap=$(".vid-cap",el),bar=$(".vid-bar i",el),poster=$(".vid-poster",el),vplay=$(".vplay",el),idx=0,playing=false,timer=null,DUR=4200;
+    function show(i){idx=(i+n)%n;scenes.forEach(function(s,k){s.classList.toggle("on",k===idx);});dots.forEach(function(d,k){d.classList.toggle("on",k===idx);});cap.textContent=t.scenes[idx].cap;bar.style.width=((idx+1)/n*100)+"%";}
+    function stop(){playing=false;if(timer){clearTimeout(timer);timer=null;}vplay.textContent="▶";}
+    function tick(){timer=setTimeout(function(){if(idx>=n-1){stop();vplay.textContent="↻";return;}show(idx+1);tick();},DUR);}
+    function play(){poster.style.display="none";playing=true;vplay.textContent="⏸";if(idx>=n-1)show(0);tick();}
+    poster.addEventListener("click",function(){show(0);play();});
+    vplay.addEventListener("click",function(){if(playing)stop();else play();});
+    $(".vprev",el).addEventListener("click",function(){stop();show(idx-1);});
+    $(".vnext",el).addEventListener("click",function(){stop();show(idx+1);});
+    dots.forEach(function(d){d.addEventListener("click",function(){stop();show(parseInt(d.getAttribute("data-vg"),10));});});
+  }
+  function initTours(scope){$$(".vid[data-tour]",scope||document).forEach(buildTour);}
+
+  /* ---------- client portal ---------- */
+  var PORTAL={role:"tenant",authed:false,tab:"overview",pendingTab:"overview"};
+  function openPortal(role,tab){PORTAL.role=role||"tenant";PORTAL.pendingTab=tab||"overview";PORTAL.tab=PORTAL.pendingTab;PORTAL.authed=false;showView("portal");}
+  function todayStr(){var d=new Date();return MONTHS[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear();}
+  function dashHead(title,sub){return "<div class='portal-head'><div><h2 class='serif' style='margin:0'>"+title+"</h2><div class='muted'>"+sub+"</div></div><button class='btn btn-ghost' id='psignout'>Sign out</button></div>";}
+  function tabBtns(list){return list.map(function(t){return "<button class='"+(PORTAL.tab===t[0]?"on":"")+"' data-ptab='"+t[0]+"'>"+t[1]+"</button>";}).join("");}
+  function pane(key,html){return "<div class='tabpane"+(PORTAL.tab===key?" on":"")+"' data-ppane='"+key+"'>"+html+"</div>";}
+  function loginHTML(){var r=PORTAL.role;var tenant=r==="tenant";
+    var fields=tenant?"":"<div class='field'><label>Email</label><input id='plemail' type='email' placeholder='you@email.com'></div><div class='field' style='margin-top:12px'><label>Password</label><input id='plpw' type='password' placeholder='••••••••'></div>";
+    var note=tenant?"Residents sign in securely through our AppFolio portal to pay rent and submit maintenance requests.":"Owners view statements and reports. This is a demo login — explore without an account.";
+    var btn=tenant?"Sign in to AppFolio &rarr;":"Sign In";
+    var demo=tenant?"Or view a quick resident demo &rarr;":"Skip &mdash; view demo dashboard &rarr;";
+    return "<div class='center' style='margin-bottom:24px'><div class='subtabs'><button class='"+(tenant?"on":"")+"' data-lrole='tenant'>Resident</button><button class='"+(r==="owner"?"on":"")+"' data-lrole='owner'>Owner</button></div></div><div class='login-card'><h3 class='serif' style='text-align:center;margin-bottom:2px'>"+(tenant?"Resident":"Owner")+" Login</h3><p class='muted center' style='margin-top:0'>"+note+"</p>"+fields+"<button class='btn btn-gold' id='plgo' style='width:100%;justify-content:center;margin-top:16px'>"+btn+"</button><p class='center' style='margin:12px 0 0'><a id='pldemo' style='cursor:pointer'>"+demo+"</a></p></div>";}
+  function payHTML(){return "<div class='grid g2' style='align-items:start'><div class='card'><h3 class='serif'>Make a payment</h3><div class='field' style='margin-top:8px'><label>Amount</label><input id='payamt' value='1450.00'></div><div class='field' style='margin-top:12px'><label>Payment method</label><select><option>Bank account (ACH) — no fee</option><option>Debit / credit card</option></select></div><label style='display:flex;gap:8px;align-items:center;margin:12px 0'><input type='checkbox' id='payauto'> Set up AutoPay each month</label><button class='btn btn-gold' id='paygo' style='width:100%;justify-content:center'>Submit payment</button><div class='ok-msg' id='payok'>✓ Payment submitted (demo). A receipt is saved in your history.</div></div><div class='card'><h3 class='serif'>Payment history</h3><table class='ptable'><thead><tr><th>Date</th><th>Amount</th><th>Status</th></tr></thead><tbody id='payhist'><tr><td>Jun 1, 2026</td><td>$1,450.00</td><td><span class='pill-status s-paid'>Paid</span></td></tr><tr><td>May 1, 2026</td><td>$1,450.00</td><td><span class='pill-status s-paid'>Paid</span></td></tr></tbody></table></div></div>";}
+  function maintHTML(){return "<div class='grid g2' style='align-items:start'><div class='card'><h3 class='serif'>New maintenance request</h3><div class='field' style='margin-top:8px'><label>Category</label><select id='mcat'><option>Plumbing</option><option>Electrical</option><option>HVAC / heating &amp; cooling</option><option>Appliance</option><option>Other</option></select></div><div class='field' style='margin-top:12px'><label>Describe the problem</label><textarea id='mdesc' placeholder='Tell us what is happening'></textarea></div><button class='btn btn-gold' id='mgo' style='width:100%;justify-content:center'>Submit request</button></div><div class='card'><h3 class='serif'>Your requests</h3><table class='ptable'><thead><tr><th>Date</th><th>Issue</th><th>Status</th></tr></thead><tbody id='mtix'><tr><td>Jun 8, 2026</td><td>Kitchen faucet drip</td><td><span class='pill-status s-prog'>In progress</span></td></tr></tbody></table></div></div>";}
+  function availHTML(){var u=[["1BR · Downtown","$1,450/mo","Available now"],["2BR · Riverside","$1,850/mo","Available Jul 15"],["Office Suite · Midtown","$700/mo","Available now"]];return "<div class='grid g3'>"+u.map(function(x){return "<div class='card'><div class='ic' data-ic='home'></div><h3 style='margin-bottom:2px'>"+x[0]+"</h3><div class='muted' style='font-size:.86rem'>"+x[2]+"</div><div class='serif' style='color:var(--navy);font-size:1.3rem;margin:8px 0'>"+x[1]+"</div><button class='btn btn-gold' data-view='contact' style='width:100%;justify-content:center'>Apply / Inquire</button></div>";}).join("")+"</div>";}
+  function docsHTML(role){var d=role==="owner"?["Management Agreement","Year-end 1099","Monthly statements","Insurance certificate"]:["Lease agreement","Move-in inspection","Payment receipts","Community guidelines"];return "<div class='card'><h3 class='serif'>Documents</h3><table class='ptable'><tbody>"+d.map(function(x){return "<tr><td><span class='doclink' data-ic='doc'></span>"+x+"</td><td style='text-align:right'><a style='cursor:pointer' data-noop>View</a></td></tr>";}).join("")+"</tbody></table></div>";}
+  function stmtHTML(){var ms=["June 2026","May 2026","April 2026","March 2026","February 2026","January 2026"];return "<div class='card'><h3 class='serif'>Monthly statements</h3><table class='ptable'><thead><tr><th>Statement</th><th>Income</th><th>Expenses</th><th>Cash flow</th><th></th></tr></thead><tbody>"+ms.map(function(m){return "<tr><td>"+m+"</td><td>$35,000</td><td>$15,000</td><td>$20,000</td><td style='text-align:right'><a style='cursor:pointer' data-noop>Download PDF</a></td></tr>";}).join("")+"</tbody></table></div>";}
+  function propsHTML(){var p=[["Parkway Suites","Commercial · 75 units","94%"],["Riverside Duplexes","Residential · 4 units","100%"],["Market Street Walk-Ups","Residential · 8 units","88%"]];return "<div class='grid g3'>"+p.map(function(x){return "<div class='card'><div class='ic' data-ic='building'></div><h3 style='margin-bottom:2px'>"+x[0]+"</h3><div class='muted' style='font-size:.86rem'>"+x[1]+"</div><div style='margin-top:10px;font-size:.9rem'><b>Occupancy:</b> "+x[2]+"</div></div>";}).join("")+"</div>";}
+  function tenantHTML(){return dashHead("Welcome back","123 Main St · Unit 4B")+"<div class='tabs' id='ptabs'>"+tabBtns([["overview","Overview"],["pay","Pay Rent"],["maint","Maintenance"],["docs","Documents"],["avail","Availability"]])+"</div>"+pane("overview","<div class='balance'><div><div style='font-size:.78rem;color:#cdd9e6;text-transform:uppercase;letter-spacing:.08em'>Current balance</div><div class='amt'>$1,450.00</div><div style='color:#cdd9e6;font-size:.86rem'>Due Jul 1, 2026</div></div><button class='btn btn-gold' data-gotab='pay'>Pay Now</button></div><div class='grid g2' style='margin-top:22px;align-items:start'><div class='card'><h3 class='serif'>Quick actions</h3><div style='display:flex;flex-direction:column;gap:8px;margin-top:10px'><button class='btn btn-ghost' data-gotab='pay'>Pay rent / AutoPay</button><button class='btn btn-ghost' data-gotab='maint'>Request maintenance</button><button class='btn btn-ghost' data-gotab='docs'>View documents</button></div></div><div><div class='vid' data-tour='payrent'></div></div></div>")+pane("pay",payHTML())+pane("maint",maintHTML())+pane("docs",docsHTML("tenant"))+pane("avail",availHTML());}
+  function ownerHTML(){var kp="<div class='kpis' style='grid-template-columns:repeat(3,1fr)'><div class='kpi'><div class='lbl'>Income (YTD)</div><div class='num'>$420,000</div><div class='sub'>rent collected</div></div><div class='kpi'><div class='lbl'>Expenses (YTD)</div><div class='num'>$180,000</div><div class='sub'>all costs</div></div><div class='kpi win'><div class='lbl'>Cash flow (YTD)</div><div class='num'>$240,000</div><div class='sub'>income − expenses</div></div></div>";return dashHead("Welcome back","Portfolio · 6 properties")+"<div class='tabs' id='ptabs'>"+tabBtns([["overview","Overview"],["statements","Statements"],["properties","Properties"],["docs","Documents"]])+"</div>"+pane("overview",kp+"<div class='grid g2' style='margin-top:18px;align-items:start'><div class='panel'><div class='ph'>▤ Income · Expenses · Cash flow</div><div class='pb'><div class='chartbox ownerchart'></div></div></div><div><div class='vid' data-tour='owner'></div></div></div>")+pane("statements",stmtHTML())+pane("properties",propsHTML())+pane("docs",docsHTML("owner"));}
+  function renderPortal(){var app=$("#portalapp");if(!app)return;if(!PORTAL.authed){app.innerHTML=loginHTML();wireLogin();return;}app.innerHTML=PORTAL.role==="tenant"?tenantHTML():ownerHTML();wireDash();}
+  function wireLogin(){var app=$("#portalapp");$$("[data-lrole]",app).forEach(function(b){b.addEventListener("click",function(){PORTAL.role=b.getAttribute("data-lrole");renderPortal();});});function go(){PORTAL.authed=true;PORTAL.tab=PORTAL.pendingTab||"overview";renderPortal();window.scrollTo({top:0,behavior:"auto"});}$("#plgo",app).addEventListener("click",function(){if(PORTAL.role==="tenant"){window.open(APPFOLIO_TENANT,"_blank","noopener");}else{go();}});$("#pldemo",app).addEventListener("click",function(e){e.preventDefault();go();});}
+  function wireDash(){var app=$("#portalapp");var so=$("#psignout",app);if(so)so.addEventListener("click",function(){PORTAL.authed=false;PORTAL.tab="overview";PORTAL.pendingTab="overview";renderPortal();});
+    function setTab(k){PORTAL.tab=k;$$("#ptabs button",app).forEach(function(b){b.classList.toggle("on",b.getAttribute("data-ptab")===k);});$$("[data-ppane]",app).forEach(function(p){p.classList.toggle("on",p.getAttribute("data-ppane")===k);});initTours(app);}
+    $$("#ptabs button",app).forEach(function(b){b.addEventListener("click",function(){setTab(b.getAttribute("data-ptab"));});});
+    $$("[data-gotab]",app).forEach(function(b){b.addEventListener("click",function(){setTab(b.getAttribute("data-gotab"));});});
+    var paygo=$("#paygo",app);if(paygo)paygo.addEventListener("click",function(){var ok=$("#payok",app);if(ok)ok.style.display="block";var hist=$("#payhist",app);if(hist){var amt=($("#payamt",app)||{}).value||"0.00";var tr=document.createElement("tr");tr.innerHTML="<td>"+todayStr()+"</td><td>$"+amt+"</td><td><span class='pill-status s-paid'>Paid</span></td>";hist.insertBefore(tr,hist.firstChild);}});
+    var mgo=$("#mgo",app);if(mgo)mgo.addEventListener("click",function(){var d=($("#mdesc",app)||{}).value||"(no description)";var c=($("#mcat",app)||{}).value||"Other";var tb=$("#mtix",app);if(tb){var tr=document.createElement("tr");tr.innerHTML="<td>"+todayStr()+"</td><td>"+c+" — "+d.replace(/</g,"&lt;")+"</td><td><span class='pill-status s-open'>Received</span></td>";tb.insertBefore(tr,tb.firstChild);}var di=$("#mdesc",app);if(di)di.value="";});
+    $$(".ownerchart",app).forEach(function(oc){oc.innerHTML=svgBars([{l:"Income",v:420000,l2:"$420k",c:"#143A63"},{l:"Expenses",v:180000,l2:"$180k",c:"#9fb6cf"},{l:"Cash flow",v:240000,l2:"$240k",c:"#C9A227"}],{w:560,h:240,bw:96});});
+    injectIcons(app); initTours(app);
+  }
+
+  /* ---------- init ---------- */
+  $("#yr").textContent=new Date().getFullYear();
+  injectIcons(document); initTours($("#view-home"));
+  renderFAQ();
+  var h=(location.hash||"").replace("#","");
+  if(h&&$("#view-"+h))showView(h,{noscroll:true});
+})();
+</script>
+</body>
+</html>
