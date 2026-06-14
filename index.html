@@ -1302,6 +1302,127 @@
     transform: none;
   }
 }
+/* ===== Site search ===== */
+.sitesearch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 18px;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 3px 10px;
+  transition:
+    border-color 0.2s,
+    background 0.2s;
+}
+.sitesearch:focus-within {
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.16);
+}
+.sitesearch .ss-ic {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  stroke: rgba(255, 255, 255, 0.7);
+  fill: none;
+  stroke-width: 2;
+}
+.sitesearch input {
+  width: 120px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 0.8rem;
+  font-family: inherit;
+  padding: 3px 0;
+  outline: none;
+  transition: width 0.2s;
+}
+.sitesearch input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+.sitesearch input:focus {
+  width: 190px;
+}
+.sitesearch input::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+.ss-res {
+  position: absolute;
+  top: calc(100% + 9px);
+  right: 0;
+  width: min(380px, 92vw);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  box-shadow: 0 24px 60px -18px rgba(6, 18, 36, 0.45);
+  overflow: hidden;
+  display: none;
+  z-index: 300;
+  max-height: min(66vh, 460px);
+  overflow-y: auto;
+}
+.ss-res.show {
+  display: block;
+}
+.ss-item {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  padding: 11px 15px;
+  cursor: pointer;
+  border-bottom: 1px solid var(--line-2);
+  font-family: inherit;
+}
+.ss-item:last-child {
+  border-bottom: none;
+}
+.ss-item:hover,
+.ss-item.sel {
+  background: var(--bg);
+}
+.ss-item .ss-sub {
+  display: block;
+  color: var(--gold-2);
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 800;
+}
+.ss-item b {
+  display: block;
+  color: var(--ink);
+  font-size: 0.9rem;
+  line-height: 1.25;
+  margin: 2px 0 1px;
+  font-weight: 600;
+}
+.ss-item .ss-snip {
+  display: block;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+.ss-empty {
+  padding: 15px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+@media (max-width: 640px) {
+  .sitesearch {
+    margin-left: 10px;
+  }
+  .sitesearch input {
+    width: 84px;
+  }
+  .sitesearch input:focus {
+    width: 130px;
+  }
+}
 </style>
 </head>
 <body>
@@ -1310,7 +1431,7 @@
 <div class="util">
   <div class="wrap">
     <div class="left"><span class="badge"><span class="dot"></span> Commercial &amp; Residential Real Estate · Investment · Management · Acquisitions</span></div>
-    <div class="right"><a href="tel:+14102361198">410-236-1198</a><a data-view="faqs">Insights</a><a data-view="contact">Contact</a><a data-appfolio>Resident Portal</a></div>
+    <div class="right"><div class="sitesearch"><svg class="ss-ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input id="ssq" type="search" placeholder="Search…" aria-label="Search the site" autocomplete="off"><div class="ss-res" id="ssres" role="listbox"></div></div><a href="tel:+14102361198">410-236-1198</a><a data-view="faqs">Insights</a><a data-view="contact">Contact</a><a data-appfolio>Resident Portal</a></div>
   </div>
 </div>
 
@@ -2069,6 +2190,7 @@
   /* ---------- router ---------- */
   var _bookingBuilt=false;
   function initBooking(){if(_bookingBuilt)return;_bookingBuilt=true;var c=$("#bookingembed");if(!c)return;if(BOOKING_URL){c.innerHTML="<iframe src='"+BOOKING_URL+"' title='Book a consultation' loading='lazy' style='width:100%;min-height:760px;border:0;border-radius:14px;background:#fff'></iframe>";}else{c.innerHTML="<div class='card' style='text-align:center;padding:36px 24px'><h3 class='serif'>Online booking is being set up</h3><p class='muted' style='max-width:60ch;margin:8px auto 0'>In the meantime we would be glad to schedule a consultation. Call <a href='tel:+14102361198'>410-236-1198</a>, email <a href='mailto:"+CONTACT_EMAIL+"'>"+CONTACT_EMAIL+"</a>, or send a request below.</p><div style='display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px'><a class='btn btn-gold' data-view='management' data-jump='mgmtform'>Request a Proposal</a><a class='btn btn-ghost' data-view='contact'>Contact us</a></div></div>";}}
+  var _routeGuard=false;
   function showView(v,opts){
     $$(".view").forEach(function(s){s.classList.remove("active");});
     var el=$("#view-"+v); if(!el){v="home";el=$("#view-home");}
@@ -2084,6 +2206,7 @@
     if(v==="management"){ANALYZERS.mgmt.init();initTours($("#view-management"));}
     if(v==="portal")renderPortal();
     if(v==="consultation")initBooking();
+    if(!(opts&&opts.fromHash)){var _nh="#"+v;if(location.hash!==_nh){_routeGuard=true;try{location.hash=_nh;}catch(_e){}}}
   }
   document.addEventListener("click",function(e){
     var ib=e.target.closest("[data-info]"); if(ib){e.preventDefault();e.stopPropagation();showInfo(ib);return;}
@@ -2789,6 +2912,190 @@ function initTours(scope) {
   $("#yr").textContent=new Date().getFullYear();
   injectIcons(document); initTours($("#view-home"));
   renderFAQ();
+  function _routeFromHash(initial){var rv=location.hash||"";while(rv.charAt(0)==="#"||rv.charAt(0)==="/")rv=rv.slice(1);if(rv&&$("#view-"+rv)&&!(initial&&rv==="home"))showView(rv,{fromHash:true});}
+  window.addEventListener("hashchange",function(){if(_routeGuard){_routeGuard=false;return;}_routeFromHash(false);});
+  _routeFromHash(true);
+/* ---------- site search ---------- */
+var SS_INDEX = [];
+function ssNavLabel(key) {
+  var a = $('nav.main a[data-view="' + key + '"]');
+  return a ? a.textContent.trim() : key.charAt(0).toUpperCase() + key.slice(1);
+}
+function ssBuild() {
+  SS_INDEX = [];
+  $$(".view").forEach(function (v) {
+    var key = v.id.replace("view-", "");
+    var h = v.querySelector("h1,h2");
+    SS_INDEX.push({
+      key: key,
+      label: h ? h.textContent.trim() : ssNavLabel(key),
+      sub: ssNavLabel(key),
+      text: v.textContent.replace(/\s+/g, " ").trim().toLowerCase(),
+      type: "page",
+    });
+  });
+  if (typeof FAQS !== "undefined") {
+    FAQS.forEach(function (f) {
+      SS_INDEX.push({
+        key: "faqs",
+        label: f.q,
+        sub: "FAQ · " + f.cat,
+        text: (f.q + " " + f.a).toLowerCase(),
+        type: "faq",
+        q: f.q,
+      });
+    });
+  }
+}
+function ssEsc(s) {
+  var d = document.createElement("div");
+  d.textContent = s == null ? "" : String(s);
+  return d.innerHTML;
+}
+function ssAttr(s) {
+  return ssEsc(s).replace(/"/g, "&quot;");
+}
+function ssSnippet(text, terms) {
+  var i = -1,
+    k,
+    p;
+  for (k = 0; k < terms.length; k++) {
+    p = text.indexOf(terms[k]);
+    if (p >= 0 && (i < 0 || p < i)) i = p;
+  }
+  if (i < 0) return text.slice(0, 90).trim();
+  var start = Math.max(0, i - 32);
+  return (start > 0 ? "…" : "") + text.slice(start, start + 96).trim() + "…";
+}
+function ssRun(q) {
+  var box = $("#ssres");
+  if (!box) return;
+  q = (q || "").trim().toLowerCase();
+  if (q.length < 2) {
+    box.classList.remove("show");
+    box.innerHTML = "";
+    return;
+  }
+  var terms = q.split(/\s+/);
+  var res = SS_INDEX.map(function (it) {
+    var sc = 0;
+    terms.forEach(function (t) {
+      if (it.label.toLowerCase().indexOf(t) >= 0) sc += 6;
+      if (it.text.indexOf(t) >= 0) sc += 2;
+    });
+    return { it: it, sc: sc };
+  })
+    .filter(function (r) {
+      return r.sc > 0;
+    })
+    .sort(function (a, b) {
+      return b.sc - a.sc;
+    })
+    .slice(0, 8);
+  if (!res.length) {
+    box.innerHTML =
+      '<div class="ss-empty">No matches for &ldquo;' +
+      ssEsc(q) +
+      "&rdquo;.</div>";
+    box.classList.add("show");
+    return;
+  }
+  box.innerHTML = res
+    .map(function (r, i) {
+      return (
+        '<button type="button" class="ss-item' +
+        (i === 0 ? " sel" : "") +
+        '" data-k="' +
+        ssAttr(r.it.key) +
+        '" data-type="' +
+        r.it.type +
+        '" data-q="' +
+        ssAttr(r.it.q || "") +
+        '"><span class="ss-sub">' +
+        ssEsc(r.it.sub) +
+        "</span><b>" +
+        ssEsc(r.it.label) +
+        '</b><span class="ss-snip">' +
+        ssEsc(ssSnippet(r.it.text, terms)) +
+        "</span></button>"
+      );
+    })
+    .join("");
+  box.classList.add("show");
+}
+function ssGo(btn) {
+  if (!btn) return;
+  var key = btn.getAttribute("data-k"),
+    type = btn.getAttribute("data-type"),
+    q = btn.getAttribute("data-q");
+  var box = $("#ssres");
+  if (box) {
+    box.classList.remove("show");
+  }
+  var inp = $("#ssq");
+  if (inp) {
+    inp.blur();
+  }
+  showView(key);
+  if (type === "faq") {
+    setTimeout(function () {
+      var btns = $$("#faqlist .faq button");
+      for (var i = 0; i < btns.length; i++) {
+        if (btns[i].textContent.indexOf(q) >= 0) {
+          if (!btns[i].parentElement.classList.contains("open"))
+            btns[i].click();
+          btns[i].scrollIntoView({ behavior: "smooth", block: "center" });
+          break;
+        }
+      }
+    }, 140);
+  }
+}
+(function () {
+  var inp = $("#ssq");
+  if (!inp) return;
+  ssBuild();
+  inp.addEventListener("input", function () {
+    ssRun(inp.value);
+  });
+  inp.addEventListener("focus", function () {
+    if (inp.value.trim().length >= 2) ssRun(inp.value);
+  });
+  inp.addEventListener("keydown", function (e) {
+    var items = $$("#ssres .ss-item"),
+      sel = $("#ssres .ss-item.sel"),
+      idx = items.indexOf(sel);
+    if (e.key === "Enter") {
+      e.preventDefault();
+      ssGo(sel || items[0]);
+    } else if (e.key === "Escape") {
+      var b = $("#ssres");
+      if (b) b.classList.remove("show");
+      inp.blur();
+    } else if ((e.key === "ArrowDown" || e.key === "ArrowUp") && items.length) {
+      e.preventDefault();
+      idx =
+        e.key === "ArrowDown" ? idx + 1 : idx <= 0 ? items.length - 1 : idx - 1;
+      if (idx >= items.length) idx = 0;
+      items.forEach(function (x) {
+        x.classList.remove("sel");
+      });
+      items[idx].classList.add("sel");
+    }
+  });
+  var box = $("#ssres");
+  if (box)
+    box.addEventListener("click", function (e) {
+      var b = e.target.closest(".ss-item");
+      if (b) ssGo(b);
+    });
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".sitesearch")) {
+      var bb = $("#ssres");
+      if (bb) bb.classList.remove("show");
+    }
+  });
+})();
   var h=(location.hash||"").replace("#","");
   if(h&&$("#view-"+h))showView(h,{noscroll:true});
 })();
