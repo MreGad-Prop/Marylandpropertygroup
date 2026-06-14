@@ -26,6 +26,9 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"RealEstateAgent","name":"Maryland Property Group","alternateName":"More Gad LLC","url":"https://marylandpropertygroup.com/","image":"https://marylandpropertygroup.com/og-image.png","logo":"https://marylandpropertygroup.com/favicon.svg","email":"ben@marylandpropertygroup.com","description":"Commercial and residential real estate investment, property management, and direct home and building purchases.","areaServed":{"@type":"State","name":"Maryland"},"knowsAbout":["Real estate investment","Property management","Commercial real estate","Residential real estate","Cash home buying"]}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://marylandpropertygroup.com/#org","name":"Maryland Property Group","legalName":"More Gad LLC","url":"https://marylandpropertygroup.com/","logo":"https://marylandpropertygroup.com/favicon.svg","email":"ben@marylandpropertygroup.com","areaServed":{"@type":"State","name":"Maryland"}},{"@type":"WebSite","@id":"https://marylandpropertygroup.com/#website","url":"https://marylandpropertygroup.com/","name":"Maryland Property Group","publisher":{"@id":"https://marylandpropertygroup.com/#org"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Do you manage both residential and commercial properties?","acceptedAnswer":{"@type":"Answer","text":"Yes. Maryland Property Group manages both residential rentals (single-family and small multifamily) and commercial assets (office, retail, and mixed-use), with leasing, rent collection, maintenance coordination, inspections, and AppFolio-powered owner reporting."}},{"@type":"Question","name":"How does owner reporting work?","acceptedAnswer":{"@type":"Answer","text":"Owners receive monthly statements through AppFolio covering income, expenses, and cash flow, plus visibility into rent status and maintenance activity."}},{"@type":"Question","name":"Do you buy properties directly?","acceptedAnswer":{"@type":"Answer","text":"Yes. We buy residential and commercial property directly from owners, as-is, with no agent commissions and a closing date you choose."}},{"@type":"Question","name":"Are investment opportunities publicly available?","acceptedAnswer":{"@type":"Answer","text":"No. Nothing on this website is an offer to sell or a solicitation to buy securities. Any future opportunity materials are shared only through appropriate private channels, subject to applicable securities laws."}},{"@type":"Question","name":"What information do you need to prepare a management proposal?","acceptedAnswer":{"@type":"Answer","text":"Property type, unit count, location, current occupancy and lease status, condition, and your goals. Final terms depend on these factors and the scope of work."}}]}]}
+</script>
 <style>
   :root{
     --navy:#0A2240; --navy-700:#0C2C57; --navy-600:#143A63; --navy-500:#1E4B7A;
@@ -342,6 +345,13 @@
     .band .wrap{gap:18px} .modal{padding:0} .modal-box{max-height:100vh;border-radius:0;width:100%}
     .util .left{display:none} .analyzer{grid-template-columns:1fr}
   }
+  .pathcard{cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
+  .pathcard:hover,.pathcard:focus-visible{transform:translateY(-3px);box-shadow:0 14px 34px rgba(10,34,64,.14);border-color:var(--gold)}
+  .trust-strip .stat b{color:var(--gold)!important;font-size:1.35rem!important}
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+    .reveal{opacity:1!important;transform:none!important}
+  }
 </style>
 </head>
 <body>
@@ -362,14 +372,16 @@
     </div>
     <button class="hamb" id="hamb" aria-label="Toggle navigation" aria-expanded="false">☰ Menu</button>
     <nav class="main" id="mainnav" aria-label="Primary">
-      <a data-view="home" class="active">Home</a>
-      <a data-view="start">First-Time Investors</a>
-      <a data-view="residential">Residential</a>
+      <a data-view="management" class="active">Property Management</a>
+      <a data-view="owners">Owners</a>
+      <a data-view="residents">Residents</a>
       <a data-view="commercial">Commercial</a>
-      <a data-view="management">Property Management</a>
-      <a data-view="webuy">We Buy Houses</a>
+      <a data-view="residential">Residential</a>
+      <a data-view="webuy">Sell Your Property</a>
+      <a data-view="investors">Investors</a>
       <a data-view="faqs">FAQs</a>
-      <a data-view="contact">Contact us</a>
+      <a data-view="contact">Contact</a>
+      <a class="btn btn-gold" data-view="management" data-jump="mgmtform" style="margin-left:6px">Get Proposal</a>
     </nav>
   </div>
 </header>
@@ -382,12 +394,13 @@
     <div class="wrap">
       <div>
         <div class="eyebrow" style="color:var(--gold-soft)">Maryland Property Group · More Gad LLC</div>
-        <h1 class="serif">Commercial &amp; Residential Real Estate Investment and Management</h1>
-        <p class="lead">We invest in, manage, and acquire residential and commercial real estate across our markets — pairing disciplined underwriting with hands-on, in-house property management.</p>
+        <h1 class="serif">Commercial &amp; Residential Property Management, Investment, and Direct Acquisitions</h1>
+        <p class="lead">Local, hands-on real estate operators managing residential and commercial assets with disciplined underwriting, AppFolio-powered reporting, and practical owner communication.</p>
         <div class="pills"><span class="pill">◆ Commercial &amp; residential investing</span><span class="pill">◆ In-house property management</span><span class="pill">◆ We buy houses &amp; buildings for cash</span></div>
         <div class="actions">
-          <button class="btn btn-gold btn-lg" data-deck="investor">View Our Presentation</button>
-          <a class="btn btn-ghost-light btn-lg" data-view="start">New to investing? Start here</a>
+          <a class="btn btn-gold btn-lg" data-view="management" data-jump="mgmtform">Request Management Proposal</a>
+          <a class="btn btn-ghost-light btn-lg" data-view="webuy">Sell a Property</a>
+          <a class="btn btn-ghost-light btn-lg" data-view="investors">Request Investor Access</a>
         </div>
       </div>
       <div class="hero-card">
@@ -403,16 +416,30 @@
         </div>
       </div>
     </div>
-    <div class="band">
+    <div class="band trust-strip">
       <div class="wrap">
-        <div class="stat"><b class="serif">&mdash;</b><span>Assets under management</span></div>
-        <div class="stat"><b class="serif">&mdash;</b><span>Properties</span></div>
-        <div class="stat"><b class="serif">&mdash;</b><span>Units managed</span></div>
-        <div class="stat"><b class="serif">&mdash;</b><span>Markets</span></div>
-        <div class="stat"><b class="serif">&mdash;</b><span>Years operating</span></div>
+        <div class="stat"><b class="serif">✓</b><span>Residential management</span></div>
+        <div class="stat"><b class="serif">✓</b><span>Commercial management</span></div>
+        <div class="stat"><b class="serif">✓</b><span>AppFolio owner reporting</span></div>
+        <div class="stat"><b class="serif">✓</b><span>Resident portal</span></div>
+        <div class="stat"><b class="serif">✓</b><span>Direct cash acquisitions</span></div>
+        <div class="stat"><b class="serif">✓</b><span>Maryland-focused operations</span></div>
       </div>
     </div>
   </div>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head center reveal"><div class="eyebrow">How can we help?</div><h2 class="serif">Find your path</h2><p class="muted">Tell us who you are and we'll take you to the right place.</p></div>
+      <div class="grid g3">
+        <div class="card pathcard reveal" data-view="management" data-jump="mgmtform" tabindex="0" role="button"><div class="ic" data-ic="gear"></div><h3>Property owner</h3><p class="muted">Have a rental or commercial property you want professionally managed?</p><span class="btn btn-ghost" style="margin-top:10px">Request a proposal ›</span></div>
+        <div class="card pathcard reveal" data-view="webuy" tabindex="0" role="button"><div class="ic" data-ic="cash"></div><h3>Seller</h3><p class="muted">Want to sell a house, small multifamily, or commercial building as-is?</p><span class="btn btn-ghost" style="margin-top:10px">Get a cash offer ›</span></div>
+        <div class="card pathcard reveal" data-view="investors" tabindex="0" role="button"><div class="ic" data-ic="chart"></div><h3>Investor</h3><p class="muted">Want to review future private opportunities?</p><span class="btn btn-ghost" style="margin-top:10px">Request investor access ›</span></div>
+        <div class="card pathcard reveal" data-view="residents" tabindex="0" role="button"><div class="ic" data-ic="home"></div><h3>Resident</h3><p class="muted">Need to pay rent or request maintenance?</p><span class="btn btn-ghost" style="margin-top:10px">Resident resources ›</span></div>
+        <div class="card pathcard reveal" data-view="owners" tabindex="0" role="button"><div class="ic" data-ic="clipboard"></div><h3>Current owner</h3><p class="muted">Need reports or statements?</p><span class="btn btn-ghost" style="margin-top:10px">Owner resources ›</span></div>
+      </div>
+    </div>
+  </section>
 
   <section class="block alt">
     <div class="wrap">
@@ -451,8 +478,9 @@
 
   <section class="block alt">
     <div class="wrap">
-      <div class="sec-head reveal" style="margin-bottom:0"><div class="eyebrow">Current &amp; recent offerings</div><h2 class="serif">Offerings</h2></div>
-      <div class="placeholder reveal" style="margin-top:24px">Offerings will be posted here soon. <a data-view="contact">Request access</a> to be notified when they go live.</div>
+      <div class="sec-head reveal"><div class="eyebrow">For qualified investors</div><h2 class="serif">Investor access</h2><p class="muted">We may share information about future real estate opportunities with qualified prospective investors. Access is reviewed before any opportunity-specific materials are shared.</p></div>
+      <div class="reveal" style="margin-top:8px"><a class="btn btn-gold" data-view="investors">Request investor access</a></div>
+      <p class="muted" style="font-size:.78rem;margin-top:16px;max-width:70ch">Informational only. Nothing on this website is an offer to sell or a solicitation of an offer to buy any security. Any future offering materials, if available, are provided only through appropriate private channels and subject to applicable securities laws.</p>
     </div>
   </section>
 
@@ -462,7 +490,7 @@
       <h2 class="serif">Invest, get managed, or sell to us</h2>
       <p style="color:#cdd9e6">Whether you want to invest, have us manage your property, or sell a house or building, we'd like to hear from you.</p>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px">
-        <a class="btn btn-gold btn-lg" data-view="contact">Request Investor Access</a>
+        <a class="btn btn-gold btn-lg" data-view="investors">Request Investor Access</a>
         <a class="btn btn-ghost-light btn-lg" data-view="webuy">Get a Cash Offer</a>
       </div>
     </div>
@@ -593,7 +621,7 @@
   <section class="block alt">
     <div class="wrap">
       <div class="sec-head reveal" style="margin-bottom:0"><div class="eyebrow">Residential offerings</div><h2 class="serif">Offerings</h2></div>
-      <div class="placeholder reveal" style="margin-top:24px">Residential offerings will be posted here soon. <a data-view="contact">Request access</a> to be notified.</div>
+      <div class="reveal" style="margin-top:18px"><p class="muted" style="max-width:70ch">Information about future opportunities is shared only with qualified prospective investors through appropriate private channels, subject to applicable securities laws. Nothing here is an offer to sell or a solicitation to buy any security.</p><a class="btn btn-ghost" data-view="investors" style="margin-top:10px">Request investor access ›</a></div>
     </div>
   </section>
 </section>
@@ -627,7 +655,7 @@
   <section class="block alt">
     <div class="wrap">
       <div class="sec-head reveal" style="margin-bottom:0"><div class="eyebrow">Commercial offerings</div><h2 class="serif">Offerings</h2></div>
-      <div class="placeholder reveal" style="margin-top:24px">Commercial offerings will be posted here soon. <a data-view="contact">Request access</a> to be notified.</div>
+      <div class="reveal" style="margin-top:18px"><p class="muted" style="max-width:70ch">Information about future opportunities is shared only with qualified prospective investors through appropriate private channels, subject to applicable securities laws. Nothing here is an offer to sell or a solicitation to buy any security.</p><a class="btn btn-ghost" data-view="investors" style="margin-top:10px">Request investor access ›</a></div>
     </div>
   </section>
 </section>
@@ -730,6 +758,27 @@
       </div>
     </div>
   </section>
+
+  <section class="block" id="mgmtform">
+    <div class="wrap" style="max-width:780px">
+      <div class="sec-head reveal"><div class="eyebrow">Get started</div><h2 class="serif">Request a management proposal</h2><p class="muted">Tell us about your property and we'll prepare a proposal. Final pricing depends on property type, unit count, condition, location, scope, and current operational status — request a proposal for exact terms.</p></div>
+      <form class="formgrid" id="mgmtformf" novalidate>
+        <div class="field full"><label for="ma">Property address or area</label><input id="ma" required placeholder="Street, City, State, ZIP"></div>
+        <div class="field"><label for="mtype">Property type</label><select id="mtype"><option>Single-family rental</option><option>Condo / townhome</option><option>Small multifamily (2–20 units)</option><option>Apartment building</option><option>Commercial / office</option><option>Retail / mixed-use</option><option>Mixed portfolio</option></select></div>
+        <div class="field"><label for="munits">Units</label><input id="munits" type="number" min="1" placeholder="e.g. 4"></div>
+        <div class="field"><label for="mstatus">Current status</label><select id="mstatus"><option>Self-managed today</option><option>With another manager</option><option>Newly acquired</option><option>Vacant</option><option>Under renovation</option></select></div>
+        <div class="field"><label for="mocc">Occupancy</label><select id="mocc"><option>Fully occupied</option><option>Partially occupied</option><option>Vacant</option></select></div>
+        <div class="field"><label for="mname">Your name</label><input id="mname" required></div>
+        <div class="field"><label for="memail">Email</label><input id="memail" type="email" required></div>
+        <div class="field"><label for="mphone">Phone</label><input id="mphone" type="tel"></div>
+        <div class="field full"><label for="mnotes">Goals or anything we should know?</label><textarea id="mnotes" placeholder="Vacancy, deferred maintenance, reporting needs, timeline, etc."></textarea></div>
+        <div class="field full"><label style="display:flex;gap:9px;align-items:flex-start;font-size:.85rem;color:var(--body)"><input type="checkbox" id="mconsent" required style="margin-top:3px;width:auto"> I agree to be contacted about my property. We do not sell your information.</label></div>
+        <div class="field full"><div class="cf-turnstile-slot"></div></div>
+        <div class="field full"><button class="btn btn-gold btn-lg" type="submit">Request a Proposal</button></div>
+      </form>
+      <div class="ok-msg" id="okmsg-mgmt">✓ Thanks — we've received your request and will follow up with next steps.</div>
+    </div>
+  </section>
 </section>
 
 <!-- ================= WE BUY HOUSES ================= -->
@@ -796,6 +845,23 @@
     </div>
   </section>
 
+  <section class="block alt">
+    <div class="wrap" style="max-width:900px">
+      <div class="sec-head reveal"><div class="eyebrow">Compare your options</div><h2 class="serif">Cash offer vs. listing with an agent</h2><p class="muted">A traditional listing may produce a higher price, but usually involves showings, repairs, time, and uncertainty. A direct sale prioritizes speed, certainty, and convenience. The right choice depends on your situation.</p></div>
+      <div class="reveal" style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:.92rem;min-width:560px">
+        <thead><tr><th style="text-align:left;padding:12px;border-bottom:2px solid var(--line)"></th><th style="text-align:left;padding:12px;border-bottom:2px solid var(--gold);color:var(--ink)">Direct sale to us</th><th style="text-align:left;padding:12px;border-bottom:2px solid var(--line);color:var(--muted)">Listing with an agent</th></tr></thead>
+        <tbody>
+          <tr><td style="padding:12px;border-bottom:1px solid var(--line-2);font-weight:600">Repairs &amp; cleanup</td><td style="padding:12px;border-bottom:1px solid var(--line-2)">None — we buy as-is</td><td style="padding:12px;border-bottom:1px solid var(--line-2);color:var(--muted)">Often expected before listing</td></tr>
+          <tr><td style="padding:12px;border-bottom:1px solid var(--line-2);font-weight:600">Showings</td><td style="padding:12px;border-bottom:1px solid var(--line-2)">None</td><td style="padding:12px;border-bottom:1px solid var(--line-2);color:var(--muted)">Multiple, on buyers' schedules</td></tr>
+          <tr><td style="padding:12px;border-bottom:1px solid var(--line-2);font-weight:600">Agent commissions</td><td style="padding:12px;border-bottom:1px solid var(--line-2)">None</td><td style="padding:12px;border-bottom:1px solid var(--line-2);color:var(--muted)">Typically a percentage of price</td></tr>
+          <tr><td style="padding:12px;border-bottom:1px solid var(--line-2);font-weight:600">Timeline</td><td style="padding:12px;border-bottom:1px solid var(--line-2)">You choose the closing date</td><td style="padding:12px;border-bottom:1px solid var(--line-2);color:var(--muted)">Depends on the market</td></tr>
+          <tr><td style="padding:12px;border-bottom:1px solid var(--line-2);font-weight:600">Certainty</td><td style="padding:12px;border-bottom:1px solid var(--line-2)">Cash, no financing contingency</td><td style="padding:12px;border-bottom:1px solid var(--line-2);color:var(--muted)">Offers can fall through</td></tr>
+          <tr><td style="padding:12px;font-weight:600">Likely price</td><td style="padding:12px">A fair as-is cash price</td><td style="padding:12px;color:var(--muted)">Potentially higher, with effort &amp; time</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </section>
+
   <section class="block" id="offerform">
     <div class="wrap" style="max-width:780px">
       <div class="sec-head reveal"><div class="eyebrow">No-obligation</div><h2 class="serif">Get your cash offer</h2><p class="muted">Tell us about your property and we'll be in touch. There's no cost and no commitment.</p></div>
@@ -809,6 +875,7 @@
         <div class="field"><label for="semail">Email</label><input id="semail" type="email" required></div>
         <div class="field"><label for="sphone">Phone</label><input id="sphone" type="tel"></div>
         <div class="field full"><label for="snotes">Anything we should know?</label><textarea id="snotes" placeholder="Liens, tenants, repairs, reason for selling, etc."></textarea></div>
+        <div class="field full"><label style="display:flex;gap:9px;align-items:flex-start;font-size:.85rem;color:var(--body)"><input type="checkbox" id="sconsent" required style="margin-top:3px;width:auto"> I agree to be contacted about my property inquiry. We do not sell your inquiry information.</label></div>
         <div class="field full"><div class="cf-turnstile-slot"></div></div>
         <div class="field full"><button class="btn btn-gold btn-lg" type="submit">Request My Cash Offer</button></div>
       </form>
@@ -849,12 +916,91 @@
         <div class="field"><label for="int">I'm interested in</label><select id="int"><option>Residential investing</option><option>Commercial investing</option><option>First-time investing</option><option>Property management</option><option>Selling my property</option><option>General inquiry</option></select></div>
         <div class="field"><label for="acc">Accredited investor?</label><select id="acc"><option>Yes</option><option>No</option><option>Not sure</option></select></div>
         <div class="field full"><label for="msg">Message</label><textarea id="msg" placeholder="Tell us about your goals, timeline, and details."></textarea></div>
+        <div class="field full"><label style="display:flex;gap:9px;align-items:flex-start;font-size:.85rem;color:var(--body)"><input type="checkbox" id="cconsent" required style="margin-top:3px;width:auto"> I agree to be contacted about my inquiry. We do not sell your information.</label></div>
         <div class="field full"><div class="cf-turnstile-slot"></div></div>
         <div class="field full"><button class="btn btn-gold btn-lg" type="submit">Submit request</button></div>
       </form>
       <div class="ok-msg" id="okmsg">✓ Thanks — we've received your message and will be in touch shortly.</div>
     </div>
   </section>
+</section>
+
+<!-- ================= OWNERS ================= -->
+<section class="view" id="view-owners">
+  <div class="pagehead"><div class="wrap"><div class="eyebrow" style="color:var(--gold-soft)">For property owners</div><h1 class="serif" style="max-width:22ch">Owner reporting and operations you can rely on</h1><p class="lead">Clear monthly statements, responsive maintenance, and a single point of contact — so owning a rental or commercial property feels less like a second job.</p><div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-gold" data-portal="owner">Owner Portal Login</a><a class="btn btn-ghost-light" data-view="management" data-jump="mgmtform">Request a Proposal</a></div></div></div>
+  <section class="block"><div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Every month</div><h2 class="serif">What owners can expect</h2></div>
+    <div class="grid g3">
+      <div class="card reveal"><div class="ic" data-ic="chart"></div><h3>AppFolio owner statements</h3><p class="muted">Monthly income, expenses, and cash-flow reporting you can review anytime in the owner portal.</p></div>
+      <div class="card reveal"><div class="ic" data-ic="cash"></div><h3>Rent status &amp; collections</h3><p class="muted">Visibility into rent collected, balances, and payment activity across your units.</p></div>
+      <div class="card reveal"><div class="ic" data-ic="wrench"></div><h3>Maintenance updates</h3><p class="muted">Work orders tracked from request to completion, with vendor coordination handled for you.</p></div>
+      <div class="card reveal"><div class="ic" data-ic="clipboard"></div><h3>Lease &amp; renewal visibility</h3><p class="muted">Lease dates, renewals, and rent status kept current so nothing slips.</p></div>
+      <div class="card reveal"><div class="ic" data-ic="building"></div><h3>Year-end documents</h3><p class="muted">Year-end statements and 1099 support to make tax time straightforward.</p></div>
+      <div class="card reveal"><div class="ic" data-ic="users"></div><h3>One point of contact</h3><p class="muted">Direct, practical communication — clear next steps and fewer surprises.</p></div>
+    </div>
+  </div></section>
+  <section class="block alt"><div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Onboarding</div><h2 class="serif">What we'll need to get started</h2><p class="muted">Having these ready helps us transition your property quickly.</p></div>
+    <div class="grid g2"><ul class="muted" style="line-height:2"><li>Existing lease documents</li><li>Rent roll</li><li>Tenant contact information</li><li>Utility information</li><li>Insurance information</li></ul><ul class="muted" style="line-height:2"><li>Property licenses / registrations</li><li>Recent repair history</li><li>Keys / access details</li><li>Vendor warranties</li></ul></div>
+  </div></section>
+  <section class="block"><div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Before we manage your property</div><h2 class="serif">A general readiness checklist</h2></div>
+    <div class="grid g2"><ul class="muted" style="line-height:2"><li>Rental registration / license status, where required</li><li>Lead paint status for older residential properties, where applicable</li><li>Smoke / CO detector requirements</li></ul><ul class="muted" style="line-height:2"><li>Habitability and code issues</li><li>Property insurance in place</li><li>Lease documentation</li></ul></div>
+    <p class="muted" style="font-size:.8rem;margin-top:14px">This is general information, not legal advice. Requirements vary by jurisdiction and property; we'll help you identify what applies and recommend qualified professionals where needed.</p>
+  </div></section>
+  <section class="block navy center"><div class="wrap" style="max-width:680px"><div class="eyebrow" style="color:var(--gold-soft)">Ready to hand it off?</div><h2 class="serif">Let's review your property</h2><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px"><a class="btn btn-gold btn-lg" data-view="management" data-jump="mgmtform">Request a Management Proposal</a><a class="btn btn-ghost-light btn-lg" data-portal="owner">Owner Portal</a></div></div></section>
+</section>
+
+<!-- ================= RESIDENTS ================= -->
+<section class="view" id="view-residents">
+  <div class="pagehead"><div class="wrap"><div class="eyebrow" style="color:var(--gold-soft)">For residents</div><h1 class="serif" style="max-width:20ch">Resident portal &amp; resources</h1><p class="lead">Pay rent, set up autopay, and request maintenance online — anytime, from any device, through our AppFolio resident portal.</p><div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-gold" data-appfolio>Open Resident Portal</a></div></div></div>
+  <section class="block"><div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">In the portal</div><h2 class="serif">What you can do online</h2></div>
+    <div class="grid g3">
+      <div class="card reveal"><div class="ic" data-ic="cash"></div><h3>Pay rent &amp; set autopay</h3><p class="muted">Make a one-time payment or set up automatic monthly payments.</p></div>
+      <div class="card reveal"><div class="ic" data-ic="wrench"></div><h3>Submit a maintenance request</h3><p class="muted">Report an issue with photos and details so we can act quickly.</p></div>
+      <div class="card reveal"><div class="ic" data-ic="clipboard"></div><h3>View lease &amp; documents</h3><p class="muted">Access your lease and shared documents where available in the portal.</p></div>
+      <div class="card reveal"><div class="ic" data-ic="users"></div><h3>Update your contact info</h3><p class="muted">Keep your phone and email current so we can reach you.</p></div>
+    </div>
+  </div></section>
+  <section class="block"><div class="wrap" style="max-width:820px"><div class="reveal" style="border:2px solid #c0392b;background:#fdf2f1;border-radius:14px;padding:22px 24px"><h3 style="margin:0 0 6px;color:#962d22">Emergency?</h3><p class="muted" style="margin:0">If there is immediate danger to people or property, <strong>call 911 first.</strong> For urgent property issues (such as a major leak, no heat, or a safety hazard), use the emergency maintenance contact or process listed in your resident portal or lease documents.</p></div></div></section>
+  <section class="block alt"><div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Good to know</div><h2 class="serif">Maintenance request expectations</h2></div>
+    <div class="grid g2">
+      <div class="card reveal"><h3>Emergency vs. non-emergency</h3><p class="muted">Emergencies involve safety or active property damage. Non-emergency requests are scheduled in turn — please submit them through the portal.</p></div>
+      <div class="card reveal"><h3>Photos help</h3><p class="muted">Adding photos and a clear description helps us send the right vendor the first time.</p></div>
+      <div class="card reveal"><h3>Access instructions</h3><p class="muted">Let us know about access, parking, and the best times so work can be completed promptly.</p></div>
+      <div class="card reveal"><h3>Pets &amp; permissions</h3><p class="muted">Note any pets or entry preferences so technicians arrive prepared.</p></div>
+    </div>
+  </div></section>
+  <section class="block"><div class="wrap">
+    <div class="sec-head reveal"><div class="eyebrow">Checklist</div><h2 class="serif">Move-in / move-out</h2></div>
+    <div class="grid g2"><div class="card reveal"><h3>Moving in</h3><ul class="muted" style="line-height:1.9"><li>Set up your portal login and autopay</li><li>Confirm utilities are in your name</li><li>Document the unit's condition with photos</li><li>Note any items needing attention</li></ul></div><div class="card reveal"><h3>Moving out</h3><ul class="muted" style="line-height:1.9"><li>Give notice per your lease</li><li>Remove belongings and clean the unit</li><li>Return all keys and access devices</li><li>Provide a forwarding address</li></ul></div></div>
+  </div></section>
+</section>
+
+<!-- ================= INVESTORS ================= -->
+<section class="view" id="view-investors">
+  <div class="pagehead"><div class="wrap"><div class="eyebrow" style="color:var(--gold-soft)">For qualified prospective investors</div><h1 class="serif">Investor Access</h1><p class="lead">Maryland Property Group may share information about future real estate opportunities with qualified prospective investors. Access is reviewed before any opportunity-specific materials are shared.</p></div></div>
+  <section class="block"><div class="wrap" style="max-width:820px">
+    <div class="reveal" style="background:#f7f9fc;border:1px solid var(--line);border-radius:14px;padding:22px 24px"><h3 style="margin-top:0">Important information</h3><ul class="muted" style="line-height:1.9;margin:0"><li>This page is for general informational purposes only.</li><li>Nothing on this website is an offer to sell or a solicitation of an offer to buy any security.</li><li>Any future offering materials, if available, will be provided only through appropriate private channels and subject to applicable securities laws.</li><li>Real estate investments involve risk, including possible loss of principal and illiquidity.</li><li>Consult your own legal, tax, and financial advisors before making any investment decision.</li></ul></div>
+  </div></section>
+  <section class="block alt"><div class="wrap" style="max-width:780px">
+    <div class="sec-head reveal"><div class="eyebrow">Express interest</div><h2 class="serif">Request investor access</h2><p class="muted">Share a few details and we'll review your request. This does not create any obligation for you or for Maryland Property Group.</p></div>
+    <form class="formgrid" id="investorform" novalidate>
+      <div class="field"><label for="iname">Name</label><input id="iname" required></div>
+      <div class="field"><label for="iemail">Email</label><input id="iemail" type="email" required></div>
+      <div class="field"><label for="iphone">Phone</label><input id="iphone" type="tel"></div>
+      <div class="field"><label for="itype">Investor type</label><select id="itype"><option>Individual</option><option>Entity</option><option>Advisor</option><option>Other</option></select></div>
+      <div class="field"><label for="iacc">Accredited investor?</label><select id="iacc"><option>Yes</option><option>No</option><option>Not sure</option></select></div>
+      <div class="field"><label for="iexp">Investment experience</label><select id="iexp"><option>Beginner</option><option>Some experience</option><option>Experienced</option></select></div>
+      <div class="field full"><label for="iarea">Areas of interest</label><select id="iarea"><option>Residential</option><option>Commercial</option><option>Private credit</option><option>Direct ownership</option><option>Not sure</option></select></div>
+      <div class="field full"><label style="display:flex;gap:9px;align-items:flex-start;font-size:.85rem;color:var(--body)"><input type="checkbox" id="iack" required style="margin-top:3px;width:auto"> I understand this page and form are informational only and are not an offer, solicitation, or sale of any security. I agree to be contacted about my request.</label></div>
+      <div class="field full"><div class="cf-turnstile-slot"></div></div>
+      <div class="field full"><button class="btn btn-gold btn-lg" type="submit">Request Access</button></div>
+    </form>
+    <div class="ok-msg" id="okmsg-inv">✓ Thanks — we've received your request and will review it before sharing any materials.</div>
+  </div></section>
 </section>
 
 </main>
@@ -877,15 +1023,15 @@
         <div class="brand" style="margin-bottom:12px"><div class="mark"><span>M</span></div><div><b style="color:#fff;font-family:var(--serif)">Maryland Property Group</b><small style="display:block;color:var(--gold-soft);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase">More Gad LLC</small></div></div>
         <p style="max-width:34ch">Commercial and residential real estate investment, management, and direct acquisitions.</p>
       </div>
-      <div><h5>Invest</h5><a data-view="residential">Residential</a><a data-view="commercial">Commercial</a><a data-view="start">First-time investors</a><a data-view="contact">Offerings</a></div>
-      <div><h5>Company</h5><a data-view="management">Property management</a><a data-view="webuy">We buy houses</a><a data-view="faqs">Insights</a><a data-view="contact">Contact</a></div>
-      <div><h5>Account</h5><a data-view="contact">Investor login</a><a data-view="contact">Request access</a><a data-view="faqs">FAQs</a></div>
+      <div><h5>Services</h5><a data-view="management">Property management</a><a data-view="residential">Residential</a><a data-view="commercial">Commercial</a><a data-view="webuy">Sell your property</a></div>
+      <div><h5>For you</h5><a data-view="owners">Owners</a><a data-view="residents">Residents</a><a data-view="investors">Investors</a><a data-view="contact">Contact</a></div>
+      <div><h5>Account</h5><a data-portal="owner">Owner portal</a><a data-appfolio>Resident portal</a><a data-view="investors">Investor access</a><a data-view="faqs">FAQs</a></div>
     </div>
     <div class="disc">
-      <div class="eho"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9fb1c4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="16" x2="15" y2="16"/></svg><div><strong style="color:#cfdbe8">Equal Housing Opportunity</strong><br>We do business in accordance with the Federal Fair Housing Act and do not discriminate against any person because of race, color, religion, sex, handicap, familial status, or national origin.</div></div>
+      <div class="eho"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#9fb1c4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v9h14v-9"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="16" x2="15" y2="16"/></svg><div><strong style="color:#cfdbe8">Equal Housing Opportunity</strong><br>We do business in accordance with the Federal Fair Housing Act and applicable Maryland law, and do not discriminate against any person because of race, color, religion, sex, familial status, national origin, marital status, sexual orientation, gender identity, disability, source of income, or military status.</div></div>
       <h5>Sitemap</h5>
-      <div class="sitemap"><a data-view="home">Home</a><a data-view="start">First-Time Investors</a><a data-view="residential">Residential</a><a data-view="commercial">Commercial</a><a data-view="management">Property Management</a><a data-view="webuy">We Buy Houses</a><a data-portal="tenant">Resident Portal</a><a data-portal="owner">Owner Portal</a><a data-view="faqs">FAQs</a><a data-view="contact">Contact</a></div>
-      <p class="legal">Maryland Property Group is a trade name of More Gad LLC. This website is for general informational purposes only and is a demonstration build; nothing herein is an offer to sell or a solicitation of an offer to buy any security, nor is it investment, legal, or tax advice. Real estate and private investments involve risk, including the possible loss of principal, and may be illiquid. Any projected, targeted, or illustrative figures are hypothetical, are based on stated assumptions, and are not guarantees of future results. Securities, where offered, are available only to verified accredited investors under applicable exemptions. Property management services are provided in accordance with applicable state and local law; licensing details are available upon request. AppFolio and other product names are trademarks of their respective owners and are referenced for descriptive purposes only.</p>
+      <div class="sitemap"><a data-view="home">Home</a><a data-view="management">Property Management</a><a data-view="owners">Owners</a><a data-view="residents">Residents</a><a data-view="commercial">Commercial</a><a data-view="residential">Residential</a><a data-view="webuy">Sell Your Property</a><a data-view="investors">Investors</a><a data-view="start">First-Time Investors</a><a data-view="faqs">FAQs</a><a data-view="contact">Contact</a></div>
+      <p class="legal">Maryland Property Group is a trade name of More Gad LLC. This website is for general informational purposes only; nothing herein is an offer to sell or a solicitation of an offer to buy any security, nor is it investment, legal, tax, or financial advice. Calculators and illustrative figures are educational tools based on assumptions you enter and are not predictions or guarantees of future results. Real estate and private investments involve risk, including the possible loss of principal, and may be illiquid. Property management scope and services are governed by a signed management agreement, are provided in accordance with applicable state and local law, and may vary by property location, type, and legal or compliance status; licensing details are available upon request. AppFolio and other product names are trademarks of their respective owners and are referenced for descriptive purposes only.</p>
       <div class="foot-bottom"><span>© <span id="yr"></span> More Gad LLC, d/b/a Maryland Property Group. All rights reserved.</span><span>Privacy Policy · Terms of Use · Accessibility · Fair Housing</span></div>
     </div>
   </div>
@@ -1002,7 +1148,7 @@
     var af=e.target.closest("[data-appfolio]"); if(af){e.preventDefault();window.open(APPFOLIO_TENANT,"_blank","noopener");return;}
     var pt=e.target.closest("[data-portal]"); if(pt){e.preventDefault();openPortal(pt.getAttribute("data-portal"),pt.getAttribute("data-ptab"));return;}
     var d=e.target.closest("[data-deck]"); if(d){e.preventDefault();openDeck(d.getAttribute("data-deck"),d);return;}
-    var t=e.target.closest("[data-view]"); if(t){e.preventDefault();showView(t.getAttribute("data-view"));return;}
+    var t=e.target.closest("[data-view]"); if(t){e.preventDefault();showView(t.getAttribute("data-view"));var jj=t.getAttribute("data-jump");if(jj){var jn=$("#"+jj);if(jn)setTimeout(function(){jn.scrollIntoView({behavior:"smooth"});},80);}return;}
     var j=e.target.closest("[data-jump]"); if(j){e.preventDefault();var node=$("#"+j.getAttribute("data-jump"));if(node)node.scrollIntoView({behavior:"smooth"});return;}
   });
   $$(".brand,.lcard").forEach(function(b){b.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();if(this.hasAttribute("data-deck"))openDeck(this.getAttribute("data-deck"),this);else if(this.hasAttribute("data-view"))showView(this.getAttribute("data-view"));}});});
@@ -1284,7 +1430,19 @@
     {cat:"Commercial",q:"What is the value-add micro-office strategy?",a:"This is a commercial strategy: we buy an underused building and divide it into smaller, fully-serviced private offices. Many small offices earn more total rent than one big space, which raises the building's income — and, because commercial value is based on income, its value too."},
     {cat:"Commercial",q:"Why use a license agreement instead of a lease?",a:"For select commercial properties, we may use a license agreement instead of a lease. A license is permission to use the space (more like a hotel room) rather than a tenancy, which can make it easier to act quickly if someone stops paying. We always have local counsel confirm it's appropriate and enforceable for that property."},
     {cat:"Property Management",q:"Do you manage properties for outside owners?",a:"Yes. Our Property Management page details services, three pricing tiers, onboarding, and a Management ROI calculator. We run management-intensive assets so owners can be hands-off."},
-    {cat:"Property Management",q:"What software do you use to manage properties?",a:"AppFolio. It powers online rent payment, maintenance tickets, accounting, and the monthly owner reports showing cash flow, income and expenses, and rent collected."}
+    {cat:"Property Management",q:"What software do you use to manage properties?",a:"AppFolio. It powers online rent payment, maintenance tickets, accounting, and the monthly owner reports showing cash flow, income and expenses, and rent collected."},
+    {cat:"Property Management",q:"What types of properties do you manage?",a:"Single-family rentals, condos and townhomes, small multifamily, and commercial assets such as office, retail, and mixed-use buildings."},
+    {cat:"Property Management",q:"Do you manage both residential and commercial properties?",a:"Yes. We manage residential rentals and commercial assets, with leasing, rent collection, maintenance coordination, inspections, compliance tracking, and AppFolio-powered owner reporting."},
+    {cat:"Property Management",q:"How does owner reporting work?",a:"Owners receive monthly statements through AppFolio covering income, expenses, and cash flow, plus visibility into rent status and maintenance activity. Year-end statements and 1099 support are provided where applicable."},
+    {cat:"Property Management",q:"How do residents pay rent or request maintenance?",a:"Through the AppFolio resident portal, residents can pay rent, set up autopay, submit maintenance requests with photos, and update their contact information. See the Residents page for details."},
+    {cat:"Property Management",q:"How quickly can a property be onboarded?",a:"Many properties transition in about two weeks, depending on lease handover, access, and current operational status. We will give you a realistic timeline as part of your proposal."},
+    {cat:"Property Management",q:"What information do you need to prepare a management proposal?",a:"Property type, unit count, location, current occupancy and lease status, condition, and your goals. Final pricing depends on these factors and the scope of work."},
+    {cat:"Property Management",q:"Do you help with rental licensing and compliance tracking?",a:"We help owners track items such as rental registration or license status, smoke and CO requirements, and lease documentation where applicable. This is general support, not legal advice; requirements vary by jurisdiction."},
+    {cat:"Selling",q:"Do you buy properties directly?",a:"Yes. We buy residential and commercial property directly from owners, as-is, with no agent commissions and a closing date you choose."},
+    {cat:"Selling",q:"Is a cash offer the same as listing with an agent?",a:"No. A traditional listing may produce a higher price but usually involves showings, repairs, time, and uncertainty. A direct cash sale prioritizes speed, certainty, and convenience. The right choice depends on your situation."},
+    {cat:"Investing",q:"Can I invest with Maryland Property Group?",a:"We may share information about future opportunities with qualified prospective investors. You can request investor access, which is reviewed before any opportunity-specific materials are shared."},
+    {cat:"Investing",q:"Are investment opportunities publicly available?",a:"No. Any future opportunity materials, if available, are provided only through appropriate private channels and subject to applicable securities laws."},
+    {cat:"Investing",q:"Is anything on the website an investment offer?",a:"No. Nothing on this website is an offer to sell or a solicitation of an offer to buy any security. It is informational only and not investment, legal, or tax advice."}
   ];
   function renderFAQ(){var c=$("#faqlist");if(!c||c._built)return;c._built=true;var html="",lastCat="";
     FAQS.forEach(function(f){if(f.cat!==lastCat){html+='<div class="faqcat">'+f.cat+'</div>';lastCat=f.cat;}html+='<div class="faq"><button aria-expanded="false">'+f.q+'<span class="sign">+</span></button><div class="ans"><p>'+f.a+'</p></div></div>';});
@@ -1294,9 +1452,11 @@
 
   /* ---------- forms ---------- */
   var fv=function(id){var el=$("#"+id);return el?el.value:"";};
-  function wireMail(formId,msgId,req,build){var f=$("#"+formId);if(!f)return;f.addEventListener("submit",function(e){e.preventDefault();for(var i=0;i<req.length;i++){if(!$("#"+req[i]).value){$("#"+req[i]).focus();return;}}var d=build();var btn=f.querySelector('[type="submit"]');var ot=btn?btn.textContent:"";function reset(){if(btn){btn.disabled=false;btn.textContent=ot;}}function done(){var m=$("#"+msgId);if(m){m.style.display="block";m.scrollIntoView({behavior:"smooth",block:"center"});}reset();}function fallbackMail(){window.location.href="mailto:"+CONTACT_EMAIL+"?subject="+encodeURIComponent(d.subject)+"&body="+encodeURIComponent(d.body);done();}var tk="";var tw=f.querySelector(".cf-turnstile");if(tw&&window.turnstile){try{tk=window.turnstile.getResponse(tw);}catch(_){}}if(btn){btn.disabled=true;btn.textContent="Sending…";}fetch("/api/lead",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({form:formId,subject:d.subject,body:d.body,token:tk})}).then(function(r){if(r.ok){done();if(typeof f.reset==="function")f.reset();if(window.turnstile&&tw){try{window.turnstile.reset(tw);}catch(_){}}}else{fallbackMail();}}).catch(function(){fallbackMail();});});}
-  wireMail("contactform","okmsg",["fn","em"],function(){return {subject:"Website inquiry — "+fv("fn")+" "+fv("ln"),body:"Name: "+fv("fn")+" "+fv("ln")+"\nEmail: "+fv("em")+"\nPhone: "+fv("ph")+"\nInterested in: "+fv("int")+"\nAccredited investor: "+fv("acc")+"\n\nMessage:\n"+fv("msg")};});
-  wireMail("offerformf","okmsg2",["sa","sname","semail"],function(){return {subject:"Cash offer request — "+fv("sa"),body:"Property address: "+fv("sa")+"\nProperty type: "+fv("stype")+"\nCondition: "+fv("scond")+"\nTimeline: "+fv("stime")+"\nName: "+fv("sname")+"\nEmail: "+fv("semail")+"\nPhone: "+fv("sphone")+"\n\nNotes:\n"+fv("snotes")};});
+  function wireMail(formId,msgId,req,build){var f=$("#"+formId);if(!f)return;f.addEventListener("submit",function(e){e.preventDefault();for(var i=0;i<req.length;i++){var rq=$("#"+req[i]);if(!rq)continue;if(rq.type==="checkbox"){if(!rq.checked){rq.focus();return;}}else if(!rq.value){rq.focus();return;}}var d=build();var btn=f.querySelector('[type="submit"]');var ot=btn?btn.textContent:"";function reset(){if(btn){btn.disabled=false;btn.textContent=ot;}}function done(){var m=$("#"+msgId);if(m){m.style.display="block";m.scrollIntoView({behavior:"smooth",block:"center"});}reset();}function fallbackMail(){window.location.href="mailto:"+CONTACT_EMAIL+"?subject="+encodeURIComponent(d.subject)+"&body="+encodeURIComponent(d.body);done();}var tk="";var tw=f.querySelector(".cf-turnstile");if(tw&&window.turnstile){try{tk=window.turnstile.getResponse(tw);}catch(_){}}if(btn){btn.disabled=true;btn.textContent="Sending…";}var meta={pageSource:location.pathname,timestamp:new Date().toISOString()};fetch("/api/lead",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({form:formId,inquiryType:formId,subject:d.subject,body:d.body,token:tk,meta:meta})}).then(function(r){if(r.ok){done();if(typeof f.reset==="function")f.reset();if(window.turnstile&&tw){try{window.turnstile.reset(tw);}catch(_){}}}else{fallbackMail();}}).catch(function(){fallbackMail();});});}
+  wireMail("contactform","okmsg",["fn","em","cconsent"],function(){return {subject:"Website inquiry — "+fv("fn")+" "+fv("ln"),body:"Name: "+fv("fn")+" "+fv("ln")+"\nEmail: "+fv("em")+"\nPhone: "+fv("ph")+"\nInterested in: "+fv("int")+"\nAccredited investor: "+fv("acc")+"\n\nMessage:\n"+fv("msg")};});
+  wireMail("offerformf","okmsg2",["sa","sname","semail","sconsent"],function(){return {subject:"Cash offer request — "+fv("sa"),body:"Property address: "+fv("sa")+"\nProperty type: "+fv("stype")+"\nCondition: "+fv("scond")+"\nTimeline: "+fv("stime")+"\nName: "+fv("sname")+"\nEmail: "+fv("semail")+"\nPhone: "+fv("sphone")+"\n\nNotes:\n"+fv("snotes")};});
+  wireMail("mgmtformf","okmsg-mgmt",["ma","mname","memail","mconsent"],function(){return {subject:"Management proposal request — "+fv("ma"),body:"Property: "+fv("ma")+"\nType: "+fv("mtype")+"\nUnits: "+fv("munits")+"\nCurrent status: "+fv("mstatus")+"\nOccupancy: "+fv("mocc")+"\nName: "+fv("mname")+"\nEmail: "+fv("memail")+"\nPhone: "+fv("mphone")+"\n\nGoals/notes:\n"+fv("mnotes")};});
+  wireMail("investorform","okmsg-inv",["iname","iemail","iack"],function(){return {subject:"Investor access request — "+fv("iname"),body:"Name: "+fv("iname")+"\nEmail: "+fv("iemail")+"\nPhone: "+fv("iphone")+"\nInvestor type: "+fv("itype")+"\nAccredited: "+fv("iacc")+"\nExperience: "+fv("iexp")+"\nAreas of interest: "+fv("iarea")+"\nAcknowledged informational-only: yes"};});
   (function(){if(!TURNSTILE_SITEKEY)return;$$(".cf-turnstile-slot").forEach(function(slot){slot.className="cf-turnstile";slot.setAttribute("data-sitekey",TURNSTILE_SITEKEY);});var sc=document.createElement("script");sc.src="https://challenges.cloudflare.com/turnstile/v0/api.js";sc.async=true;sc.defer=true;document.head.appendChild(sc);})();
 
   /* ---------- line icons ---------- */
