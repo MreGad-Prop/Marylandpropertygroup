@@ -639,7 +639,7 @@
           <div class="kpis reveal" id="ckpis"></div>
           <div class="anote reveal" id="cnote"></div>
           <div class="panel reveal" style="margin-bottom:22px"><div class="ph">▤ Income &amp; Value Bridge</div><div class="pb"><div id="cchart" class="chartbox"></div><div class="legend"><span><i style="background:#143A63"></i>In-place NOI</span><span><i style="background:var(--gold)"></i>Stabilized NOI</span><span><i style="background:#9fb6cf"></i>All-in basis</span><span><i style="background:#0C2C57"></i>Value</span></div></div></div>
-          <div class="panel reveal"><div class="ph">▦ Sensitivity — Stabilized Value ($)</div><div class="pb" style="overflow-x:auto"><p class="muted" style="font-size:.84rem;margin-top:0">Rows = rent per office / mo · Columns = exit cap rate. Your current scenario is highlighted in gold.</p><div id="csens"></div></div></div>
+          <div class="panel reveal"><div class="ph">▦ Quick scenarios</div><div class="pb" style="overflow-x:auto"><p class="muted" style="font-size:.84rem;margin-top:0">How the deal looks under conservative, base, and upside assumptions. Base case = your current inputs (highlighted in gold).</p><div id="csens"></div></div></div>
         </div>
       </div>
     </div>
@@ -1243,15 +1243,15 @@
       var ib=c.info?'<button type="button" class="infobtn" data-info="'+c.info+'" aria-label="Explain">i</button>':'';
       return '<div class="ctl"><label for="'+cfg.id+'-'+c.k+'">'+c.label+ib+'<span class="v" id="'+cfg.id+'v-'+c.k+'"></span></label>'+
         '<div class="ctl-row"><input type="range" id="'+cfg.id+'-'+c.k+'" min="'+c.min+'" max="'+c.max+'" step="'+c.step+'" value="'+c.def+'">'+
-        '<input type="number" class="numin" id="'+cfg.id+'n-'+c.k+'" min="'+nmin+'" max="'+nmax+'" step="'+nstep+'"></div></div>';
+        '<input type="number" class="numin" id="'+cfg.id+'n-'+c.k+'" min="'+nmin+'"'+(c.unit==="pct"?' max="'+nmax+'"':'')+' step="'+nstep+'"></div></div>';
     }).join("");
     cfg.controls.forEach(function(c){
       if(!c.k)return;
       var rng=$("#"+cfg.id+"-"+c.k),num=$("#"+cfg.id+"n-"+c.k),read=$("#"+cfg.id+"v-"+c.k);
       function paint(v){read.textContent=fmtUnit(c.unit,v);num.value=c.unit==="pct"?rnd(v*100,3):rnd(v,2);}
       rng.addEventListener("input",function(){self.state[c.k]=parseFloat(rng.value);paint(self.state[c.k]);self.update();});
-      num.addEventListener("input",function(){var p=parseFloat(num.value);if(isNaN(p))return;var raw=c.unit==="pct"?p/100:p;raw=clamp(raw,c.min,c.max);self.state[c.k]=raw;rng.value=raw;read.textContent=fmtUnit(c.unit,raw);self.update();});
-      num.addEventListener("change",function(){var p=parseFloat(num.value);if(isNaN(p)){paint(self.state[c.k]);return;}var raw=clamp(c.unit==="pct"?p/100:p,c.min,c.max);self.state[c.k]=raw;rng.value=raw;paint(raw);self.update();});
+      num.addEventListener("input",function(){var p=parseFloat(num.value);if(isNaN(p))return;var raw=c.unit==="pct"?p/100:p;raw=c.unit==="pct"?clamp(raw,c.min,c.max):Math.max(raw,c.min);self.state[c.k]=raw;rng.value=raw;read.textContent=fmtUnit(c.unit,raw);self.update();});
+      num.addEventListener("change",function(){var p=parseFloat(num.value);if(isNaN(p)){paint(self.state[c.k]);return;}var raw=c.unit==="pct"?clamp(p/100,c.min,c.max):Math.max(p,c.min);self.state[c.k]=raw;rng.value=raw;paint(raw);self.update();});
       paint(self.state[c.k]);
     });
     this.update();
@@ -1273,13 +1273,13 @@
       id:"c",controls_el:"ccontrols",kpis_el:"ckpis",note_el:"cnote",chart_el:"cchart",sens_el:"csens",
       controls:[
         {group:"Acquisition"},
-        {k:"price",label:"Purchase price",min:500000,max:6000000,step:50000,def:2100000,unit:"usd",info:"c_price"},
+        {k:"price",label:"Purchase price",min:500000,max:25000000,step:50000,def:2100000,unit:"usd",info:"c_price"},
         {k:"inplace",label:"In-place NOI (annual)",min:0,max:600000,step:5000,def:200000,unit:"usd",info:"c_inplace"},
         {k:"rentable",label:"Rentable area",min:5000,max:40000,step:500,def:15000,unit:"sf",info:"c_rentable"},
         {k:"reno",label:"Renovation budget",min:0,max:1500000,step:25000,def:300000,unit:"usd",info:"c_reno"},
         {k:"closing",label:"Closing costs",min:0,max:300000,step:5000,def:60000,unit:"usd",info:"c_closing"},
         {group:"Income"},
-        {k:"office",label:"Avg office size",min:100,max:400,step:5,def:170,unit:"sf",info:"c_office"},
+        {k:"office",label:"Avg office size",min:100,max:1200,step:5,def:170,unit:"sf",info:"c_office"},
         {k:"rent",label:"Rent per office / mo",min:400,max:1500,step:25,def:725,unit:"usd",info:"c_rent"},
         {k:"occ",label:"Stabilized occupancy",min:.6,max:1,step:.01,def:.9,unit:"pct",info:"c_occ"},
         {group:"Operating expenses (annual)"},
@@ -1320,11 +1320,17 @@
       note:function(r,s){return '<b>Entry cap rate:</b> '+pct(r.entry)+' &nbsp;·&nbsp; <b>Total cash invested:</b> '+usd(r.cashIn)+' &nbsp;·&nbsp; <b>Est. loan payoff:</b> '+(s.rate>0||s.ltv>0?payoff(s.amort):"—")+'  <button type="button" class="infobtn" data-info="k_payoff" aria-label="Explain">i</button>';},
       chart:function(r,s){return svgBars([{l:"In-place NOI",v:s.inplace,l2:usdShort(s.inplace),c:"#143A63"},{l:"Stabilized NOI",v:r.noi,l2:usdShort(r.noi),c:"#C9A227"},{l:"All-in basis",v:r.allIn,l2:usdShort(r.allIn),c:"#9fb6cf"},{l:"Stab. value",v:r.value,l2:usdShort(r.value),c:"#0C2C57"}],{w:560,h:250,bw:78});},
       sens:function(r,s){
-        var rents=[s.rent-100,s.rent-50,s.rent,s.rent+50,s.rent+100,s.rent+150],caps=[.075,.08,.085,.09,.095,.10],nl=s.rentable*(1-LOSS),off=Math.floor(nl/s.office),vals=[],min=Infinity,max=-Infinity;
-        rents.forEach(function(rt){var row=[];caps.forEach(function(cp){var noi=off*rt*12*s.occ-r.opex;var v=noi/cp;row.push(v);if(v<min)min=v;if(v>max)max=v;});vals.push(row);});
-        var nc=caps.reduce(function(a,b){return Math.abs(b-s.exit)<Math.abs(a-s.exit)?b:a;}),nr=rents.reduce(function(a,b){return Math.abs(b-s.rent)<Math.abs(a-s.rent)?b:a;});
-        var h='<table class="sens"><thead><tr><th>Rent \\ Cap</th>'+caps.map(function(c){return '<th>'+(c*100).toFixed(1)+'%</th>';}).join("")+'</tr></thead><tbody>';
-        rents.forEach(function(rt,ri){h+='<tr><td class="rowh">'+usd(rt)+'</td>';caps.forEach(function(cp,ci){var v=vals[ri][ci],here=(rt===nr&&cp===nc)?" here":"";h+='<td class="cell'+here+'" style="background:'+colorVal(v,min,max)+'">'+usdShort(v)+'</td>';});h+='</tr>';});
+        var opex=s.bexp+s.taxes+s.ins+s.water+s.util+s.internet+s.trash+s.lic+s.sbd;
+        var nl=s.rentable*(1-LOSS),off=Math.floor(nl/s.office);
+        var loan=s.price*s.ltv,annDS=pmt(s.rate/12,s.amort*12,loan)*12,allIn=s.price+s.reno+s.closing;
+        function calc(rent,occ,exit){var noi=off*rent*12*occ-opex,value=noi/exit;return {value:value,mcf:(noi-annDS)/12,created:value-allIn};}
+        var rows=[
+          {n:"Conservative",sub:"-10% rent · -5% occ · +0.5% cap",d:calc(s.rent*0.9,Math.max(s.occ-0.05,0),s.exit+0.005)},
+          {n:"Base case",sub:"your inputs",d:calc(s.rent,s.occ,s.exit),here:true},
+          {n:"Upside",sub:"+10% rent · +5% occ · -0.5% cap",d:calc(s.rent*1.1,Math.min(s.occ+0.05,1),Math.max(s.exit-0.005,0.04))}
+        ];
+        var h='<table class="sens"><thead><tr><th>Scenario</th><th>Stabilized value</th><th>Monthly cash flow</th><th>Value created</th></tr></thead><tbody>';
+        rows.forEach(function(x){h+='<tr><td class="rowh" style="text-align:left">'+x.n+'<br><span style="font-weight:400;font-size:.82em;opacity:.85">'+x.sub+'</span></td><td class="cell'+(x.here?" here":"")+'">'+usdShort(x.d.value)+'</td><td class="cell" style="background:'+colorCF(x.d.mcf)+'">'+usd(x.d.mcf)+'</td><td class="cell">'+usdShort(x.d.created)+'</td></tr>';});
         return h+'</tbody></table>';
       }
     }),
@@ -1332,7 +1338,7 @@
       id:"r",controls_el:"rcontrols",kpis_el:"rkpis",note_el:"rnote",chart_el:"rchart",sens_el:"rsens",
       controls:[
         {group:"Purchase"},
-        {k:"price",label:"Purchase price",min:80000,max:800000,step:5000,def:200000,unit:"usd",info:"r_price"},
+        {k:"price",label:"Purchase price",min:80000,max:3000000,step:5000,def:200000,unit:"usd",info:"r_price"},
         {k:"rent",label:"Total monthly rent",min:500,max:8000,step:50,def:2000,unit:"usd",info:"r_rent"},
         {group:"Operating expenses (annual)"},
         {k:"rtax",label:"Real-estate taxes",min:0,max:30000,step:100,def:2400,unit:"usd",info:"r_tax"},
@@ -1367,7 +1373,7 @@
         var rents=[s.rent-300,s.rent-150,s.rent,s.rent+150,s.rent+300],rates=[.04,.05,.06,.07,.08];
         var nr=rents.reduce(function(a,b){return Math.abs(b-s.rent)<Math.abs(a-s.rent)?b:a;}),nrt=rates.reduce(function(a,b){return Math.abs(b-s.rate)<Math.abs(a-s.rate)?b:a;});
         var h='<table class="sens"><thead><tr><th>Rent \\ Rate</th>'+rates.map(function(c){return '<th>'+(c*100).toFixed(0)+'%</th>';}).join("")+'</tr></thead><tbody>';
-        rents.forEach(function(rt){h+='<tr><td class="rowh">'+usd(rt)+'</td>';rates.forEach(function(rate){var gross=rt*12,noi=gross*(1-s.vac)*(1-s.exp),loan=s.price*(1-s.down),ds=pmt(rate/12,s.term*12,loan)*12,mcf=(noi-ds)/12,here=(rt===nr&&rate===nrt)?" here":"";h+='<td class="cell'+here+'" style="background:'+colorCF(mcf)+'">'+usd(mcf)+'</td>';});h+='</tr>';});
+        rents.forEach(function(rt){h+='<tr><td class="rowh">'+usd(rt)+'</td>';rates.forEach(function(rate){var gross=rt*12,egi=gross*(1-s.vac),noi=egi-(s.rtax+s.rins+s.rmaint+s.rutil+s.rsbd+s.rlic)-egi*s.rmgmt,loan=s.price*(1-s.down),ds=pmt(rate/12,s.term*12,loan)*12,mcf=(noi-ds)/12,here=(rt===nr&&rate===nrt)?" here":"";h+='<td class="cell'+here+'" style="background:'+colorCF(mcf)+'">'+usd(mcf)+'</td>';});h+='</tr>';});
         return h+'</tbody></table>';
       }
     }),
