@@ -682,9 +682,10 @@
 
   <section class="block">
     <div class="wrap">
-      <div class="sec-head reveal"><div class="eyebrow">Resident portal</div><h2 class="serif">Residents — log in or pay rent</h2></div>
-      <div class="grid">
-        <div class="card reveal"><div class="ic" data-ic="key"></div><h3>For Residents &amp; Tenants</h3><p class="muted">Pay rent online, set up AutoPay, submit maintenance requests, view your documents, and browse available units.</p><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px"><button class="btn btn-gold" data-appfolio>Resident Login / Pay Rent</button><button class="btn btn-ghost" data-portal="tenant" data-ptab="avail">View availability</button></div></div>
+      <div class="sec-head reveal"><div class="eyebrow">Resident portal</div><h2 class="serif">Residents — log in, pay rent, or find a home</h2></div>
+      <div class="grid g2">
+        <div class="card reveal"><div class="ic" data-ic="key"></div><h3>For Residents &amp; Tenants</h3><p class="muted">Pay rent online, set up AutoPay, submit maintenance requests, and view your documents.</p><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px"><button class="btn btn-gold" data-appfolio>Resident Login / Pay Rent</button></div></div>
+        <div class="card reveal"><div class="ic" data-ic="building"></div><h3>Vacancy Lists &amp; Applications</h3><p class="muted">Browse current vacancies and apply online through our AppFolio listings.</p><div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px"><a class="btn btn-gold" href="https://moregad.appfolio.com/listings" target="_blank" rel="noopener">View Vacancies</a><a class="btn btn-ghost" href="https://moregad.appfolio.com/listings" target="_blank" rel="noopener">Apply Online</a></div></div>
       </div>
     </div>
   </section>
@@ -699,19 +700,6 @@
     </div>
   </section>
 
-  <section class="block">
-    <div class="wrap">
-      <div class="sec-head reveal"><div class="eyebrow">Owner dashboard</div><h2 class="serif">See your portfolio the way we do</h2><p class="muted">Simple monthly AppFolio reporting — income, expenses, and cash flow.</p></div>
-      <div class="dash reveal">
-        <div class="dh">
-          <strong style="font-family:var(--serif);font-size:1.2rem">Portfolio performance</strong>
-          <div class="toggle" id="dashtoggle"><button class="on" data-d="port">Portfolio</button><button data-d="prop">Single property</button></div>
-        </div>
-        <div class="dkpis" id="dkpis"></div>
-        <div id="dashchart" class="chartbox"></div>
-      </div>
-    </div>
-  </section>
 
   <section class="block">
     <div class="wrap">
@@ -939,7 +927,7 @@
     <div class="grid g2"><ul class="muted" style="line-height:2"><li>Rental registration / license status, where required</li><li>Lead paint status for older residential properties, where applicable</li><li>Smoke / CO detector requirements</li></ul><ul class="muted" style="line-height:2"><li>Habitability and code issues</li><li>Property insurance in place</li><li>Lease documentation</li></ul></div>
     <p class="muted" style="font-size:.8rem;margin-top:14px">This is general information, not legal advice. Requirements vary by jurisdiction and property; we'll help you identify what applies and recommend qualified professionals where needed.</p>
   </div></section>
-  <section class="block navy center"><div class="wrap" style="max-width:680px"><div class="eyebrow" style="color:var(--gold-soft)">Ready to hand it off?</div><h2 class="serif">Let's review your property</h2><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px"><a class="btn btn-gold btn-lg" data-view="management" data-jump="mgmtform">Request a Management Proposal</a></div></div></section>
+  <section class="block navy center"><div class="wrap" style="max-width:680px"><div class="eyebrow" style="color:var(--gold-soft)">Ready to hand it off?</div><h2 class="serif">Let's review your property</h2><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px"><a class="btn btn-gold btn-lg" data-view="management" data-jump="mgmtform">Request a Management Proposal</a></div><p style="color:#cdd9e6;margin:24px 0 0;font-size:.92rem">Already an owner with us? Log in to AppFolio to view your statements and reports.</p><div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:10px"><a class="btn btn-ghost-light" data-appfolio>Owner Login — AppFolio</a></div></div></section>
 </section>
 
 <!-- ================= RESIDENTS ================= -->
@@ -1131,7 +1119,7 @@
     hideInfo(); closeMenu();
     if(v==="commercial") ANALYZERS.commercial.init();
     if(v==="residential") ANALYZERS.residential.init();
-    if(v==="management"){ANALYZERS.mgmt.init();initDash();initTours($("#view-management"));}
+    if(v==="management"){ANALYZERS.mgmt.init();initTours($("#view-management"));}
     if(v==="portal")renderPortal();
   }
   document.addEventListener("click",function(e){
