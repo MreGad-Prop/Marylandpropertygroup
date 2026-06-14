@@ -265,9 +265,49 @@ header.site .cta:hover {
 
 /* ---------- hero / pagehead ---------- */
 .pagehead {
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(135deg, var(--navy), var(--navy-600));
   color: #fff;
   padding: 54px 0 48px;
+}
+/* page-head with a background photo: photo set inline via background-image,
+   navy gradient overlay keeps the text fully legible */
+.pagehead.has-img {
+  background-size: cover;
+  background-position: center 38%;
+  background-repeat: no-repeat;
+}
+.pagehead.has-img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    rgba(10, 34, 64, 0.93) 0%,
+    rgba(12, 44, 87, 0.86) 45%,
+    rgba(20, 75, 122, 0.66) 100%
+  );
+}
+.pagehead .wrap {
+  position: relative;
+  z-index: 1;
+}
+/* in-content feature image */
+.feature-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--rad);
+  box-shadow: var(--shadow);
+}
+figure.feature {
+  margin: 0;
+}
+figure.feature figcaption {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 6px;
 }
 .pagehead h1 {
   color: #fff;

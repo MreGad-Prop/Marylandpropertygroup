@@ -104,6 +104,11 @@
   .hero .pills{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0 26px}
   .hero .pill{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);padding:7px 14px;border-radius:30px;font-size:.84rem;color:#e7eef6}
   .hero .actions{display:flex;gap:12px;flex-wrap:wrap}
+  .pagehead.has-img{background-size:cover;background-position:center 38%;background-repeat:no-repeat}
+  .pagehead.has-img::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(10,34,64,.93),rgba(12,44,87,.84) 45%,rgba(20,75,122,.62));z-index:0}
+  .pagehead.has-img::after{z-index:1} .pagehead.has-img .wrap{z-index:2}
+  .hero.has-img::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(10,34,64,.92),rgba(12,44,87,.70) 58%,rgba(20,75,122,.50)),url('assets/img/baltimore-rowhomes.jpg') center/cover no-repeat;z-index:0}
+  .hero.has-img::after{z-index:1} .hero.has-img .wrap{z-index:2}
   .hero-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:8px;backdrop-filter:blur(4px)}
   .whatwedo{background:#fff;border-radius:12px;padding:22px;color:var(--ink)}
   .whatwedo h4{margin:0 0 4px;color:var(--navy)} .whatwedo .wlist{display:grid;gap:10px;margin-top:12px}
@@ -1463,7 +1468,7 @@
 
 <!-- ================= HOME ================= -->
 <section class="view active" id="view-home">
-  <div class="hero">
+  <div class="hero has-img">
     <div class="wrap">
       <div>
         <div class="eyebrow" style="color:var(--gold-soft)">Maryland Property Group · More Gad LLC</div>
@@ -1670,7 +1675,7 @@
 
 <!-- ================= RESIDENTIAL ================= -->
 <section class="view" id="view-residential">
-  <div class="pagehead">
+  <div class="pagehead has-img" style="background-image: url('assets/img/single-family-home.jpg')">
     <div class="wrap">
       <div class="eyebrow" style="color:var(--gold-soft)">Invest — Residential</div>
       <h1 class="serif" style="max-width:18ch">Stable cash flow from disciplined residential underwriting</h1>
@@ -1705,7 +1710,7 @@
 
 <!-- ================= COMMERCIAL ================= -->
 <section class="view" id="view-commercial">
-  <div class="pagehead">
+  <div class="pagehead has-img" style="background-image: url('assets/img/commercial-interior.jpg')">
     <div class="wrap">
       <div class="eyebrow" style="color:var(--gold-soft)">Invest — Commercial</div>
       <h1 class="serif" style="max-width:20ch">Value-add commercial, modeled in real time</h1>
@@ -1739,7 +1744,7 @@
 
 <!-- ================= PROPERTY MANAGEMENT ================= -->
 <section class="view" id="view-management">
-  <div class="pagehead">
+  <div class="pagehead has-img" style="background-image: url('assets/img/owner-reporting.jpg')">
     <div class="wrap">
       <div class="eyebrow" style="color:var(--gold-soft)">Property Management</div>
       <h1 class="serif" style="max-width:20ch">Your property, professionally run</h1>
@@ -1847,7 +1852,7 @@
 
 <!-- ================= WE BUY HOUSES ================= -->
 <section class="view" id="view-webuy">
-  <div class="pagehead">
+  <div class="pagehead has-img" style="background-image: url('assets/img/house-keys.jpg')">
     <div class="wrap">
       <div class="eyebrow" style="color:var(--gold-soft)">We Buy Houses &amp; Buildings</div>
       <h1 class="serif" style="max-width:22ch">Sell your property fast, as-is, for cash</h1>
@@ -1991,7 +1996,7 @@
 
 <!-- ================= OWNERS ================= -->
 <section class="view" id="view-owners">
-  <div class="pagehead"><div class="wrap"><div class="eyebrow" style="color:var(--gold-soft)">For property owners</div><h1 class="serif" style="max-width:22ch">Owner reporting and operations you can rely on</h1><p class="lead">Clear monthly statements, responsive maintenance, and a single point of contact — so owning a rental or commercial property feels less like a second job.</p><div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-gold" data-view="management" data-jump="mgmtform">Request a Proposal</a></div></div></div>
+  <div class="pagehead has-img" style="background-image: url('assets/img/owner-reporting.jpg')"><div class="wrap"><div class="eyebrow" style="color:var(--gold-soft)">For property owners</div><h1 class="serif" style="max-width:22ch">Owner reporting and operations you can rely on</h1><p class="lead">Clear monthly statements, responsive maintenance, and a single point of contact — so owning a rental or commercial property feels less like a second job.</p><div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-gold" data-view="management" data-jump="mgmtform">Request a Proposal</a></div></div></div>
   <section class="block"><div class="wrap">
     <div class="sec-head reveal"><div class="eyebrow">Every month</div><h2 class="serif">What owners can expect</h2></div>
     <div class="grid g3">
@@ -2017,7 +2022,7 @@
 
 <!-- ================= RESIDENTS ================= -->
 <section class="view" id="view-residents">
-  <div class="pagehead"><div class="wrap"><div class="eyebrow" style="color:var(--gold-soft)">For residents</div><h1 class="serif" style="max-width:20ch">Resident portal &amp; resources</h1><p class="lead">Pay rent, set up autopay, and request maintenance online — anytime, from any device, through our AppFolio resident portal.</p><div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-gold" data-appfolio>Open Resident Portal</a></div></div></div>
+  <div class="pagehead has-img" style="background-image: url('assets/img/interior.jpg')"><div class="wrap"><div class="eyebrow" style="color:var(--gold-soft)">For residents</div><h1 class="serif" style="max-width:20ch">Resident portal &amp; resources</h1><p class="lead">Pay rent, set up autopay, and request maintenance online — anytime, from any device, through our AppFolio resident portal.</p><div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap"><a class="btn btn-gold" data-appfolio>Open Resident Portal</a></div></div></div>
   <section class="block"><div class="wrap">
     <div class="sec-head reveal"><div class="eyebrow">In the portal</div><h2 class="serif">What you can do online</h2></div>
     <div class="grid g3">
@@ -2045,7 +2050,7 @@
 
 <!-- ================= INVESTORS ================= -->
 <section class="view" id="view-investors">
-  <div class="pagehead"><div class="wrap"><div class="eyebrow" style="color:var(--gold-soft)">For qualified prospective investors</div><h1 class="serif">Investor Access</h1><p class="lead">Maryland Property Group may share information about future real estate opportunities with qualified prospective investors. Access is reviewed before any opportunity-specific materials are shared.</p></div></div>
+  <div class="pagehead has-img" style="background-image: url('assets/img/multifamily.jpg')"><div class="wrap"><div class="eyebrow" style="color:var(--gold-soft)">For qualified prospective investors</div><h1 class="serif">Investor Access</h1><p class="lead">Maryland Property Group may share information about future real estate opportunities with qualified prospective investors. Access is reviewed before any opportunity-specific materials are shared.</p></div></div>
   <section class="block"><div class="wrap" style="max-width:820px">
     <div class="reveal" style="background:#f7f9fc;border:1px solid var(--line);border-radius:14px;padding:22px 24px"><h3 style="margin-top:0">Important information</h3><ul class="muted" style="line-height:1.9;margin:0"><li>This page is for general informational purposes only.</li><li>Nothing on this website is an offer to sell or a solicitation of an offer to buy any security.</li><li>Any future offering materials, if available, will be provided only through appropriate private channels and subject to applicable securities laws.</li><li>Real estate investments involve risk, including possible loss of principal and illiquidity.</li><li>Consult your own legal, tax, and financial advisors before making any investment decision.</li></ul></div>
   </div></section>
@@ -2069,7 +2074,7 @@
 
 <!-- ================= CONSULTATION ================= -->
 <section class="view" id="view-consultation">
-  <div class="pagehead"><div class="wrap"><div class="eyebrow" style="color:var(--gold-soft)">Free consultation</div><h1 class="serif">Book a consultation</h1><p class="lead">Pick a time that works for you. We will talk through your property, your goals, and how we can help — no obligation.</p></div></div>
+  <div class="pagehead has-img" style="background-image: url('assets/img/consultation.jpg')"><div class="wrap"><div class="eyebrow" style="color:var(--gold-soft)">Free consultation</div><h1 class="serif">Book a consultation</h1><p class="lead">Pick a time that works for you. We will talk through your property, your goals, and how we can help — no obligation.</p></div></div>
   <section class="block"><div class="wrap" style="max-width:920px"><div id="bookingembed" class="reveal"></div></div></section>
 </section>
 
