@@ -6,6 +6,8 @@
 <title>Maryland Property Group — Commercial & Residential Real Estate Investment and Management</title>
 <meta name="description" content="Maryland Property Group (More Gad LLC) — commercial and residential real estate investment, property management, and direct home & building purchases." />
 <meta name="theme-color" content="#0A2240" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<link rel="manifest" href="site.webmanifest" />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <link rel="canonical" href="https://marylandpropertygroup.com/" />
 <meta name="robots" content="index,follow,max-image-preview:large" />
@@ -414,16 +416,6 @@
             <div class="wrow" data-view="webuy"><span class="we-ic" data-ic="cash"></span><div><b>We buy houses</b><br><span>Fast, as-is cash offers for homes &amp; buildings.</span></div></div>
           </div>
         </div>
-      </div>
-    </div>
-    <div class="band trust-strip">
-      <div class="wrap">
-        <div class="stat"><b class="serif">✓</b><span>Residential management</span></div>
-        <div class="stat"><b class="serif">✓</b><span>Commercial management</span></div>
-        <div class="stat"><b class="serif">✓</b><span>AppFolio owner reporting</span></div>
-        <div class="stat"><b class="serif">✓</b><span>Resident portal</span></div>
-        <div class="stat"><b class="serif">✓</b><span>Direct cash acquisitions</span></div>
-        <div class="stat"><b class="serif">✓</b><span>Maryland-focused operations</span></div>
       </div>
     </div>
   </div>
@@ -1032,7 +1024,7 @@
       <h5>Sitemap</h5>
       <div class="sitemap"><a data-view="home">Home</a><a data-view="management">Property Management</a><a data-view="owners">Owners</a><a data-view="residents">Residents</a><a data-view="commercial">Commercial</a><a data-view="residential">Residential</a><a data-view="webuy">Sell Your Property</a><a data-view="investors">Investors</a><a data-view="start">First-Time Investors</a><a data-view="faqs">FAQs</a><a data-view="contact">Contact</a></div>
       <p class="legal">Maryland Property Group is a trade name of More Gad LLC. This website is for general informational purposes only; nothing herein is an offer to sell or a solicitation of an offer to buy any security, nor is it investment, legal, tax, or financial advice. Calculators and illustrative figures are educational tools based on assumptions you enter and are not predictions or guarantees of future results. Real estate and private investments involve risk, including the possible loss of principal, and may be illiquid. Property management scope and services are governed by a signed management agreement, are provided in accordance with applicable state and local law, and may vary by property location, type, and legal or compliance status; licensing details are available upon request. AppFolio and other product names are trademarks of their respective owners and are referenced for descriptive purposes only.</p>
-      <div class="foot-bottom"><span>© <span id="yr"></span> More Gad LLC, d/b/a Maryland Property Group. All rights reserved.</span><span>Privacy Policy · Terms of Use · Accessibility · Fair Housing</span></div>
+      <div class="foot-bottom"><span>© <span id="yr"></span> More Gad LLC, d/b/a Maryland Property Group. All rights reserved.</span><span class="legal-links"><a href="privacy.html">Privacy Policy</a> · <a href="terms-of-use.html">Terms of Use</a> · <a href="accessibility.html">Accessibility</a> · <a href="fair-housing.html">Fair Housing</a></span></div>
     </div>
   </div>
 </footer>
@@ -1133,8 +1125,9 @@
     var el=$("#view-"+v); if(!el){v="home";el=$("#view-home");}
     el.classList.add("active");
     injectIcons(el); initTours(el);
-    $$("nav.main a").forEach(function(a){a.classList.toggle("active",a.getAttribute("data-view")===v);});
+    $$("nav.main a").forEach(function(a){var on=a.getAttribute("data-view")===v;a.classList.toggle("active",on);if(on)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");});
     if(!opts||!opts.noscroll) window.scrollTo({top:0,behavior:"auto"});
+    var hd=el.querySelector("h1,h2");if(hd){hd.setAttribute("tabindex","-1");try{hd.focus({preventScroll:true});}catch(_){hd.focus();}}
     var md=$("#modal"); if(md&&md.classList.contains("open"))closeModal();
     hideInfo(); closeMenu();
     if(v==="commercial") ANALYZERS.commercial.init();
@@ -1452,11 +1445,12 @@
 
   /* ---------- forms ---------- */
   var fv=function(id){var el=$("#"+id);return el?el.value:"";};
-  function wireMail(formId,msgId,req,build){var f=$("#"+formId);if(!f)return;f.addEventListener("submit",function(e){e.preventDefault();for(var i=0;i<req.length;i++){var rq=$("#"+req[i]);if(!rq)continue;if(rq.type==="checkbox"){if(!rq.checked){rq.focus();return;}}else if(!rq.value){rq.focus();return;}}var d=build();var btn=f.querySelector('[type="submit"]');var ot=btn?btn.textContent:"";function reset(){if(btn){btn.disabled=false;btn.textContent=ot;}}function done(){var m=$("#"+msgId);if(m){m.style.display="block";m.scrollIntoView({behavior:"smooth",block:"center"});}reset();}function fallbackMail(){window.location.href="mailto:"+CONTACT_EMAIL+"?subject="+encodeURIComponent(d.subject)+"&body="+encodeURIComponent(d.body);done();}var tk="";var tw=f.querySelector(".cf-turnstile");if(tw&&window.turnstile){try{tk=window.turnstile.getResponse(tw);}catch(_){}}if(btn){btn.disabled=true;btn.textContent="Sending…";}var meta={pageSource:location.pathname,timestamp:new Date().toISOString()};fetch("/api/lead",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({form:formId,inquiryType:formId,subject:d.subject,body:d.body,token:tk,meta:meta})}).then(function(r){if(r.ok){done();if(typeof f.reset==="function")f.reset();if(window.turnstile&&tw){try{window.turnstile.reset(tw);}catch(_){}}}else{fallbackMail();}}).catch(function(){fallbackMail();});});}
+  function wireMail(formId,msgId,req,build){var f=$("#"+formId);if(!f)return;f.addEventListener("submit",function(e){e.preventDefault();var hp=f.querySelector("[name=company]");if(hp&&hp.value){var mm=$("#"+msgId);if(mm)mm.style.display="block";return;}for(var i=0;i<req.length;i++){var rq=$("#"+req[i]);if(!rq)continue;if(rq.type==="checkbox"){if(!rq.checked){rq.focus();return;}}else if(!rq.value){rq.focus();return;}}var d=build();var btn=f.querySelector('[type="submit"]');var ot=btn?btn.textContent:"";function reset(){if(btn){btn.disabled=false;btn.textContent=ot;}}function done(){var m=$("#"+msgId);if(m){m.style.display="block";m.scrollIntoView({behavior:"smooth",block:"center"});}reset();}function fallbackMail(){window.location.href="mailto:"+CONTACT_EMAIL+"?subject="+encodeURIComponent(d.subject)+"&body="+encodeURIComponent(d.body);done();}var tk="";var tw=f.querySelector(".cf-turnstile");if(tw&&window.turnstile){try{tk=window.turnstile.getResponse(tw);}catch(_){}}if(btn){btn.disabled=true;btn.textContent="Sending…";}var meta={pageSource:location.pathname,timestamp:new Date().toISOString()};fetch("/api/lead",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({form:formId,inquiryType:formId,subject:d.subject,body:d.body,token:tk,meta:meta})}).then(function(r){if(r.ok){done();if(typeof f.reset==="function")f.reset();if(window.turnstile&&tw){try{window.turnstile.reset(tw);}catch(_){}}}else{fallbackMail();}}).catch(function(){fallbackMail();});});}
   wireMail("contactform","okmsg",["fn","em","cconsent"],function(){return {subject:"Website inquiry — "+fv("fn")+" "+fv("ln"),body:"Name: "+fv("fn")+" "+fv("ln")+"\nEmail: "+fv("em")+"\nPhone: "+fv("ph")+"\nInterested in: "+fv("int")+"\nAccredited investor: "+fv("acc")+"\n\nMessage:\n"+fv("msg")};});
   wireMail("offerformf","okmsg2",["sa","sname","semail","sconsent"],function(){return {subject:"Cash offer request — "+fv("sa"),body:"Property address: "+fv("sa")+"\nProperty type: "+fv("stype")+"\nCondition: "+fv("scond")+"\nTimeline: "+fv("stime")+"\nName: "+fv("sname")+"\nEmail: "+fv("semail")+"\nPhone: "+fv("sphone")+"\n\nNotes:\n"+fv("snotes")};});
   wireMail("mgmtformf","okmsg-mgmt",["ma","mname","memail","mconsent"],function(){return {subject:"Management proposal request — "+fv("ma"),body:"Property: "+fv("ma")+"\nType: "+fv("mtype")+"\nUnits: "+fv("munits")+"\nCurrent status: "+fv("mstatus")+"\nOccupancy: "+fv("mocc")+"\nName: "+fv("mname")+"\nEmail: "+fv("memail")+"\nPhone: "+fv("mphone")+"\n\nGoals/notes:\n"+fv("mnotes")};});
   wireMail("investorform","okmsg-inv",["iname","iemail","iack"],function(){return {subject:"Investor access request — "+fv("iname"),body:"Name: "+fv("iname")+"\nEmail: "+fv("iemail")+"\nPhone: "+fv("iphone")+"\nInvestor type: "+fv("itype")+"\nAccredited: "+fv("iacc")+"\nExperience: "+fv("iexp")+"\nAreas of interest: "+fv("iarea")+"\nAcknowledged informational-only: yes"};});
+  (function(){$$("form.formgrid").forEach(function(f){if(f.querySelector(".hp-field"))return;var w=document.createElement("div");w.className="hp-field";w.setAttribute("aria-hidden","true");w.style.cssText="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden";var lb=document.createElement("label");lb.textContent="Company";var ip=document.createElement("input");ip.type="text";ip.name="company";ip.tabIndex=-1;ip.setAttribute("autocomplete","off");lb.appendChild(ip);w.appendChild(lb);f.appendChild(w);});})();
   (function(){if(!TURNSTILE_SITEKEY)return;$$(".cf-turnstile-slot").forEach(function(slot){slot.className="cf-turnstile";slot.setAttribute("data-sitekey",TURNSTILE_SITEKEY);});var sc=document.createElement("script");sc.src="https://challenges.cloudflare.com/turnstile/v0/api.js";sc.async=true;sc.defer=true;document.head.appendChild(sc);})();
 
   /* ---------- line icons ---------- */
@@ -1565,7 +1559,7 @@
   function pane(key,html){return "<div class='tabpane"+(PORTAL.tab===key?" on":"")+"' data-ppane='"+key+"'>"+html+"</div>";}
   function loginHTML(){var r=PORTAL.role;var tenant=r==="tenant";
     var fields=tenant?"":"<div class='field'><label>Email</label><input id='plemail' type='email' placeholder='you@email.com'></div><div class='field' style='margin-top:12px'><label>Password</label><input id='plpw' type='password' placeholder='••••••••'></div>";
-    var note=tenant?"Residents sign in securely through our AppFolio portal to pay rent and submit maintenance requests.":"Owners view statements and reports. This is a demo login — explore without an account.";
+    var note=tenant?"Residents sign in securely through our AppFolio portal to pay rent and submit maintenance requests.":"Owners view statements and reports. This is a demonstration preview — your live owner portal is provided through AppFolio after onboarding.";
     var btn=tenant?"Sign in to AppFolio &rarr;":"Sign In";
     var demo=tenant?"Or view a quick resident demo &rarr;":"Skip &mdash; view demo dashboard &rarr;";
     return "<div class='center' style='margin-bottom:24px'><div class='subtabs'><button class='"+(tenant?"on":"")+"' data-lrole='tenant'>Resident</button><button class='"+(r==="owner"?"on":"")+"' data-lrole='owner'>Owner</button></div></div><div class='login-card'><h3 class='serif' style='text-align:center;margin-bottom:2px'>"+(tenant?"Resident":"Owner")+" Login</h3><p class='muted center' style='margin-top:0'>"+note+"</p>"+fields+"<button class='btn btn-gold' id='plgo' style='width:100%;justify-content:center;margin-top:16px'>"+btn+"</button><p class='center' style='margin:12px 0 0'><a id='pldemo' style='cursor:pointer'>"+demo+"</a></p></div>";}
