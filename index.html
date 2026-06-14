@@ -605,7 +605,8 @@
           <div class="kpis reveal" id="rkpis"></div>
           <div class="anote reveal" id="rnote"></div>
           <div class="panel reveal" style="margin-bottom:22px"><div class="ph">▤ Where the money goes (per year)</div><div class="pb"><div id="rchart" class="chartbox"></div><div class="legend"><span><i style="background:#9fb6cf"></i>Gross rent</span><span><i style="background:#143A63"></i>NOI</span><span><i style="background:var(--gold)"></i>Cash flow</span></div></div></div>
-          <div class="panel reveal"><div class="ph">▦ Monthly cash flow by scenario</div><div class="pb" style="overflow-x:auto"><p class="muted" style="font-size:.84rem;margin-top:0">Each cell is your <b>monthly</b> cash flow at that rent and rate. <span style="color:var(--ok);font-weight:700">Green = positive</span>, <span style="color:var(--bad);font-weight:700">red = negative</span>. Yearly = monthly × 12.</p><div id="rsens"></div></div></div>
+          <div class="panel reveal"><div class="ph">▦ Quick scenarios</div><div class="pb" style="overflow-x:auto"><p class="muted" style="font-size:.84rem;margin-top:0">How this rental looks under conservative, base, and upside assumptions. Tap the <b>i</b> on each for a plain-English explanation.</p><div id="rscenarios"></div></div></div>
+          <div class="panel reveal" style="margin-top:18px"><div class="ph">▦ Monthly cash flow by scenario</div><div class="pb" style="overflow-x:auto"><p class="muted" style="font-size:.84rem;margin-top:0">Each cell is your <b>monthly</b> cash flow at that rent and rate. <span style="color:var(--ok);font-weight:700">Green = positive</span>, <span style="color:var(--bad);font-weight:700">red = negative</span>. Yearly = monthly × 12.</p><div id="rsens"></div></div></div>
         </div>
       </div>
     </div>
@@ -1057,6 +1058,9 @@
 
   /* ---------- info popover ---------- */
   var INFO={
+    sc_cons:{t:"Conservative case",x:"A cautious scenario — lower rent and occupancy and less favorable financing/exit assumptions. Shows how the deal holds up if things go worse than planned."},
+    sc_base:{t:"Base case",x:"Your current inputs, exactly as entered — the most likely outcome based on your assumptions."},
+    sc_up:{t:"Upside case",x:"An optimistic scenario — higher rent and occupancy and more favorable financing/exit assumptions. Shows the potential if things go better than planned."},
     c_price:{t:"Purchase price",x:"What you pay to buy the building."},
     c_inplace:{t:"In-place NOI",x:"The building's current yearly profit (income minus running costs) before any improvements. Used to show the entry cap rate."},
     c_rentable:{t:"Rentable area",x:"Total square footage you can rent. We assume ~15% is lost to hallways, restrooms, and shared space."},
@@ -1263,6 +1267,7 @@
     if(cfg.note_el&&cfg.note)$("#"+cfg.note_el).innerHTML=cfg.note(r,this.state);
     if(cfg.chart_el)$("#"+cfg.chart_el).innerHTML=cfg.chart(r,this.state);
     if(cfg.sens_el&&cfg.sens)$("#"+cfg.sens_el).innerHTML=cfg.sens(r,this.state);
+    if(cfg.sens2_el&&cfg.sens2)$("#"+cfg.sens2_el).innerHTML=cfg.sens2(r,this.state);
   };
   function colorVal(v,min,max){var t=clamp((v-min)/((max-min)||1),0,1);return "rgb("+Math.round(255-(255-201)*t)+","+Math.round(255-(255-162)*t)+","+Math.round(255-(255-39)*t)+")";}
   function colorCF(v){if(v>=0){var t=clamp(v/400,0,1);return "rgb("+Math.round(232-201*t)+","+Math.round(245-107*t)+","+Math.round(238-147*t)+")";}var t2=clamp(-v/400,0,1);return "rgb("+Math.round(251-(251-192)*t2*0-0)+","+Math.round(233-176*t2)+","+Math.round(231-188*t2)+")";}
@@ -1325,17 +1330,17 @@
         var loan=s.price*s.ltv,annDS=pmt(s.rate/12,s.amort*12,loan)*12,allIn=s.price+s.reno+s.closing;
         function calc(rent,occ,exit){var noi=off*rent*12*occ-opex,value=noi/exit;return {value:value,mcf:(noi-annDS)/12,created:value-allIn};}
         var rows=[
-          {n:"Conservative",sub:"-10% rent · -5% occ · +0.5% cap",d:calc(s.rent*0.9,Math.max(s.occ-0.05,0),s.exit+0.005)},
-          {n:"Base case",sub:"your inputs",d:calc(s.rent,s.occ,s.exit),here:true},
-          {n:"Upside",sub:"+10% rent · +5% occ · -0.5% cap",d:calc(s.rent*1.1,Math.min(s.occ+0.05,1),Math.max(s.exit-0.005,0.04))}
+          {n:"Conservative",info:"sc_cons",sub:"-10% rent · -5% occ · +0.5% cap",d:calc(s.rent*0.9,Math.max(s.occ-0.05,0),s.exit+0.005)},
+          {n:"Base case",info:"sc_base",sub:"your inputs",d:calc(s.rent,s.occ,s.exit),here:true},
+          {n:"Upside",info:"sc_up",sub:"+10% rent · +5% occ · -0.5% cap",d:calc(s.rent*1.1,Math.min(s.occ+0.05,1),Math.max(s.exit-0.005,0.04))}
         ];
         var h='<table class="sens"><thead><tr><th>Scenario</th><th>Stabilized value</th><th>Monthly cash flow</th><th>Value created</th></tr></thead><tbody>';
-        rows.forEach(function(x){h+='<tr><td class="rowh" style="text-align:left">'+x.n+'<br><span style="font-weight:400;font-size:.82em;opacity:.85">'+x.sub+'</span></td><td class="cell'+(x.here?" here":"")+'">'+usdShort(x.d.value)+'</td><td class="cell" style="background:'+colorCF(x.d.mcf)+'">'+usd(x.d.mcf)+'</td><td class="cell">'+usdShort(x.d.created)+'</td></tr>';});
+        rows.forEach(function(x){h+='<tr><td class="rowh" style="text-align:left">'+x.n+' <button type="button" class="infobtn" data-info="'+x.info+'" aria-label="Explain">i</button><br><span style="font-weight:400;font-size:.82em;opacity:.85">'+x.sub+'</span></td><td class="cell'+(x.here?" here":"")+'">'+usdShort(x.d.value)+'</td><td class="cell" style="background:'+colorCF(x.d.mcf)+'">'+usd(x.d.mcf)+'</td><td class="cell">'+usdShort(x.d.created)+'</td></tr>';});
         return h+'</tbody></table>';
       }
     }),
     residential:new Analyzer({
-      id:"r",controls_el:"rcontrols",kpis_el:"rkpis",note_el:"rnote",chart_el:"rchart",sens_el:"rsens",
+      id:"r",controls_el:"rcontrols",kpis_el:"rkpis",note_el:"rnote",chart_el:"rchart",sens_el:"rsens",sens2_el:"rscenarios",
       controls:[
         {group:"Purchase"},
         {k:"price",label:"Purchase price",min:80000,max:3000000,step:5000,def:200000,unit:"usd",info:"r_price"},
@@ -1369,6 +1374,18 @@
       ];},
       note:function(r,s){return '<b>Monthly cash flow:</b> '+usd(r.mcf)+' &nbsp;·&nbsp; <b>Yearly cash flow:</b> '+usd(r.cf)+' &nbsp;·&nbsp; <b>ROI:</b> '+(isFinite(r.roiY)?pct(r.roiY):"—")+'/yr ('+(isFinite(r.roiM)?pct2(r.roiM):"—")+'/mo)';},
       chart:function(r,s){return svgBars([{l:"Gross rent",v:r.gross,l2:usdShort(r.gross),c:"#9fb6cf"},{l:"NOI",v:r.noi,l2:usdShort(r.noi),c:"#143A63"},{l:"Cash flow",v:Math.max(r.cf,0),l2:usd(r.cf),c:"#C9A227"}],{w:560,h:250,bw:96});},
+      sens2:function(r,s){
+        var fixed=s.rtax+s.rins+s.rmaint+s.rutil+s.rsbd+s.rlic;
+        function calc(rent,vac,rate){var gross=rent*12,egi=gross*(1-vac),noi=egi-fixed-egi*s.rmgmt,loan=s.price*(1-s.down),down=s.price*s.down,annDS=pmt(rate/12,s.term*12,loan)*12,cf=noi-annDS;return {mcf:cf/12,cf:cf,roiY:down>0?cf/down:0};}
+        var rows=[
+          {n:"Conservative",info:"sc_cons",d:calc(s.rent*0.9,Math.min(s.vac+0.05,0.5),s.rate+0.005)},
+          {n:"Base case",info:"sc_base",here:true,d:calc(s.rent,s.vac,s.rate)},
+          {n:"Upside",info:"sc_up",d:calc(s.rent*1.1,Math.max(s.vac-0.05,0),Math.max(s.rate-0.005,0))}
+        ];
+        var h='<table class="sens"><thead><tr><th>Scenario</th><th>Monthly cash flow</th><th>Annual cash flow</th><th>ROI / yr</th></tr></thead><tbody>';
+        rows.forEach(function(x){h+='<tr><td class="rowh" style="text-align:left">'+x.n+' <button type="button" class="infobtn" data-info="'+x.info+'" aria-label="Explain">i</button></td><td class="cell'+(x.here?" here":"")+'" style="background:'+colorCF(x.d.mcf)+'">'+usd(x.d.mcf)+'</td><td class="cell">'+usd(x.d.cf)+'</td><td class="cell">'+(isFinite(x.d.roiY)?pct(x.d.roiY):"\u2014")+'</td></tr>';});
+        return h+'</tbody></table>';
+      },
       sens:function(r,s){
         var rents=[s.rent-300,s.rent-150,s.rent,s.rent+150,s.rent+300],rates=[.04,.05,.06,.07,.08];
         var nr=rents.reduce(function(a,b){return Math.abs(b-s.rent)<Math.abs(a-s.rent)?b:a;}),nrt=rates.reduce(function(a,b){return Math.abs(b-s.rate)<Math.abs(a-s.rate)?b:a;});
