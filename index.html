@@ -130,23 +130,24 @@
   .whatwedo .wrow:hover{border-color:var(--gold);background:#fbf7ea}
   .whatwedo .wrow .we{font-size:1.3rem;flex:none} .whatwedo .wrow b{color:var(--navy);font-size:.95rem} .whatwedo .wrow span{font-size:.82rem;color:var(--muted)}
 
-  /* split-panel hero (commercial / residential) — clean, editorial */
-  .splithero{position:relative;display:flex;gap:3px;min-height:90vh;background:#050e1c;overflow:hidden}
-  .sh-top{position:absolute;top:0;left:0;right:0;z-index:5;text-align:center;padding:clamp(34px,5vh,60px) 24px 0;pointer-events:none}
-  .sh-top .eyebrow{justify-content:center;color:var(--gold-soft);letter-spacing:.26em;animation:heroUp .9s cubic-bezier(.2,.7,.2,1) backwards}
-  .sh-top h1{color:#fff;font-weight:400;font-size:clamp(1.35rem,2.3vw,2.05rem);line-height:1.32;max-width:22ch;margin:.85em auto 0;letter-spacing:-.01em;text-shadow:0 2px 30px rgba(2,8,18,.7);animation:heroUp .9s cubic-bezier(.2,.7,.2,1) .1s backwards}
-  .sh-panel{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px;color:#fff;overflow:hidden;cursor:pointer;text-decoration:none;transition:flex-grow .6s cubic-bezier(.4,0,.2,1)}
-  .sh-panel::before{content:"";position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;transition:transform .9s cubic-bezier(.4,0,.2,1),filter .6s ease}
+  /* split-panel hero (commercial / residential) — header bar + two separate doors */
+  .splithero{display:flex;flex-direction:column;min-height:90vh;background:#06182f}
+  .sh-head{flex:none;text-align:center;padding:clamp(32px,5vh,56px) 24px clamp(22px,3vh,34px)}
+  .sh-head .eyebrow{justify-content:center;color:var(--gold-soft);letter-spacing:.26em;animation:heroUp .9s cubic-bezier(.2,.7,.2,1) backwards}
+  .sh-head h1{color:#fff;font-weight:400;font-size:clamp(1.4rem,2.4vw,2.15rem);line-height:1.3;max-width:24ch;margin:.6em auto 0;letter-spacing:-.01em;animation:heroUp .9s cubic-bezier(.2,.7,.2,1) .1s backwards}
+  .sh-doors{flex:1;display:flex;gap:16px;padding:0 16px 16px;min-height:0}
+  .sh-panel{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px;color:#fff;overflow:hidden;cursor:pointer;text-decoration:none;border-radius:16px;transition:flex-grow .6s cubic-bezier(.4,0,.2,1);box-shadow:0 18px 50px -22px rgba(2,8,18,.8)}
+  .sh-panel::before{content:"";position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;transition:transform .9s cubic-bezier(.4,0,.2,1)}
   .sh-c::before{background-image:url('assets/img/commercial-interior.jpg')}
   .sh-r::before{background-image:url('assets/img/single-family-home.jpg')}
-  .sh-panel::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,12,24,.6),rgba(5,12,24,.46) 45%,rgba(5,12,24,.66));transition:background .5s ease}
-  .sh-c{border-right:1px solid rgba(201,162,39,.32)}
-  /* hovered side opens & brightens; the other quietly recedes */
-  .splithero:hover .sh-panel::after{background:linear-gradient(180deg,rgba(5,12,24,.72),rgba(5,12,24,.6) 45%,rgba(5,12,24,.78))}
-  .splithero .sh-panel:hover,.splithero .sh-panel:focus-visible{flex-grow:1.32;outline:none}
-  .splithero .sh-panel:hover::after,.splithero .sh-panel:focus-visible::after{background:linear-gradient(180deg,rgba(5,12,24,.46),rgba(5,12,24,.28) 45%,rgba(5,12,24,.58))}
+  .sh-panel::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,12,24,.55),rgba(5,12,24,.4) 45%,rgba(5,12,24,.66));transition:background .5s ease}
+  .sh-panel{border:1px solid rgba(255,255,255,.08)}
+  /* hovered door opens & brightens; the other quietly recedes */
+  .sh-doors:hover .sh-panel::after{background:linear-gradient(180deg,rgba(5,12,24,.7),rgba(5,12,24,.58) 45%,rgba(5,12,24,.78))}
+  .sh-doors .sh-panel:hover,.sh-doors .sh-panel:focus-visible{flex-grow:1.35;outline:none}
+  .sh-doors .sh-panel:hover::after,.sh-doors .sh-panel:focus-visible::after{background:linear-gradient(180deg,rgba(5,12,24,.42),rgba(5,12,24,.24) 45%,rgba(5,12,24,.56))}
   .sh-panel:hover::before,.sh-panel:focus-visible::before{transform:scale(1.05)}
-  .sh-panel:focus-visible{box-shadow:inset 0 0 0 3px var(--gold)}
+  .sh-panel:focus-visible{box-shadow:0 0 0 3px var(--gold)}
   .sh-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:18px;animation:heroUp 1s cubic-bezier(.2,.7,.2,1) .3s backwards}
   .sh-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-bright)}
   .sh-panel h2{color:#fff;font-weight:400;font-size:clamp(2.8rem,5.4vw,5rem);margin:0;line-height:.98;letter-spacing:-.02em}
@@ -188,6 +189,48 @@
   .area-link:hover{text-decoration:none;transform:translateY(-3px);border-color:var(--gold);box-shadow:var(--shadow)}
   .area-link .arrow{color:var(--gold-2);transition:transform .2s ease;font-weight:700}
   .area-link:hover .arrow{transform:translateX(3px)}
+  .area-link.hot{border-color:var(--gold);box-shadow:var(--shadow);transform:translateY(-2px)}
+
+  /* interactive service-area map */
+  .mapwrap{display:grid;grid-template-columns:1.5fr 1fr;gap:28px;align-items:stretch}
+  .map-panel{position:relative;border-radius:var(--rad);overflow:hidden;background:linear-gradient(165deg,#0a2240,#0c2c57);border:1px solid var(--line);box-shadow:var(--shadow);min-height:340px}
+  .map-svg{display:block;width:100%;height:100%}
+  .map-lines line{stroke:rgba(201,162,39,.22);stroke-width:1.2;stroke-dasharray:3 5;transition:stroke .25s}
+  .pin{cursor:pointer}
+  .pin circle{fill:#0a2240;stroke:var(--gold);stroke-width:2;transition:r .22s cubic-bezier(.2,.7,.2,1),fill .22s}
+  .pin-hub circle{fill:var(--gold);stroke:#fff}
+  .pin text{fill:#dbe6f1;font-family:var(--sans);font-size:14px;font-weight:600;paint-order:stroke;stroke:rgba(6,18,38,.85);stroke-width:3px;transition:fill .2s;pointer-events:none}
+  .pin:hover circle,.pin:focus-visible circle,.pin.hot circle{fill:var(--gold);r:11;stroke:#fff;outline:none}
+  .pin-hub:hover circle,.pin-hub.hot circle{r:13}
+  .pin:hover text,.pin:focus-visible text,.pin.hot text{fill:#fff}
+  .map-list{display:flex;flex-direction:column;gap:8px}
+  .map-list .area-link{padding:11px 14px}
+
+  /* sticky proposal bar */
+  .stickycta{position:fixed;left:0;right:0;bottom:0;z-index:90;transform:translateY(120%);transition:transform .4s cubic-bezier(.2,.7,.2,1);pointer-events:none}
+  .stickycta.show{transform:none}
+  .stickycta .scinner{pointer-events:auto;max-width:var(--maxw);margin:0 auto;background:linear-gradient(120deg,#0a2240,#143a63);color:#fff;border:1px solid rgba(201,162,39,.4);border-bottom:none;border-radius:14px 14px 0 0;box-shadow:0 -14px 40px -18px rgba(2,8,18,.6);display:flex;align-items:center;gap:18px;padding:14px 18px;flex-wrap:wrap}
+  .stickycta .sctext{font-weight:600;font-size:.95rem;flex:1;min-width:200px}
+  .stickycta .sctext b{font-family:var(--serif);color:var(--gold-soft);font-weight:600}
+  .stickycta .scact{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+  .stickycta .scclose{background:transparent;border:none;color:#9fb1c4;font-size:1.2rem;cursor:pointer;line-height:1;padding:6px}
+  .stickycta .scclose:hover{color:#fff}
+
+  /* quick-path popup */
+  .qpop{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
+  .qpop.open{display:flex}
+  .qpop-back{position:absolute;inset:0;background:rgba(6,16,32,.62);backdrop-filter:blur(4px);animation:qfade .25s ease}
+  .qpop-box{position:relative;background:var(--white);border-radius:20px;max-width:440px;width:100%;padding:34px;box-shadow:var(--shadow-lg);animation:qpop .3s cubic-bezier(.2,.7,.2,1)}
+  @keyframes qfade{from{opacity:0}to{opacity:1}}
+  @keyframes qpop{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+  .qpop-box .qp-ic{width:54px;height:54px;border-radius:14px;background:linear-gradient(150deg,var(--navy),var(--navy-500));display:grid;place-items:center;color:var(--gold);margin-bottom:16px}
+  .qpop-box .qp-ic svg{width:26px;height:26px}
+  .qpop-box h3{font-family:var(--serif);font-size:1.5rem;color:var(--ink);margin:0 0 .3em}
+  .qpop-box p{color:var(--body);margin:0 0 22px}
+  .qpop-box .qp-actions{display:flex;flex-direction:column;gap:10px}
+  .qpop-box .qp-actions .btn{justify-content:center}
+  .qpop-close{position:absolute;top:14px;right:16px;background:transparent;border:none;font-size:1.3rem;color:var(--muted);cursor:pointer;line-height:1}
+  .qpop-close:hover{color:var(--ink)}
 
   .band{background:#06182F;color:#cfdbe8;border-top:1px solid rgba(255,255,255,.06)}
   .band .wrap{display:flex;gap:36px;flex-wrap:wrap;justify-content:space-between;padding:18px 24px}
@@ -981,11 +1024,11 @@
     .launch{grid-template-columns:1fr} .ways{grid-template-columns:repeat(2,1fr)} .tiers{grid-template-columns:1fr}
     .pillars{grid-template-columns:repeat(2,1fr)}
     .split{grid-template-columns:1fr;gap:30px} .split.flip .split-media{order:0}
-    .splithero{flex-direction:column;min-height:0}
-    .sh-top{position:static;background:linear-gradient(160deg,#0a2240,#0c2c57);padding:30px 24px 26px}
-    .sh-panel{min-height:48vh;flex:none}
-    .sh-panel:hover,.sh-panel:focus-visible{flex-grow:0}
-    .sh-c{border-right:none;border-bottom:1px solid rgba(201,162,39,.5)}
+    .splithero{min-height:0}
+    .sh-doors{flex-direction:column;gap:14px}
+    .sh-panel{min-height:42vh;flex:none}
+    .sh-doors .sh-panel:hover,.sh-doors .sh-panel:focus-visible{flex-grow:0}
+    .mapwrap{grid-template-columns:1fr}
     footer.site .cols{grid-template-columns:1fr 1fr} .gloss{grid-template-columns:1fr} .dkpis{grid-template-columns:repeat(2,1fr)}
     .modal-body{grid-template-columns:1fr} .m-rail{display:none} .mgrid{grid-template-columns:1fr}
   }
@@ -1567,24 +1610,26 @@
 <!-- ================= HOME ================= -->
 <section class="view active" id="view-home">
   <div class="splithero">
-    <div class="sh-top">
+    <div class="sh-head">
       <div class="eyebrow" style="color:var(--gold-soft)">Maryland Property Group</div>
       <h1 class="serif">Commercial &amp; residential real estate, managed like an investment</h1>
     </div>
-    <a class="sh-panel sh-c" data-view="commercial" role="link" tabindex="0" aria-label="Explore commercial real estate">
-      <div class="sh-inner">
-        <div class="sh-eyebrow">Office · Retail · Mixed-use</div>
-        <h2 class="serif">Commercial</h2>
-        <span class="sh-cta">Explore <i>→</i></span>
-      </div>
-    </a>
-    <a class="sh-panel sh-r" data-view="residential" role="link" tabindex="0" aria-label="Explore residential real estate">
-      <div class="sh-inner">
-        <div class="sh-eyebrow">Single-family · Multifamily</div>
-        <h2 class="serif">Residential</h2>
-        <span class="sh-cta">Explore <i>→</i></span>
-      </div>
-    </a>
+    <div class="sh-doors">
+      <a class="sh-panel sh-c" data-view="commercial" role="link" tabindex="0" aria-label="Explore commercial real estate">
+        <div class="sh-inner">
+          <div class="sh-eyebrow">Office · Retail · Mixed-use</div>
+          <h2 class="serif">Commercial</h2>
+          <span class="sh-cta">Explore <i>→</i></span>
+        </div>
+      </a>
+      <a class="sh-panel sh-r" data-view="residential" role="link" tabindex="0" aria-label="Explore residential real estate">
+        <div class="sh-inner">
+          <div class="sh-eyebrow">Single-family · Multifamily</div>
+          <h2 class="serif">Residential</h2>
+          <span class="sh-cta">Explore <i>→</i></span>
+        </div>
+      </a>
+    </div>
   </div>
 
 <div class="trustband">
@@ -1662,19 +1707,44 @@
 
   <section class="block">
     <div class="wrap">
-      <div class="sec-head center reveal"><div class="eyebrow">Where we work</div><h2 class="serif">Property management across Greater Baltimore</h2><p class="muted">On-the-ground in the neighborhoods and counties we know best.</p></div>
-      <div class="areas reveal">
-        <a class="area-link" href="baltimore-city-property-management">Baltimore City<span class="arrow">→</span></a>
-        <a class="area-link" href="baltimore-county-property-management">Baltimore County<span class="arrow">→</span></a>
-        <a class="area-link" href="towson-property-management">Towson<span class="arrow">→</span></a>
-        <a class="area-link" href="pikesville-property-management">Pikesville<span class="arrow">→</span></a>
-        <a class="area-link" href="owings-mills-property-management">Owings Mills<span class="arrow">→</span></a>
-        <a class="area-link" href="catonsville-property-management">Catonsville<span class="arrow">→</span></a>
-        <a class="area-link" href="reisterstown-property-management">Reisterstown<span class="arrow">→</span></a>
-        <a class="area-link" href="parkville-property-management">Parkville<span class="arrow">→</span></a>
-        <a class="area-link" href="overlea-property-management">Overlea<span class="arrow">→</span></a>
+      <div class="sec-head center reveal"><div class="eyebrow">Where we work</div><h2 class="serif">Property management across Greater Baltimore</h2><p class="muted">Hover the map or pick an area — local, on-the-ground management.</p></div>
+      <div class="mapwrap reveal">
+        <div class="map-panel">
+          <svg viewBox="0 0 600 460" class="map-svg" role="img" aria-label="Map of Greater Baltimore service areas">
+            <defs>
+              <pattern id="mapdots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,.06)"/></pattern>
+            </defs>
+            <rect x="0" y="0" width="600" height="460" fill="url(#mapdots)"/>
+            <g class="map-lines">
+              <line x1="405" y1="358" x2="335" y2="115"/><line x1="405" y1="358" x2="420" y2="170"/>
+              <line x1="405" y1="358" x2="240" y2="221"/><line x1="405" y1="358" x2="150" y2="136"/>
+              <line x1="405" y1="358" x2="225" y2="392"/><line x1="405" y1="358" x2="75" y2="51"/>
+              <line x1="405" y1="358" x2="510" y2="204"/><line x1="405" y1="358" x2="540" y2="238"/>
+            </g>
+            <a class="pin pin-hub" data-area="city" href="baltimore-city-property-management" aria-label="Baltimore City property management"><circle cx="405" cy="358" r="10"/><text x="405" y="386" text-anchor="middle">Baltimore City</text></a>
+            <a class="pin" data-area="county" href="baltimore-county-property-management" aria-label="Baltimore County property management"><circle cx="335" cy="115" r="7"/><text x="335" y="102" text-anchor="middle">Baltimore County</text></a>
+            <a class="pin" data-area="towson" href="towson-property-management" aria-label="Towson property management"><circle cx="420" cy="170" r="7"/><text x="434" y="175" text-anchor="start">Towson</text></a>
+            <a class="pin" data-area="pikesville" href="pikesville-property-management" aria-label="Pikesville property management"><circle cx="240" cy="221" r="7"/><text x="226" y="226" text-anchor="end">Pikesville</text></a>
+            <a class="pin" data-area="owings" href="owings-mills-property-management" aria-label="Owings Mills property management"><circle cx="150" cy="136" r="7"/><text x="164" y="141" text-anchor="start">Owings Mills</text></a>
+            <a class="pin" data-area="catonsville" href="catonsville-property-management" aria-label="Catonsville property management"><circle cx="225" cy="392" r="7"/><text x="239" y="397" text-anchor="start">Catonsville</text></a>
+            <a class="pin" data-area="reisterstown" href="reisterstown-property-management" aria-label="Reisterstown property management"><circle cx="75" cy="51" r="7"/><text x="89" y="56" text-anchor="start">Reisterstown</text></a>
+            <a class="pin" data-area="parkville" href="parkville-property-management" aria-label="Parkville property management"><circle cx="510" cy="204" r="7"/><text x="496" y="209" text-anchor="end">Parkville</text></a>
+            <a class="pin" data-area="overlea" href="overlea-property-management" aria-label="Overlea property management"><circle cx="540" cy="238" r="7"/><text x="526" y="243" text-anchor="end">Overlea</text></a>
+          </svg>
+        </div>
+        <div class="map-list">
+          <a class="area-link" data-area="city" href="baltimore-city-property-management">Baltimore City<span class="arrow">→</span></a>
+          <a class="area-link" data-area="county" href="baltimore-county-property-management">Baltimore County<span class="arrow">→</span></a>
+          <a class="area-link" data-area="towson" href="towson-property-management">Towson<span class="arrow">→</span></a>
+          <a class="area-link" data-area="pikesville" href="pikesville-property-management">Pikesville<span class="arrow">→</span></a>
+          <a class="area-link" data-area="owings" href="owings-mills-property-management">Owings Mills<span class="arrow">→</span></a>
+          <a class="area-link" data-area="catonsville" href="catonsville-property-management">Catonsville<span class="arrow">→</span></a>
+          <a class="area-link" data-area="reisterstown" href="reisterstown-property-management">Reisterstown<span class="arrow">→</span></a>
+          <a class="area-link" data-area="parkville" href="parkville-property-management">Parkville<span class="arrow">→</span></a>
+          <a class="area-link" data-area="overlea" href="overlea-property-management">Overlea<span class="arrow">→</span></a>
+          <a class="btn btn-ghost" href="service-areas" style="margin-top:8px;justify-content:center">View all service areas</a>
+        </div>
       </div>
-      <div class="center reveal" style="margin-top:22px"><a class="btn btn-ghost" href="service-areas">View all service areas</a></div>
     </div>
   </section>
 
@@ -2200,6 +2270,30 @@
 </section>
 
 </main>
+
+<!-- STICKY PROPOSAL BAR -->
+<div class="stickycta" id="stickycta" aria-hidden="true">
+  <div class="scinner">
+    <div class="sctext"><b>Own property in Greater Baltimore?</b> Get a free, no-obligation management proposal.</div>
+    <div class="scact">
+      <a class="btn btn-gold" href="property-management-analysis">Request a Proposal</a>
+      <a class="btn btn-ghost-light" href="tel:+14102361198">Call 410-236-1198</a>
+      <button class="scclose" id="scclose" aria-label="Dismiss">✕</button>
+    </div>
+  </div>
+</div>
+
+<!-- QUICK-PATH POPUP -->
+<div class="qpop" id="qpop" aria-hidden="true">
+  <div class="qpop-back" data-qclose></div>
+  <div class="qpop-box" role="dialog" aria-modal="true" aria-labelledby="qpop-title">
+    <button class="qpop-close" data-qclose aria-label="Close">✕</button>
+    <div class="qp-ic" id="qpop-ic"></div>
+    <h3 id="qpop-title"></h3>
+    <p id="qpop-desc"></p>
+    <div class="qp-actions" id="qpop-actions"></div>
+  </div>
+</div>
 
 <!-- MODAL -->
 <div class="modal" id="modal" aria-hidden="true">
@@ -3240,6 +3334,71 @@ function ssGo(btn) {
 })();
   var h=(location.hash||"").replace("#","");
   if(h&&$("#view-"+h))showView(h,{noscroll:true});
+})();
+</script>
+<script>
+/* Interactive features: service-area map sync, sticky proposal bar, quick-path pop-ups */
+(function(){
+  var $=function(s,c){return (c||document).querySelector(s);};
+  var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));};
+
+  /* --- service-area map: cross-highlight pins and legend --- */
+  function setHot(area,on){$$('[data-area="'+area+'"]').forEach(function(el){el.classList.toggle('hot',on);});}
+  $$('.mapwrap [data-area]').forEach(function(el){
+    var a=el.getAttribute('data-area');
+    el.addEventListener('mouseenter',function(){setHot(a,true);});
+    el.addEventListener('mouseleave',function(){setHot(a,false);});
+    el.addEventListener('focusin',function(){setHot(a,true);});
+    el.addEventListener('focusout',function(){setHot(a,false);});
+  });
+
+  /* --- sticky "request a proposal" bar (appears on scroll, dismissible) --- */
+  var sc=$('#stickycta'),scDismissed=false;
+  if(sc){
+    window.addEventListener('scroll',function(){
+      if(scDismissed)return;
+      var on=window.scrollY>720;
+      sc.classList.toggle('show',on);
+      sc.setAttribute('aria-hidden',on?'false':'true');
+    },{passive:true});
+    var x=$('#scclose');
+    if(x)x.addEventListener('click',function(){scDismissed=true;sc.classList.remove('show');sc.setAttribute('aria-hidden','true');});
+  }
+
+  /* --- quick-path pop-ups from the "Find your path" cards --- */
+  var ICO='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V8l7-4 7 4v13"/><path d="M9 21v-6h6v6"/><path d="M9 11h.01M15 11h.01"/></svg>';
+  var FLOWS={
+    management:{title:'Professional property management',desc:'Hands-off management for your residential or commercial property across Greater Baltimore — leasing, rent collection, maintenance, and clear monthly reporting.',actions:[{t:'Request a proposal',c:'btn-gold',view:'management',jump:'mgmtform'},{t:'Talk to us',c:'btn-ghost',view:'contact'}]},
+    webuy:{title:'Sell as-is for cash',desc:'A fair, no-obligation cash offer on your house or building — no agent commissions, and a closing date you choose.',actions:[{t:'Get a cash offer',c:'btn-gold',view:'webuy'},{t:'Call 410-236-1198',c:'btn-ghost',href:'tel:+14102361198'}]},
+    investors:{title:'Investor access',desc:'Review future private real-estate opportunities. Access is reviewed before any opportunity-specific materials are shared.',actions:[{t:'Request investor access',c:'btn-gold',view:'investors'},{t:'Contact us',c:'btn-ghost',view:'contact'}]},
+    residents:{title:'Resident resources',desc:'Pay rent, request maintenance, or access your resident portal.',actions:[{t:'Resident resources',c:'btn-gold',view:'residents'},{t:'Contact us',c:'btn-ghost',view:'contact'}]},
+    owners:{title:'Owner resources',desc:'View statements and reports, or get in touch with your management team.',actions:[{t:'Owner resources',c:'btn-gold',view:'owners'},{t:'Contact us',c:'btn-ghost',view:'contact'}]}
+  };
+  var qp=$('#qpop'),qpT=$('#qpop-title'),qpD=$('#qpop-desc'),qpA=$('#qpop-actions'),qpIc=$('#qpop-ic'),qpLast=null;
+  function openQpop(key,opener){
+    var f=FLOWS[key];if(!f||!qp)return;
+    qpLast=opener||null;
+    qpIc.innerHTML=ICO;qpT.textContent=f.title;qpD.textContent=f.desc;
+    qpA.innerHTML=f.actions.map(function(a){
+      var attr=a.href?('href="'+a.href+'"'):((a.view?'data-view="'+a.view+'"':'')+(a.jump?' data-jump="'+a.jump+'"':''));
+      return '<a class="btn '+a.c+'" '+attr+'>'+a.t+'</a>';
+    }).join('');
+    qp.classList.add('open');qp.setAttribute('aria-hidden','false');document.body.classList.add('locked');
+  }
+  function closeQpop(){if(!qp)return;qp.classList.remove('open');qp.setAttribute('aria-hidden','true');document.body.classList.remove('locked');if(qpLast&&qpLast.focus){try{qpLast.focus();}catch(e){}}}
+  $$('.pathcard').forEach(function(card){
+    var key=card.getAttribute('data-view');
+    if(!FLOWS[key])return;
+    card.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();openQpop(key,card);});
+    card.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();e.stopPropagation();openQpop(key,card);}});
+  });
+  if(qp){
+    qp.addEventListener('click',function(e){
+      if(e.target.closest('[data-qclose]')){e.preventDefault();closeQpop();return;}
+      if(e.target.closest('[data-view],a[href^="tel:"]'))closeQpop(); /* let the action route, then dismiss */
+    });
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&qp.classList.contains('open'))closeQpop();});
+  }
 })();
 </script>
 </body>
