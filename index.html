@@ -1589,18 +1589,18 @@
     </div>
     <button class="hamb" id="hamb" aria-label="Toggle navigation" aria-expanded="false">☰ Menu</button>
     <nav class="main" id="mainnav" aria-label="Primary">
-      <a data-view="management" class="active">Property Management</a>
-      <a data-view="owners">Owners</a>
-      <a data-view="residents">Residents</a>
-      <a data-view="commercial">Commercial</a>
-      <a data-view="residential">Residential</a>
-      <a data-view="webuy">Sell Your Property</a>
-      <a data-view="investors">Investors</a>
-      <a href="service-areas">Service Areas</a>
-      <a href="about">About</a>
-      <a data-view="faqs">FAQs</a>
-      <a data-view="contact">Contact</a>
-      <a data-view="consultation">Book a Call</a>
+      <a data-view="commercial" data-ctx="commercial">Commercial</a>
+      <a data-view="investors" data-ctx="commercial">Investors</a>
+      <a data-view="residential" data-ctx="residential">Residential</a>
+      <a data-view="owners" data-ctx="residential">Owners</a>
+      <a data-view="residents" data-ctx="residential">Residents</a>
+      <a data-view="management" data-ctx="commercial residential">Property Management</a>
+      <a data-view="webuy" data-ctx="commercial residential">Sell Your Property</a>
+      <a data-view="faqs" data-ctx="commercial residential">FAQs</a>
+      <a href="service-areas" data-ctx="all">Service Areas</a>
+      <a href="about" data-ctx="all">About</a>
+      <a data-view="contact" data-ctx="all">Contact</a>
+      <a data-view="consultation" data-ctx="all">Book a Call</a>
     </nav>
   </div>
 </header>
@@ -1651,29 +1651,6 @@
         <div class="card pathcard reveal" data-view="investors" tabindex="0" role="button"><div class="ic" data-ic="chart"></div><h3>Investor</h3><p class="muted">Want to review future private opportunities?</p><span class="btn btn-ghost" style="margin-top:10px">Request investor access ›</span></div>
         <div class="card pathcard reveal" data-view="residents" tabindex="0" role="button"><div class="ic" data-ic="home"></div><h3>Resident</h3><p class="muted">Need to pay rent or request maintenance?</p><span class="btn btn-ghost" style="margin-top:10px">Resident resources ›</span></div>
         <div class="card pathcard reveal" data-view="owners" tabindex="0" role="button"><div class="ic" data-ic="clipboard"></div><h3>Current owner</h3><p class="muted">Need reports or statements?</p><span class="btn btn-ghost" style="margin-top:10px">Owner resources ›</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block alt">
-    <div class="wrap">
-      <div class="split">
-        <div class="reveal">
-          <div class="eyebrow">Full-service management</div>
-          <h2 class="serif">Hands-off ownership, built for Maryland landlords</h2>
-          <p class="muted">We run the day-to-day — leasing, rent collection, maintenance, and clear monthly reporting for residential and commercial property across Greater Baltimore.</p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
-            <a class="btn btn-gold" href="property-management-analysis">Request a Property Management Analysis</a>
-            <a class="btn btn-ghost" data-view="management" data-jump="mgmtform">See how management works</a>
-          </div>
-        </div>
-        <ul class="checklist checklist-card reveal">
-          <li>Leasing &amp; tenant placement with screening</li>
-          <li>Online rent collection and owner payouts</li>
-          <li>24/7 maintenance coordination &amp; trusted vendors</li>
-          <li>Monthly AppFolio statements — income, expenses, cash flow</li>
-          <li>Compliance &amp; insurance tracking handled for you</li>
-        </ul>
       </div>
     </div>
   </section>
@@ -1745,14 +1722,6 @@
           <a class="btn btn-ghost" href="service-areas" style="margin-top:8px;justify-content:center">View all service areas</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="block alt">
-    <div class="wrap">
-      <div class="sec-head reveal"><div class="eyebrow">For qualified investors</div><h2 class="serif">Investor access</h2><p class="muted">We may share information about future real estate opportunities with qualified prospective investors. Access is reviewed before any opportunity-specific materials are shared.</p></div>
-      <div class="reveal" style="margin-top:8px"><a class="btn btn-gold" data-view="investors">Request investor access</a></div>
-      <p class="muted" style="font-size:.78rem;margin-top:16px;max-width:70ch">Informational only. Nothing on this website is an offer to sell or a solicitation of an offer to buy any security. Any future offering materials, if available, are provided only through appropriate private channels and subject to applicable securities laws.</p>
     </div>
   </section>
 
@@ -3341,6 +3310,31 @@ function ssGo(btn) {
 (function(){
   var $=function(s,c){return (c||document).querySelector(s);};
   var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));};
+
+  /* --- context-aware nav: minimal on home, reveals a "world" once chosen --- */
+  function viewWorld(id){
+    if(id==='view-commercial'||id==='view-investors')return 'commercial';
+    if(id==='view-residential'||id==='view-owners'||id==='view-residents')return 'residential';
+    if(id==='view-home')return 'home';
+    return null; /* shared views keep the current world */
+  }
+  var navWorld='home';
+  function applyNav(){
+    $$('nav.main a[data-ctx]').forEach(function(a){
+      var ctx=a.getAttribute('data-ctx');
+      a.style.display=(ctx==='all'||ctx.indexOf(navWorld)>=0)?'':'none';
+    });
+  }
+  (function(){
+    var act=document.querySelector('.view.active');
+    if(act){var w0=viewWorld(act.id);if(w0)navWorld=w0;}
+    applyNav();
+    var obs=new MutationObserver(function(){
+      var a=document.querySelector('.view.active');if(!a)return;
+      var w=viewWorld(a.id);if(w&&w!==navWorld){navWorld=w;applyNav();}
+    });
+    $$('.view').forEach(function(v){obs.observe(v,{attributes:true,attributeFilter:['class']});});
+  })();
 
   /* --- service-area map: cross-highlight pins and legend --- */
   function setHot(area,on){$$('[data-area="'+area+'"]').forEach(function(el){el.classList.toggle('hot',on);});}
