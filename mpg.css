@@ -84,6 +84,14 @@ a {
 a:hover {
   text-decoration: underline;
 }
+[data-view],
+[data-appfolio],
+[role="button"],
+[role="link"],
+button,
+summary {
+  cursor: pointer;
+}
 img {
   max-width: 100%;
   height: auto;

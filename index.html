@@ -55,6 +55,9 @@
   h1{font-size:clamp(2.3rem,5vw,3.85rem)} h2{font-size:clamp(1.7rem,3.4vw,2.55rem)} h3{font-size:1.24rem}
   p{margin:0 0 1em}
   a{color:var(--navy-500);text-decoration:none} a:hover{text-decoration:underline}
+  /* every clickable element shows a pointer, even hrefless SPA links/buttons */
+  [data-view],[data-appfolio],[data-deck],[data-jump],[data-go],[data-close],[data-tour],[data-k],[data-noop],[role="button"],[role="link"],.brand,.wrow,.pathcard,.area-link,.lcard,.sh-panel,button,summary,label[for]{cursor:pointer}
+  [aria-disabled="true"],button:disabled{cursor:not-allowed}
   .serif{font-family:var(--serif);font-optical-sizing:auto;letter-spacing:-.02em} .muted{color:var(--muted)} .center{text-align:center}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
   .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-2)}
@@ -127,6 +130,30 @@
   .whatwedo .wrow:hover{border-color:var(--gold);background:#fbf7ea}
   .whatwedo .wrow .we{font-size:1.3rem;flex:none} .whatwedo .wrow b{color:var(--navy);font-size:.95rem} .whatwedo .wrow span{font-size:.82rem;color:var(--muted)}
 
+  /* split-panel hero (commercial / residential) — clean, editorial */
+  .splithero{position:relative;display:flex;gap:3px;min-height:90vh;background:#050e1c;overflow:hidden}
+  .sh-top{position:absolute;top:0;left:0;right:0;z-index:5;text-align:center;padding:clamp(34px,5vh,60px) 24px 0;pointer-events:none}
+  .sh-top .eyebrow{justify-content:center;color:var(--gold-soft);letter-spacing:.26em;animation:heroUp .9s cubic-bezier(.2,.7,.2,1) backwards}
+  .sh-top h1{color:#fff;font-weight:400;font-size:clamp(1.35rem,2.3vw,2.05rem);line-height:1.32;max-width:22ch;margin:.85em auto 0;letter-spacing:-.01em;text-shadow:0 2px 30px rgba(2,8,18,.7);animation:heroUp .9s cubic-bezier(.2,.7,.2,1) .1s backwards}
+  .sh-panel{position:relative;flex:1 1 0;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px;color:#fff;overflow:hidden;cursor:pointer;text-decoration:none;transition:flex-grow .6s cubic-bezier(.4,0,.2,1)}
+  .sh-panel::before{content:"";position:absolute;inset:0;z-index:0;background-size:cover;background-position:center;transition:transform .9s cubic-bezier(.4,0,.2,1),filter .6s ease}
+  .sh-c::before{background-image:url('assets/img/commercial-interior.jpg')}
+  .sh-r::before{background-image:url('assets/img/single-family-home.jpg')}
+  .sh-panel::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(5,12,24,.6),rgba(5,12,24,.46) 45%,rgba(5,12,24,.66));transition:background .5s ease}
+  .sh-c{border-right:1px solid rgba(201,162,39,.32)}
+  /* hovered side opens & brightens; the other quietly recedes */
+  .splithero:hover .sh-panel::after{background:linear-gradient(180deg,rgba(5,12,24,.72),rgba(5,12,24,.6) 45%,rgba(5,12,24,.78))}
+  .splithero .sh-panel:hover,.splithero .sh-panel:focus-visible{flex-grow:1.32;outline:none}
+  .splithero .sh-panel:hover::after,.splithero .sh-panel:focus-visible::after{background:linear-gradient(180deg,rgba(5,12,24,.46),rgba(5,12,24,.28) 45%,rgba(5,12,24,.58))}
+  .sh-panel:hover::before,.sh-panel:focus-visible::before{transform:scale(1.05)}
+  .sh-panel:focus-visible{box-shadow:inset 0 0 0 3px var(--gold)}
+  .sh-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:18px;animation:heroUp 1s cubic-bezier(.2,.7,.2,1) .3s backwards}
+  .sh-eyebrow{font-size:.72rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gold-bright)}
+  .sh-panel h2{color:#fff;font-weight:400;font-size:clamp(2.8rem,5.4vw,5rem);margin:0;line-height:.98;letter-spacing:-.02em}
+  .sh-cta{display:inline-flex;align-items:center;gap:.6em;font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#fff;opacity:.92}
+  .sh-cta i{font-style:normal;font-size:1.05rem;letter-spacing:0;transition:transform .3s ease}
+  .sh-panel:hover .sh-cta i,.sh-panel:focus-visible .sh-cta i{transform:translateX(7px)}
+
   /* trust band under hero */
   .trustband{background:#fff;border-bottom:1px solid var(--line);box-shadow:var(--shadow-sm)}
   .trustband .wrap{display:flex;flex-wrap:wrap;gap:12px 30px;justify-content:center;padding:18px 24px}
@@ -152,6 +179,8 @@
   .checklist{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:12px}
   .checklist li{display:flex;gap:12px;align-items:flex-start;font-size:.96rem;color:var(--body)}
   .checklist li::before{content:"✓";flex:none;width:24px;height:24px;border-radius:7px;background:var(--gold-soft);color:var(--gold-2);font-weight:800;display:grid;place-items:center;font-size:.82rem;margin-top:1px}
+  .checklist-card{margin:0;align-self:center;background:var(--white);border:1px solid var(--line);border-radius:var(--rad);box-shadow:var(--shadow);padding:30px 30px 30px 30px;gap:16px;border-left:4px solid var(--gold)}
+  .checklist-card li{font-size:1rem;font-weight:500;color:var(--ink)}
 
   /* areas we serve */
   .areas{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:12px}
@@ -952,6 +981,11 @@
     .launch{grid-template-columns:1fr} .ways{grid-template-columns:repeat(2,1fr)} .tiers{grid-template-columns:1fr}
     .pillars{grid-template-columns:repeat(2,1fr)}
     .split{grid-template-columns:1fr;gap:30px} .split.flip .split-media{order:0}
+    .splithero{flex-direction:column;min-height:0}
+    .sh-top{position:static;background:linear-gradient(160deg,#0a2240,#0c2c57);padding:30px 24px 26px}
+    .sh-panel{min-height:48vh;flex:none}
+    .sh-panel:hover,.sh-panel:focus-visible{flex-grow:0}
+    .sh-c{border-right:none;border-bottom:1px solid rgba(201,162,39,.5)}
     footer.site .cols{grid-template-columns:1fr 1fr} .gloss{grid-template-columns:1fr} .dkpis{grid-template-columns:repeat(2,1fr)}
     .modal-body{grid-template-columns:1fr} .m-rail{display:none} .mgrid{grid-template-columns:1fr}
   }
@@ -1532,32 +1566,25 @@
 
 <!-- ================= HOME ================= -->
 <section class="view active" id="view-home">
-  <div class="hero has-img">
-    <div class="wrap">
-      <div>
-        <div class="eyebrow" style="color:var(--gold-soft)">Maryland Property Group · More Gad LLC</div>
-        <h1 class="serif">Maryland Property Management, Investment &amp; Cash Purchases</h1>
-        <p class="lead">Disciplined, local management with transparent AppFolio reporting — and a fair cash offer when selling beats managing.</p>
-        <div class="pills"><span class="pill">◆ Residential &amp; commercial management</span><span class="pill">◆ Investment &amp; direct acquisitions</span><span class="pill">◆ Greater Baltimore, MD</span></div>
-        <div class="actions">
-          <a class="btn btn-gold btn-lg" href="property-management-analysis">Request a Property Management Analysis</a>
-          <a class="btn btn-ghost-light btn-lg" data-view="webuy">Get a Cash Offer</a>
-          <a class="btn btn-ghost-light btn-lg" data-view="residents">For Residents</a>
-        </div>
-      </div>
-      <div class="hero-card">
-        <div class="whatwedo">
-          <h4 class="serif">What we do</h4>
-          <p class="muted" style="margin:0;font-size:.88rem">Four ways we work in real estate.</p>
-          <div class="wlist">
-            <div class="wrow" data-view="residential"><span class="we-ic" data-ic="home"></span><div><b>Residential investing</b><br><span>Cash-flow rentals, underwritten carefully.</span></div></div>
-            <div class="wrow" data-view="commercial"><span class="we-ic" data-ic="building"></span><div><b>Commercial investing</b><br><span>Value-add conversions that grow income.</span></div></div>
-            <div class="wrow" data-view="management"><span class="we-ic" data-ic="gear"></span><div><b>Property management</b><br><span>Full-service, AppFolio-powered operations.</span></div></div>
-            <div class="wrow" data-view="webuy"><span class="we-ic" data-ic="cash"></span><div><b>We buy houses</b><br><span>Fast, as-is cash offers for homes &amp; buildings.</span></div></div>
-          </div>
-        </div>
-      </div>
+  <div class="splithero">
+    <div class="sh-top">
+      <div class="eyebrow" style="color:var(--gold-soft)">Maryland Property Group</div>
+      <h1 class="serif">Commercial &amp; residential real estate, managed like an investment</h1>
     </div>
+    <a class="sh-panel sh-c" data-view="commercial" role="link" tabindex="0" aria-label="Explore commercial real estate">
+      <div class="sh-inner">
+        <div class="sh-eyebrow">Office · Retail · Mixed-use</div>
+        <h2 class="serif">Commercial</h2>
+        <span class="sh-cta">Explore <i>→</i></span>
+      </div>
+    </a>
+    <a class="sh-panel sh-r" data-view="residential" role="link" tabindex="0" aria-label="Explore residential real estate">
+      <div class="sh-inner">
+        <div class="sh-eyebrow">Single-family · Multifamily</div>
+        <h2 class="serif">Residential</h2>
+        <span class="sh-cta">Explore <i>→</i></span>
+      </div>
+    </a>
   </div>
 
 <div class="trustband">
@@ -1586,26 +1613,22 @@
   <section class="block alt">
     <div class="wrap">
       <div class="split">
-        <div class="split-media reveal">
-          <img src="assets/img/consultation.jpg" alt="Maryland Property Group team reviewing a property management plan with an owner" loading="lazy" />
-          <span class="badge-float"><span class="bdot"></span>AppFolio-powered reporting</span>
-        </div>
         <div class="reveal">
           <div class="eyebrow">Full-service management</div>
           <h2 class="serif">Hands-off ownership, built for Maryland landlords</h2>
           <p class="muted">We run the day-to-day — leasing, rent collection, maintenance, and clear monthly reporting for residential and commercial property across Greater Baltimore.</p>
-          <ul class="checklist">
-            <li>Leasing &amp; tenant placement with screening</li>
-            <li>Online rent collection and owner payouts</li>
-            <li>24/7 maintenance coordination &amp; trusted vendors</li>
-            <li>Monthly AppFolio statements — income, expenses, cash flow</li>
-            <li>Compliance &amp; insurance tracking handled for you</li>
-          </ul>
           <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
             <a class="btn btn-gold" href="property-management-analysis">Request a Property Management Analysis</a>
             <a class="btn btn-ghost" data-view="management" data-jump="mgmtform">See how management works</a>
           </div>
         </div>
+        <ul class="checklist checklist-card reveal">
+          <li>Leasing &amp; tenant placement with screening</li>
+          <li>Online rent collection and owner payouts</li>
+          <li>24/7 maintenance coordination &amp; trusted vendors</li>
+          <li>Monthly AppFolio statements — income, expenses, cash flow</li>
+          <li>Compliance &amp; insurance tracking handled for you</li>
+        </ul>
       </div>
     </div>
   </section>
@@ -1623,39 +1646,6 @@
         <div class="lcard" data-deck="residential" data-bg="residential" tabindex="0" role="button"><div class="view">View ›</div><div class="lc"><div class="tag">Residential</div><h3 class="serif">Residential Strategy</h3><p>Cash-flow rentals screened for today's rates.</p></div></div>
         <div class="lcard" data-deck="management" data-bg="management" tabindex="0" role="button"><div class="view">View ›</div><div class="lc"><div class="tag">Operations</div><h3 class="serif">Property Management</h3><p>The operating engine that protects every business plan.</p></div></div>
       </div>
-    </div>
-  </section>
-
-  <section class="block">
-    <div class="wrap">
-      <div class="sec-head reveal"><div class="eyebrow">How we work</div><h2 class="serif">A repeatable, four-stage value chain</h2></div>
-      <div class="steps">
-        <div class="step reveal"><h4>Source</h4><p class="muted">Off-market, owner-occupied buildings on high-traffic corridors via data tools, direct outreach, and relationships.</p></div>
-        <div class="step reveal"><h4>Underwrite</h4><p class="muted">A seven-stage diligence process: income, financing, parking, zoning, ADA, egress, and a stress-tested exit.</p></div>
-        <div class="step reveal"><h4>Reposition</h4><p class="muted">Improve and, where it fits, convert to higher-yield uses with smart access and modern systems.</p></div>
-        <div class="step reveal"><h4>Operate</h4><p class="muted">In-house management with AppFolio reporting and monthly statements protect the business plan.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block alt">
-    <div class="wrap">
-      <div class="sec-head center reveal"><div class="eyebrow">Why owners choose us</div><h2 class="serif">We treat your property like an investment</h2><p class="muted">Owners and operators ourselves — managed with an investor's discipline, not a call-center checklist.</p></div>
-      <div class="pillars">
-        <div class="pillar reveal"><div class="pic" data-ic="building"></div><h3>Residential &amp; commercial</h3><p>Single-family, multifamily, office, retail, and mixed-use — one team.</p></div>
-        <div class="pillar reveal"><div class="pic" data-ic="chart"></div><h3>Transparent reporting</h3><p>AppFolio-powered owner portal with monthly statements covering income, expenses, and cash flow.</p></div>
-        <div class="pillar reveal"><div class="pic" data-ic="gear"></div><h3>In-house operations</h3><p>Leasing, maintenance, and compliance handled directly — not farmed out and forgotten.</p></div>
-        <div class="pillar reveal"><div class="pic" data-ic="home"></div><h3>Maryland market focus</h3><p>Greater Baltimore neighborhoods, rents, and rental-licensing rules.</p></div>
-        <div class="pillar reveal"><div class="pic" data-ic="cash"></div><h3>A real exit option</h3><p>When selling beats managing, we'll make a fair, as-is cash offer on your house or building.</p></div>
-        <div class="pillar reveal"><div class="pic" data-ic="clipboard"></div><h3>Compliance-minded</h3><p>Lease, inspection, insurance, and registration tracking built in.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="block">
-    <div class="wrap">
-      <div class="sec-head center reveal"><div class="eyebrow">Watch</div><h2 class="serif">How we work, in under a minute</h2></div>
-      <div class="vid reveal" data-tour="overview"></div>
     </div>
   </section>
 
@@ -2368,7 +2358,7 @@
     var t=e.target.closest("[data-view]"); if(t){e.preventDefault();showView(t.getAttribute("data-view"));var jj=t.getAttribute("data-jump");if(jj){var jn=$("#"+jj);if(jn)setTimeout(function(){jn.scrollIntoView({behavior:"smooth"});},80);}return;}
     var j=e.target.closest("[data-jump]"); if(j){e.preventDefault();var node=$("#"+j.getAttribute("data-jump"));if(node)node.scrollIntoView({behavior:"smooth"});return;}
   });
-  $$(".brand,.lcard").forEach(function(b){b.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();if(this.hasAttribute("data-deck"))openDeck(this.getAttribute("data-deck"),this);else if(this.hasAttribute("data-view"))showView(this.getAttribute("data-view"));}});});
+  $$(".brand,.lcard,.sh-panel").forEach(function(b){b.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();if(this.hasAttribute("data-deck"))openDeck(this.getAttribute("data-deck"),this);else if(this.hasAttribute("data-view"))showView(this.getAttribute("data-view"));}});});
 
   var hamb=$("#hamb"),nav=$("#mainnav");
   function closeMenu(){nav.classList.remove("show");hamb.setAttribute("aria-expanded","false");}
