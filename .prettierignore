@@ -1,0 +1,5 @@
+# Hand-authored compact HTML/CSS — keep Prettier from reflowing these
+index.html
+*.html
+mpg.css
+mpg.js
