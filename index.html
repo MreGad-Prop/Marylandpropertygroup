@@ -1721,15 +1721,15 @@
               <line x1="405" y1="358" x2="225" y2="392"/><line x1="405" y1="358" x2="75" y2="51"/>
               <line x1="405" y1="358" x2="510" y2="204"/><line x1="405" y1="358" x2="540" y2="238"/>
             </g>
-            <a class="pin pin-hub" data-area="city" href="baltimore-city-property-management" aria-label="Baltimore City property management"><circle cx="405" cy="358" r="10"/><text x="405" y="386" text-anchor="middle">Baltimore City</text></a>
-            <a class="pin" data-area="county" href="baltimore-county-property-management" aria-label="Baltimore County property management"><circle cx="335" cy="115" r="7"/><text x="335" y="102" text-anchor="middle">Baltimore County</text></a>
-            <a class="pin" data-area="towson" href="towson-property-management" aria-label="Towson property management"><circle cx="420" cy="170" r="7"/><text x="434" y="175" text-anchor="start">Towson</text></a>
-            <a class="pin" data-area="pikesville" href="pikesville-property-management" aria-label="Pikesville property management"><circle cx="240" cy="221" r="7"/><text x="226" y="226" text-anchor="end">Pikesville</text></a>
-            <a class="pin" data-area="owings" href="owings-mills-property-management" aria-label="Owings Mills property management"><circle cx="150" cy="136" r="7"/><text x="164" y="141" text-anchor="start">Owings Mills</text></a>
-            <a class="pin" data-area="catonsville" href="catonsville-property-management" aria-label="Catonsville property management"><circle cx="225" cy="392" r="7"/><text x="239" y="397" text-anchor="start">Catonsville</text></a>
-            <a class="pin" data-area="reisterstown" href="reisterstown-property-management" aria-label="Reisterstown property management"><circle cx="75" cy="51" r="7"/><text x="89" y="56" text-anchor="start">Reisterstown</text></a>
-            <a class="pin" data-area="parkville" href="parkville-property-management" aria-label="Parkville property management"><circle cx="510" cy="204" r="7"/><text x="496" y="209" text-anchor="end">Parkville</text></a>
-            <a class="pin" data-area="overlea" href="overlea-property-management" aria-label="Overlea property management"><circle cx="540" cy="238" r="7"/><text x="526" y="243" text-anchor="end">Overlea</text></a>
+            <g class="pin pin-hub" data-area="city" data-href="baltimore-city-property-management" role="link" tabindex="0" aria-label="Baltimore City property management"><circle cx="405" cy="358" r="10"/><text x="405" y="386" text-anchor="middle">Baltimore City</text></g>
+            <g class="pin" data-area="county" data-href="baltimore-county-property-management" role="link" tabindex="0" aria-label="Baltimore County property management"><circle cx="335" cy="115" r="7"/><text x="335" y="102" text-anchor="middle">Baltimore County</text></g>
+            <g class="pin" data-area="towson" data-href="towson-property-management" role="link" tabindex="0" aria-label="Towson property management"><circle cx="420" cy="170" r="7"/><text x="434" y="175" text-anchor="start">Towson</text></g>
+            <g class="pin" data-area="pikesville" data-href="pikesville-property-management" role="link" tabindex="0" aria-label="Pikesville property management"><circle cx="240" cy="221" r="7"/><text x="226" y="226" text-anchor="end">Pikesville</text></g>
+            <g class="pin" data-area="owings" data-href="owings-mills-property-management" role="link" tabindex="0" aria-label="Owings Mills property management"><circle cx="150" cy="136" r="7"/><text x="164" y="141" text-anchor="start">Owings Mills</text></g>
+            <g class="pin" data-area="catonsville" data-href="catonsville-property-management" role="link" tabindex="0" aria-label="Catonsville property management"><circle cx="225" cy="392" r="7"/><text x="239" y="397" text-anchor="start">Catonsville</text></g>
+            <g class="pin" data-area="reisterstown" data-href="reisterstown-property-management" role="link" tabindex="0" aria-label="Reisterstown property management"><circle cx="75" cy="51" r="7"/><text x="89" y="56" text-anchor="start">Reisterstown</text></g>
+            <g class="pin" data-area="parkville" data-href="parkville-property-management" role="link" tabindex="0" aria-label="Parkville property management"><circle cx="510" cy="204" r="7"/><text x="496" y="209" text-anchor="end">Parkville</text></g>
+            <g class="pin" data-area="overlea" data-href="overlea-property-management" role="link" tabindex="0" aria-label="Overlea property management"><circle cx="540" cy="238" r="7"/><text x="526" y="243" text-anchor="end">Overlea</text></g>
           </svg>
         </div>
         <div class="map-list">
@@ -3350,6 +3350,12 @@ function ssGo(btn) {
     el.addEventListener('mouseleave',function(){setHot(a,false);});
     el.addEventListener('focusin',function(){setHot(a,true);});
     el.addEventListener('focusout',function(){setHot(a,false);});
+  });
+  /* SVG <g> pins navigate via JS (avoids SVG <a> href quirks + CF email-decode errors) */
+  $$('.pin[data-href]').forEach(function(pin){
+    var go=function(){window.location.href=pin.getAttribute('data-href');};
+    pin.addEventListener('click',go);
+    pin.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go();}});
   });
 
   /* --- sticky "request a proposal" bar (appears on scroll, dismissible) --- */
